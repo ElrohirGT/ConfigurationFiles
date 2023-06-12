@@ -226,7 +226,22 @@ vim.opt.scrolloff = 8
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "180"
 
+vim.opt.spell = true
+
+function EnglishSpelling()
+	vim.opt.spelllang = 'en_us'
+end
+
+function SpanishSpelling()
+	vim.opt.spelllang = 'es_gt'
+end
+
 -- Keyboard shortcuts
+
+-- Spelling
+vim.keymap.set("n", "<leader>ls", SpanishSpelling)
+vim.keymap.set("n", "<leader>le", EnglishSpelling)
+
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 vim.keymap.set("n", "J", "mzJ`z")
