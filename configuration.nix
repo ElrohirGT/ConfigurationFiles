@@ -123,6 +123,8 @@
 	gcc
 	plantuml
 	graphviz
+	nodejs
+	yarn
 
     # Nix support
     nil
@@ -183,6 +185,7 @@
 	nix-prefetch-git
 	pkg-config
 	pandoc
+	fzf
 
 	# Bullshit apps
 	hollywood
@@ -209,6 +212,9 @@
         start = [
           # Color scheme
           kanagawa-nvim
+
+		  # Markdown
+		  markdown-preview-nvim
 
           # Status line
           lightline-vim
