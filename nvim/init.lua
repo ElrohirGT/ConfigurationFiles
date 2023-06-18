@@ -282,7 +282,6 @@ vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>")
 vim.keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>")
 vim.keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
-
 vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions)
 vim.keymap.set("n", "<leader>s", require("telescope.builtin").lsp_workspace_symbols)
 
@@ -290,3 +289,7 @@ vim.keymap.set("n", "<leader>s", require("telescope.builtin").lsp_workspace_symb
 vim.keymap.set("n", "<leader>cf", ":!cargo fmt<CR>")
 vim.keymap.set("n", "<leader>tt", ":!cargo test<CR>")
 
+
+-- Markdown
+vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>")
+vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
