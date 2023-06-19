@@ -148,7 +148,6 @@
     # Neovim Setup
     ripgrep # For Telescope
     wl-clipboard # For copying to system keyboard
-    tmux # For managing multiple sessions
 	gdb # For debugging
     nerdfonts # For custom fonts
 	
@@ -197,6 +196,27 @@
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1u"
   ];
+
+  programs.tmux = {
+	enable = true;
+	extraConfig = ''
+	  # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+	  set -g default-terminal "xterm-256color"
+      set -ga terminal-overrides ",*256col*:Tc"
+      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+      set-environment -g COLORTERM "truecolor"
+
+      # easy-to-remember split pane commands
+      bind | split-window -h -c "#{pane_current_path}"
+      bind - split-window -v -c "#{pane_current_path}"
+
+	  # Vim-like movement between panes
+	  bind -r k select-pane -U
+	  bind -r j select-pane -D
+	  bind -r h select-pane -L
+	  bind -r l select-pane -R
+	'';
+  };
 
   programs.neovim = {
     enable = true;
