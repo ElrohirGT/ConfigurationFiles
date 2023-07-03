@@ -185,6 +185,8 @@
 	pkg-config
 	pandoc
 	fzf
+	fd
+	ffmpeg
 
 	# Bullshit apps
 	hollywood
