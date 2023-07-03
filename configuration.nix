@@ -15,7 +15,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-
   # Nix config
   nix.settings.experimental-features = [ "nix-command" "flakes"];
 
@@ -288,6 +287,7 @@
   # Bash aliases
   programs.bash.shellAliases = {
 	e = "exit";
+	graph = "git log --oneline --graph";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
