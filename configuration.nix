@@ -106,11 +106,6 @@
 
   # Optimise the store
   nix.settings.auto-optimise-store = true;
-  nix.gc = {
-	automatic = true;
-	dates = "weekly";
-	options = "--delete-older-than 30d";
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -124,6 +119,7 @@
 	graphviz
 	nodejs
 	yarn
+	kotlin
 
     # Nix support
     nil
@@ -177,6 +173,7 @@
 	obsidian
 	
     # General utils
+	boxes # For virtualization
 	poppler_utils # For pdf utils like pdftoppm
 	zip
     unzip
@@ -186,6 +183,7 @@
 	fzf
 	fd
 	ffmpeg
+	zotero
 
 	# Bullshit apps
 	hollywood
