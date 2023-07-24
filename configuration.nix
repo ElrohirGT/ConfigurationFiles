@@ -161,7 +161,6 @@
 	gnomeExtensions.color-picker
 
     # General Apps
-	wget
 	discord
 	onlyoffice-bin
 	kitty
@@ -171,10 +170,12 @@
 	zoom-us
 	osu-lazer
 	obsidian
+	zotero
+	boxes # For virtualization
 	
     # General utils
-	boxes # For virtualization
 	poppler_utils # For pdf utils like pdftoppm
+	wget
 	zip
     unzip
 	nix-prefetch-git
@@ -183,7 +184,7 @@
 	fzf
 	fd
 	ffmpeg
-	zotero
+	moreutils
 
 	# Bullshit apps
 	hollywood
