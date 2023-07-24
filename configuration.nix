@@ -246,6 +246,8 @@
           # Status line
           lightline-vim
 
+		  kotlin-vim
+
           # Treesitter
           nvim-treesitter
           nvim-treesitter-parsers.rust
@@ -272,9 +274,11 @@
           cmp-path                              
           cmp-buffer                            
           vim-vsnip
+
           # Searching in projects
           telescope-nvim
           hop-nvim
+
           # Panels and other goodies
           nvim-tree-lua
           nvim-web-devicons
@@ -283,6 +287,7 @@
           trouble-nvim
           comment-nvim
           vim-surround
+
           # For git
           vim-fugitive
         ];

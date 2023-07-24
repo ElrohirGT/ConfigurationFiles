@@ -163,7 +163,10 @@ cmp.setup({
   lspconfig['texlab'].setup {
 	  capabilities = capabilities
   }
-  lspconfig['nil'].setup {
+  lspconfig['nil_ls'].setup {
+	  capabilities = capabilities
+  }
+  lspconfig['kotlin_language_server'].setup {
 	  capabilities = capabilities
   }
 
