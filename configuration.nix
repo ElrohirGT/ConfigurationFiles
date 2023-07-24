@@ -115,11 +115,18 @@
 	heaptrack
 	git
 	gcc
+
+	# UML
 	plantuml
 	graphviz
+
+	# Javascript
 	nodejs
 	yarn
+
+	# Kotlin
 	kotlin
+	kotlin-language-server
 
     # Nix support
     nil
@@ -245,6 +252,7 @@
           nvim-treesitter-parsers.markdown
           nvim-treesitter-parsers.latex
           nvim-treesitter-parsers.nix
+          nvim-treesitter-parsers.kotlin
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer
