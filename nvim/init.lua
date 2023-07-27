@@ -169,6 +169,9 @@ cmp.setup({
   lspconfig['kotlin_language_server'].setup {
 	  capabilities = capabilities
   }
+  lspconfig['gopls'].setup {
+	  capabilities = capabilities
+  }
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -277,11 +280,22 @@ endfunction
 let g:mkdp_browserfunc = 'OpenMarkdownPreview'
 ]])
 
+function EnableWordWrap()
+	vim.cmd("set wrap")
+end
+
+function DisableWordWrap()
+	vim.cmd("set nowrap")
+end
+
 -- Keyboard shortcuts
 
 -- Spelling
 vim.keymap.set("n", "<leader>ls", SpanishSpelling)
 vim.keymap.set("n", "<leader>le", EnglishSpelling)
+
+vim.keymap.set("n", "<leader>we", EnableWordWrap)
+vim.keymap.set("n", "<leader>ws", DisableWordWrap)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")

@@ -120,6 +120,9 @@
 	plantuml
 	graphviz
 
+	# Go
+	gopls
+
 	# Javascript
 	nodejs
 	yarn
@@ -246,7 +249,11 @@
           # Status line
           lightline-vim
 
+		  # Kotlin
 		  kotlin-vim
+
+		  # Go
+		  go-nvim
 
           # Treesitter
           nvim-treesitter
@@ -255,6 +262,7 @@
           nvim-treesitter-parsers.latex
           nvim-treesitter-parsers.nix
           nvim-treesitter-parsers.kotlin
+          nvim-treesitter-parsers.go
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer
