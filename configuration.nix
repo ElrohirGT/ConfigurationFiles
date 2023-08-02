@@ -295,6 +295,7 @@
           trouble-nvim
           comment-nvim
           vim-surround
+		  vim-be-good
 
           # For git
           vim-fugitive
