@@ -122,6 +122,7 @@
 
 	# Go
 	gopls
+	go
 
 	# Javascript
 	nodejs
@@ -141,8 +142,14 @@
 	jdk17
 	jprofiler
 	maven
+
     # C# development
 	dotnet-sdk
+
+	# C++ development
+	ccls
+	clang-tools
+
     # Python
 	(python310Full.withPackages my-python-packages)
 
@@ -255,6 +262,9 @@
 		  # Go
 		  go-nvim
 
+		  # C++
+		  vim-clang-format
+
           # Treesitter
           nvim-treesitter
           nvim-treesitter-parsers.rust
@@ -263,6 +273,7 @@
           nvim-treesitter-parsers.nix
           nvim-treesitter-parsers.kotlin
           nvim-treesitter-parsers.go
+		  nvim-treesitter-parsers.cpp
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer

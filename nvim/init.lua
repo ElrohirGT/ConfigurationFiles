@@ -172,6 +172,9 @@ cmp.setup({
   lspconfig['gopls'].setup {
 	  capabilities = capabilities
   }
+  lspconfig['clangd'].setup {
+	  capabilities = capabilities
+  }
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
