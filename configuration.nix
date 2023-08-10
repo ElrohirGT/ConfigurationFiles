@@ -202,6 +202,7 @@
 	fd
 	ffmpeg
 	moreutils
+	plotutils
 
 	# Bullshit apps
 	hollywood
