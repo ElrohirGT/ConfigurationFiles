@@ -202,7 +202,7 @@
 	fd
 	ffmpeg
 	moreutils
-	plotutils
+	gnuplot
 
 	# Bullshit apps
 	hollywood
