@@ -115,6 +115,7 @@
 	heaptrack
 	git
 	gcc
+	cppcheck
 
 	# UML
 	plantuml
