@@ -189,7 +189,7 @@
 	osu-lazer
 	obsidian
 	zotero
-	boxes # For virtualization
+	gnome.gnome-boxes # For virtualization
 	
     # General utils
 	poppler_utils # For pdf utils like pdftoppm
