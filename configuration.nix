@@ -186,7 +186,7 @@
 	scrcpy
 	gnome.dconf-editor
 	zoom-us
-	osu-lazer
+	#osu-lazer
 	obsidian
 	zotero
 	gnome.gnome-boxes # For virtualization
