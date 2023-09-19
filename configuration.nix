@@ -127,7 +127,7 @@
 
 	# PHP
 	php
-	apache # HTTPD server
+	apacheHttpd # HTTPD server
 	phpactor # Language server
 
 	# MYSQL
