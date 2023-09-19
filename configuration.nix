@@ -125,6 +125,10 @@
 	gopls
 	go
 
+	# PHP
+	php
+	phpactor
+
 	# Javascript
 	nodejs
 	yarn
@@ -141,7 +145,7 @@
 
     # Java development
 	jdk17
-	jprofiler
+	# jprofiler # This profiler is commented because the free trial expired
 	maven
 
     # C# development
@@ -276,6 +280,7 @@
           nvim-treesitter-parsers.kotlin
           nvim-treesitter-parsers.go
 		  nvim-treesitter-parsers.cpp
+		  nvim-treesitter-parsers.php
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer

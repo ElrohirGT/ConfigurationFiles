@@ -175,6 +175,9 @@ cmp.setup({
   lspconfig['clangd'].setup {
 	  capabilities = capabilities
   }
+  lspconfig['phpactor'].setup {
+	  capabilities = capabilities
+  }
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -344,9 +347,7 @@ vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions)
 vim.keymap.set("n", "<leader>s", require("telescope.builtin").lsp_workspace_symbols)
 
 -- Rust specific
-vim.keymap.set("n", "<leader>cf", ":!cargo fmt<CR>")
 vim.keymap.set("n", "<leader>tt", ":!cargo test<CR>")
-
 
 -- Markdown
 vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>")
