@@ -127,7 +127,12 @@
 
 	# PHP
 	php
-	phpactor
+	apache # HTTPD server
+	phpactor # Language server
+
+	# MYSQL
+	mariadb
+	sqls # Language server
 
 	# Javascript
 	nodejs
@@ -281,6 +286,7 @@
           nvim-treesitter-parsers.go
 		  nvim-treesitter-parsers.cpp
 		  nvim-treesitter-parsers.php
+		  nvim-treesitter-parsers.sql
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer
