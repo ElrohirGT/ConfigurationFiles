@@ -126,12 +126,11 @@
 	go
 
 	# PHP
-	php
-	apacheHttpd # HTTPD server
+	php82
+	php82Packages.composer
 	phpactor # Language server
 
-	# MYSQL
-	mariadb
+	# SQL
 	sqls # Language server
 
 	# Javascript
@@ -224,6 +223,34 @@
   nixpkgs.config.permittedInsecurePackages = [
     "openssl-1.1.1u"
   ];
+
+  # http
+  services.httpd.enable = true;
+  services.httpd.adminAddr = "elrohirgt@gmail.com";
+  services.httpd.enablePHP = true; # oof... not a great idea in my opinion
+
+  services.httpd.virtualHosts."example.org" = {
+    documentRoot = "/var/www/example.org";
+    # want ssl + a let's encrypt certificate? add `forceSSL = true;` right here
+  };
+
+  #systemd.tmpfiles.rules = [
+  #  "d /var/www/example.org"
+  #  "f /var/www/example.org/index.php - - - - <?php phpinfo();"
+  #];
+
+  # PostgreSQL
+  # sudo -u postgres psql
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "TestDB" ];
+	enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database DBuser origin-address auth-method
+	  local all all trust
+	  host all all ::1/128 trust
+    '';
+  };
 
   programs.tmux = {
 	enable = true;
