@@ -203,6 +203,7 @@
 	poppler_utils # For pdf utils like pdftoppm
 	wget
 	zip
+	p7zip # For 7z support
     unzip
 	nix-prefetch-git
 	pkg-config
@@ -217,6 +218,7 @@
 	hollywood
 	genact
 	wiki-tui
+	cool-retro-term
   ];
 
   # This openssl package is required by nixos 23.05 but is marked as insecure.
