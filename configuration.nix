@@ -205,6 +205,7 @@
 	zip
 	p7zip # For 7z support
     unzip
+	unrar # For .rar support
 	nix-prefetch-git
 	pkg-config
 	pandoc
