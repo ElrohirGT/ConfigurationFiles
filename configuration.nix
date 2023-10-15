@@ -137,6 +137,12 @@
 	nodejs
 	yarn
 
+	# Android Development
+	android-tools
+	android-studio
+	android-udev-rules
+	glibc
+
 	# Kotlin
 	kotlin
 	kotlin-language-server
@@ -208,7 +214,7 @@
 	unrar # For .rar support
 	nix-prefetch-git
 	pkg-config
-	pandoc
+	pandoc # For converting between markup files (EG: md -> pdf)
 	fzf
 	fd
 	ffmpeg
@@ -363,6 +369,7 @@
   programs.bash.shellAliases = {
 	e = "exit";
 	graph = "git log --oneline --graph";
+	and = "android-studio > /dev/null 2>&1 &";
   };
 
   # Some programs need SUID wrappers, can be configured further or are
