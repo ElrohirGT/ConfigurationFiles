@@ -373,11 +373,22 @@
   };
   environment.variables.EDITOR = "nvim";
 
-  # Bash aliases
-  programs.bash.shellAliases = {
-	e = "exit";
-	graph = "git log --oneline --graph";
-	and = "android-studio > /dev/null 2>&1 &";
+  # Bash Configuration
+  programs.bash = {
+	interactiveShellInit = ''
+	# Changes the default node modules installation path
+	export PATH=~/.npm-packages/bin:$PATH
+	export NODE_PATH=~/.npm-packages/lib/node_modules
+
+	# Adds bindings to ctrl+f and ctrl+t to search inside documents.
+	bind '"\C-f":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux \C-M"'
+	bind '"\C-t":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux new-session nix-shell\C-M"'
+	'';
+	shellAliases = {
+		e = "exit";
+		graph = "git log --oneline --graph";
+		and = "android-studio > /dev/null 2>&1 &";
+	};
   };
 
   # Some programs need SUID wrappers, can be configured further or are
