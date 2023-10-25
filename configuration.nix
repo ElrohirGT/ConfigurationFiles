@@ -21,7 +21,7 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
+  #boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   networking.hostName = "foxatop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -237,7 +237,8 @@
 
   # This openssl package is required by nixos 23.05 but is marked as insecure.
   nixpkgs.config.permittedInsecurePackages = [
-    "openssl-1.1.1u"
+    #"openssl-1.1.1u"
+    "electron-24.8.6"
   ];
 
   # http
@@ -408,6 +409,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
 }
