@@ -117,6 +117,13 @@
 	gcc
 	cppcheck
 
+	# Microcontrollers
+	# realvnc-vnc-viewer
+	gnome.vinagre
+	novnc
+	putty
+	rpi-imager
+
 	# UML
 	plantuml
 	graphviz
