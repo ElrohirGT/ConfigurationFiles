@@ -191,6 +191,7 @@
 	kdenlive
 	obs-studio
 	pinta
+	gimp
     cura
     freecad
 
