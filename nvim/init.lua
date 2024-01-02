@@ -181,6 +181,9 @@ cmp.setup({
   lspconfig['sqls'].setup {
 	  capabilities = capabilities
   }
+  lspconfig['pyright'].setup {
+	  capabilities = capabilities
+  }
 
 
 -- Use LspAttach autocommand to only map the following keys

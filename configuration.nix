@@ -94,7 +94,7 @@
   users.users.elrohirgt = {
     isNormalUser = true;
     description = "ElrohirGT";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" ];
+    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout"];
     packages = with pkgs; [
       firefox
     #  thunderbird
@@ -116,6 +116,7 @@
 	git
 	gcc
 	cppcheck
+	arduino-cli
 
 	# Microcontrollers
 	# realvnc-vnc-viewer
@@ -174,6 +175,7 @@
 
     # Python
 	(python310Full.withPackages my-python-packages)
+	nodePackages.pyright
 
     # Latex
 	texlive.combined.scheme-medium
@@ -228,6 +230,9 @@
 	ffmpeg
 	moreutils
 	gnuplot
+	geeqie # For duplicate images detection
+	renameutils # Utils for renaming files
+	lighttpd # For git instaweb
 
 	# Bullshit apps
 	hollywood
@@ -332,6 +337,7 @@
 		  nvim-treesitter-parsers.cpp
 		  nvim-treesitter-parsers.php
 		  nvim-treesitter-parsers.sql
+		  nvim-treesitter-parsers.python
 
           nvim-lspconfig
           # Configuring the NVim LSP to use rust-analyzer
