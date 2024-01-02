@@ -114,6 +114,7 @@
     vscode.fhs
 	heaptrack
 	git
+	gh # Git CLI client
 	gcc
 	cppcheck
 	arduino-cli
@@ -245,6 +246,7 @@
   nixpkgs.config.permittedInsecurePackages = [
     #"openssl-1.1.1u"
     "electron-24.8.6"
+    "electron-25.9.0"
   ];
 
   # http
@@ -427,6 +429,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "23.11"; # Did you read the comment?
 
 }
