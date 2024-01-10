@@ -141,6 +141,8 @@
 
 	# SQL
 	sqls # Language server
+	oracle-instantclient
+	pgmanage
 
 	# Javascript
 	nodejs
