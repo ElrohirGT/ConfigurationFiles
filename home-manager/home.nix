@@ -1,11 +1,11 @@
 { config, pkgs, ... }:
 
- let my-python-packages = p: with p; [                                                                  
-#       simpy                                                                                            
-#       autopep8           
-#       numpy                                       
-#       networkx     
-    ];                          
+ let my-python-packages = p: with p; [
+#       simpy
+#       autopep8
+#       numpy
+#       networkx
+    ];
   in
 {
   nixpkgs = {
@@ -30,76 +30,76 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-     # Programming                                                                                        
-        heaptrack                   
-        gh # Git CLI client                         
-        gcc         
-        cppcheck                
-        arduino-cli                                 
-                                                    
-        # Microcontrollers                                                                               
-        # realvnc-vnc-viewer
-        gnome.vinagre                               
-        novnc 
-        rpi-imager          
-                                                                                                         
-        # UML                                 
-        plantuml                      
-        graphviz                                    
-                                                    
-        # Go                  
-        gopls              
-        go                                       
-                                                    
-        # PHP                                                                                            
-        php82                                       
-        php82Packages.composer                                                                           
-        phpactor # Language server                  
-                                                    
-        # SQL                 
-        sqls # Language server   
-        oracle-instantclient
-        pgmanage                                    
-                                                    
-        # Javascript                              
-        nodejs                                      
-        yarn                                                                                             
-                                                    
-        # Kotlin                                                                                         
-        kotlin                                                                                           
-        kotlin-language-server
+		# Programming
+		heaptrack
+		gh # Git CLI client
+		gcc
+		cppcheck
+		arduino-cli
 
-	# Nix support
-        nil               
-                                                    
-    # Markdown LSP
-    marksman
+		# Microcontrollers
+		# realvnc-vnc-viewer
+		gnome.vinagre
+		novnc
+		rpi-imager
 
-    # Java development
-        jdk17
-        # jprofiler # This profiler is commented because the free trial expired
-        maven
+		# UML
+		plantuml
+		graphviz
 
-    # C# development
-        dotnet-sdk
+		# Go
+		gopls
+		go
 
-        # C++ development
-        ccls
-        clang-tools
+		# PHP
+		php82
+		php82Packages.composer
+		phpactor # Language server
 
-    # Python
-        (python310Full.withPackages my-python-packages)
-        nodePackages.pyright
+		# SQL
+		sqls # Language server
+		oracle-instantclient
+		pgmanage
 
-    # Latex
-        texlive.combined.scheme-medium
-    texlab
+		# Javascript
+		nodejs
+		yarn
 
-    # Neovim Setup
-    ripgrep # For Telescope
-    wl-clipboard # For copying to system keyboard
-    gdb # For debugging
-    nerdfonts # For custom fonts
+		# Kotlin
+		kotlin
+		kotlin-language-server
+
+		# Nix support
+		nil
+
+		# Markdown LSP
+		marksman
+
+		# Java development
+		jdk17
+		# jprofiler # This profiler is commented because the free trial expired
+		maven
+
+		# C# development
+		dotnet-sdk
+
+		# C++ development
+		ccls
+		clang-tools
+
+		# Python
+		(python310Full.withPackages my-python-packages)
+		nodePackages.pyright
+
+		# Latex
+		texlive.combined.scheme-medium
+		texlab
+
+		# Neovim Setup
+		ripgrep # For Telescope
+		wl-clipboard # For copying to system keyboard
+		gdb # For debugging
+		nerdfonts # For custom fonts
   ];
 
   # Let Home Manager install and manage itself.
@@ -111,53 +111,53 @@
     userEmail = "elrohirgt@gmail.com";
   };
 
-  programs.tmux = {                                                                                                                                                                                          
-    enable = true;                                                                                                                                                                                           
-    extraConfig = ''                                                                                                                                                                                         
-    # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/                                                                                                                  
-    set -g default-terminal "xterm-256color"                                                                                                                                                               
-    set -ga terminal-overrides ",*256col*:Tc"                                                                                                                                                              
-    set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'                                                                                                                                                  
-    set-environment -g COLORTERM "truecolor"                                                                                                                                                               
-    
-    # easy-to-remember split pane commands                                                                                                                                                                 
-   bind | split-window -h -c "#{pane_current_path}"                                                                                                                                                       
-   bind - split-window -v -c "#{pane_current_path}"                                                                                                                                                       
-   
-   # Vim-like movement between panes                                                                                                                                                                      
-   bind -r k select-pane -U                                                                                                                                                                               
-   bind -r j select-pane -D                                                                                                                                                                               
-   bind -r h select-pane -L                                                                                                                                                                               
-   bind -r l select-pane -R                                                                                                                                                                               
-   '';                                                                                                                                                                                                      
+  programs.tmux = {
+    enable = true;
+    extraConfig = ''
+    # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
+    set -g default-terminal "xterm-256color"
+    set -ga terminal-overrides ",*256col*:Tc"
+    set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
+    set-environment -g COLORTERM "truecolor"
+
+    # easy-to-remember split pane commands
+   bind | split-window -h -c "#{pane_current_path}"
+   bind - split-window -v -c "#{pane_current_path}"
+
+   # Vim-like movement between panes
+   bind -r k select-pane -U
+   bind -r j select-pane -D
+   bind -r h select-pane -L
+   bind -r l select-pane -R
+   '';
    };
 
   programs.bat.enable = true;
 
-   # Bash Configuration                                                                                                                                                                                       
-    programs.bash = {                                                                                                                                                                                          
+   # Bash Configuration
+    programs.bash = {
 		enable = true;
-		bashrcExtra = ''                                                                                                                                                                                
-# Changes the default node modules installation path                                                                                                                                                     
-export PATH=~/.npm-packages/bin:$PATH                                                                                                                                                                    
-export NODE_PATH=~/.npm-packages/lib/node_modules  
-	''; 
+		bashrcExtra = ''
+# Changes the default node modules installation path
+export PATH=~/.npm-packages/bin:$PATH
+export NODE_PATH=~/.npm-packages/lib/node_modules
+	'';
 	    initExtra = ''
-# Adds bindings to ctrl+f and ctrl+t to search inside documents.                                                                                                                                         
-bind '"\C-f":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux \C-M"'                                                                                                                       
-bind '"\C-t":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux new-session nix-shell\C-M"'                                                                                                  
+# Adds bindings to ctrl+f and ctrl+t to search inside documents.
+bind '"\C-f":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux \C-M"'
+bind '"\C-t":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux new-session nix-shell\C-M"'
 		'';
 		shellAliases = {
-			e = "exit";                                                                                                                                                                                          
-			graph = "git log --oneline --graph";                                                                                                                                                                 
-			and = "android-studio > /dev/null 2>&1 &";                                                                                                                                                           
+			e = "exit";
+			graph = "git log --oneline --graph";
+			and = "android-studio > /dev/null 2>&1 &";
 		};
    };
 
-   programs.neovim = {                                                                                                                                                                                              
-    enable = true;                                                                                                                                                                                                 
-    viAlias = true;                               
-    vimAlias = true;                              
+   programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
 	defaultEditor = true;
 	extraLuaConfig = ''
 		-- set relative line number
@@ -197,7 +197,7 @@ require("kanagawa").setup({
 -- setup must be called before loading
 vim.cmd("colorscheme kanagawa")
 
--- LSP Diagnostics Options Setup 
+-- LSP Diagnostics Options Setup
 local sign = function(opts)
   vim.fn.sign_define(opts.name, {
     texthl = opts.name,
@@ -239,12 +239,12 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- updatetime: set updatetime for CursorHold
 vim.opt.completeopt = {"menuone", "noselect", "noinsert"}
 vim.opt.shortmess = vim.opt.shortmess + { c = true}
-vim.api.nvim_set_option("updatetime", 300) 
+vim.api.nvim_set_option("updatetime", 300)
 
 -- Fixed column for diagnostics to appear
 -- Show autodiagnostic popup on cursor hover_range
--- Goto previous / next diagnostic warning / error 
--- Show inlay_hints more frequently 
+-- Goto previous / next diagnostic warning / error
+-- Show inlay_hints more frequently
 vim.cmd([[
 set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
@@ -297,7 +297,7 @@ cmp.setup({
     { name = "nvim_lsp_signature_help"},            -- display function signatures with current parameter emphasized
     { name = "nvim_lua", keyword_length = 2},       -- complete neovim"s Lua runtime API such vim.lsp.*
     { name = "buffer", keyword_length = 2 },        -- source current buffer
-    { name = "vsnip", keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
+    { name = "vsnip", keyword_length = 2 },         -- nvim-cmp source for vim-vsnip
     { name = "calc"},                               -- source for math calculation
   },
   window = {
@@ -527,12 +527,12 @@ vim.keymap.set("n", "<leader>mp", ":MarkdownPreview<CR>")
 vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
 	'';
 	plugins = with pkgs.vimPlugins; [
-		# Color scheme                                                                                 
-          kanagawa-nvim                                                                                  
-                                                    
+		# Color scheme
+          kanagawa-nvim
+
         # Markdown
 		markdown-preview-nvim
-                                                    
+
 		# Status line
 		lightline-vim
 
@@ -564,7 +564,7 @@ vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
 		rust-tools-nvim
 
 		# Completion framework:
-		nvim-cmp 
+		nvim-cmp
 		# LSP completion source:
 		cmp-nvim-lsp
 		# LSP Rename
@@ -573,16 +573,16 @@ vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
 		# Useful completion sources:
 		cmp-nvim-lua
 		cmp-nvim-lsp-signature-help
-		cmp-vsnip                             
-		cmp-path                              
-		cmp-buffer                            
+		cmp-vsnip
+		cmp-path
+		cmp-buffer
 		vim-vsnip
 
 		# Searching in projects
 		telescope-nvim
 		hop-nvim
 
-		# Panels and other goodies                                                                                                                                                                        [4/353]
+		# Panels and other goodies
 		nvim-tree-lua
 		nvim-web-devicons
 		tagbar
