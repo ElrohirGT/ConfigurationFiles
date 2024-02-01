@@ -49,3 +49,7 @@ evince/
 yarn/
 geeqie/
 cool-retro-term/
+nvim/
+tmux/
+git/
+environment.d/

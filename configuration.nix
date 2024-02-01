@@ -15,8 +15,6 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-  # Nix config
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -113,7 +111,6 @@
     # Programming
     vscode.fhs
 	heaptrack
-	git
 	gh # Git CLI client
 	gcc
 	cppcheck
@@ -279,127 +276,12 @@
     '';
   };
 
-  programs.tmux = {
-	enable = true;
-	extraConfig = ''
-	  # https://old.reddit.com/r/tmux/comments/mesrci/tmux_2_doesnt_seem_to_use_256_colors/
-	  set -g default-terminal "xterm-256color"
-      set -ga terminal-overrides ",*256col*:Tc"
-      set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-      set-environment -g COLORTERM "truecolor"
-
-      # easy-to-remember split pane commands
-      bind | split-window -h -c "#{pane_current_path}"
-      bind - split-window -v -c "#{pane_current_path}"
-
-	  # Vim-like movement between panes
-	  bind -r k select-pane -U
-	  bind -r j select-pane -D
-	  bind -r h select-pane -L
-	  bind -r l select-pane -R
-	'';
-  };
-
-  programs.neovim = {
-    enable = true;
-    viAlias = true;
-    vimAlias = true;
-    configure = {
-      customRC = ''
-        set number relativenumber
-        let mapleader = " "
-        luafile /home/elrohirgt/.config/nvim/init.lua
-      '';
-      packages.myVimPackage = with pkgs.vimPlugins; {
-        start = [
-          # Color scheme
-          kanagawa-nvim
-
-		  # Markdown
-		  markdown-preview-nvim
-
-          # Status line
-          lightline-vim
-
-		  # Kotlin
-		  kotlin-vim
-
-		  # Go
-		  go-nvim
-
-		  # C++
-		  vim-clang-format
-
-          # Treesitter
-          nvim-treesitter
-          nvim-treesitter-parsers.rust
-          nvim-treesitter-parsers.markdown
-          nvim-treesitter-parsers.latex
-          nvim-treesitter-parsers.nix
-          nvim-treesitter-parsers.kotlin
-          nvim-treesitter-parsers.go
-		  nvim-treesitter-parsers.cpp
-		  nvim-treesitter-parsers.php
-		  nvim-treesitter-parsers.sql
-		  nvim-treesitter-parsers.python
-
-          nvim-lspconfig
-          # Configuring the NVim LSP to use rust-analyzer
-          rust-tools-nvim
-
-          # Completion framework:
-          nvim-cmp 
-          # LSP completion source:
-          cmp-nvim-lsp
-          # LSP Rename
-          inc-rename-nvim
-
-          # Useful completion sources:
-          cmp-nvim-lua
-          cmp-nvim-lsp-signature-help
-          cmp-vsnip                             
-          cmp-path                              
-          cmp-buffer                            
-          vim-vsnip
-
-          # Searching in projects
-          telescope-nvim
-          hop-nvim
-
-          # Panels and other goodies
-          nvim-tree-lua
-          nvim-web-devicons
-          tagbar
-          todo-comments-nvim
-          trouble-nvim
-          comment-nvim
-          vim-surround
-		  vim-be-good
-
-          # For git
-          vim-fugitive
-        ];
-      };
-    };
-  };
-  environment.variables.EDITOR = "nvim";
-
-  # Bash Configuration
-  programs.bash = {
-	interactiveShellInit = ''
-	# Changes the default node modules installation path
-	export PATH=~/.npm-packages/bin:$PATH
-	export NODE_PATH=~/.npm-packages/lib/node_modules
-
-	# Adds bindings to ctrl+f and ctrl+t to search inside documents.
-	bind '"\C-f":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux \C-M"'
-	bind '"\C-t":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux new-session nix-shell\C-M"'
-	'';
-	shellAliases = {
-		e = "exit";
-		graph = "git log --oneline --graph";
-		and = "android-studio > /dev/null 2>&1 &";
-	};
+  # Nix config
+  nix = {
+    package = pkgs.nixFlakes;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
