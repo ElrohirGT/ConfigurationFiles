@@ -214,6 +214,7 @@
 	obsidian
 	zotero
 	gnome.gnome-boxes # For virtualization
+	element-desktop # Matrix client
 	
     # General utils
 	poppler_utils # For pdf utils like pdftoppm
@@ -275,6 +276,10 @@
 	  host all all ::1/128 trust
     '';
   };
+  
+  # Libvirt
+  # For virtualisation and VM's
+  virtualisation.libvirtd.enable = true;
 
   # Nix config
   nix = {

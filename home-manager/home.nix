@@ -95,6 +95,11 @@
 		texlive.combined.scheme-medium
 		texlab
 
+		# Haskell
+		stack
+		haskell.compiler.native-bignum.ghc98
+		haskell-language-server
+
 		# Neovim Setup
 		ripgrep # For Telescope
 		wl-clipboard # For copying to system keyboard
@@ -557,6 +562,7 @@ vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
 		nvim-treesitter-parsers.php
 		nvim-treesitter-parsers.sql
 		nvim-treesitter-parsers.python
+		nvim-treesitter-parsers.haskell
 
 		nvim-lspconfig
 
@@ -594,6 +600,9 @@ vim.keymap.set("n", "<leader>ms", ":MarkdownPreviewStop<CR>")
 
 		# For git
 		vim-fugitive
+
+		# Haskell
+		haskell-tools-nvim
 	];
   };
 }
