@@ -3,13 +3,6 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-  let my-python-packages = p: with p; [
-#	simpy
-#	autopep8
-#	numpy
-#	networkx
-    ];
-  in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -55,6 +48,7 @@
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.gnome.gnome-browser-connector.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -94,7 +88,7 @@
     description = "ElrohirGT";
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout"];
     packages = with pkgs; [
-      firefox
+      # firefox
     #  thunderbird
     ];
   };
@@ -108,106 +102,23 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Programming
-    vscode.fhs
-	heaptrack
-	gh # Git CLI client
-	gcc
-	cppcheck
-	arduino-cli
-
-	# Microcontrollers
-	# realvnc-vnc-viewer
-	gnome.vinagre
-	novnc
-	putty
-	rpi-imager
-
-	# UML
-	plantuml
-	graphviz
-
-	# Go
-	gopls
-	go
-
-	# PHP
-	php82
-	php82Packages.composer
-	phpactor # Language server
-
-	# SQL
-	sqls # Language server
-	oracle-instantclient
-	pgmanage
-
-	# Javascript
-	nodejs
-	yarn
-
-	# Android Development
-	android-tools
-	android-studio
-	android-udev-rules
-	glibc
-
-	# Kotlin
-	kotlin
-	kotlin-language-server
-
-    # Nix support
-    nil
-
-    # Markdown LSP
-    marksman
-
-    # Java development
-	jdk17
-	# jprofiler # This profiler is commented because the free trial expired
-	maven
-
-    # C# development
-	dotnet-sdk
-
-	# C++ development
-	ccls
-	clang-tools
-
-    # Python
-	(python310Full.withPackages my-python-packages)
-	nodePackages.pyright
-
-    # Latex
-	texlive.combined.scheme-medium
-    texlab
-
-    # Neovim Setup
-    ripgrep # For Telescope
-    wl-clipboard # For copying to system keyboard
-	gdb # For debugging
-    nerdfonts # For custom fonts
-	
-	vimb
-
-    # Art
+    	# Art
 	kdenlive
 	obs-studio
 	pinta
 	#gimp
-    cura
-    freecad
+    	cura
+    	freecad
 
 	# GNOME extensions
 	gnome.gnome-shell-extensions
 	gnomeExtensions.pop-shell
 	gnomeExtensions.color-picker
 
-    # General Apps
+    	# General Apps
 	discord
 	onlyoffice-bin
 	kitty
-  	tldr
-	scrcpy
 	gnome.dconf-editor
 	zoom-us
 	#osu-lazer
@@ -216,29 +127,13 @@
 	gnome.gnome-boxes # For virtualization
 	element-desktop # Matrix client
 	
-    # General utils
-	poppler_utils # For pdf utils like pdftoppm
-	wget
-	zip
-	p7zip # For 7z support
-    unzip
-	unrar # For .rar support
+    	# General utils
 	nix-prefetch-git
 	pkg-config
-	pandoc # For converting between markup files (EG: md -> pdf)
-	fzf
-	fd
-	ffmpeg
-	moreutils
 	gnuplot
 	geeqie # For duplicate images detection
-	renameutils # Utils for renaming files
-	lighttpd # For git instaweb
 
 	# Bullshit apps
-	hollywood
-	genact
-	wiki-tui
 	cool-retro-term
   ];
 
@@ -250,9 +145,9 @@
   ];
 
   # http
-  services.httpd.enable = true;
-  services.httpd.adminAddr = "elrohirgt@gmail.com";
-  services.httpd.enablePHP = true; # oof... not a great idea in my opinion
+  # services.httpd.enable = true;
+  # services.httpd.adminAddr = "elrohirgt@gmail.com";
+  # services.httpd.enablePHP = true; # oof... not a great idea in my opinion
 
   services.httpd.virtualHosts."example.org" = {
     documentRoot = "/var/www/example.org";

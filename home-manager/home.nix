@@ -30,17 +30,40 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+		# Compression utilities
+		zip
+		unzip
+		rar
+		p7zip
+
+		fd
+		eza
+		tldr
+		scrcpy
+		wl-clipboard # To copy to system clipboard
+		wget
+		poppler_utils # For pdf utilities (EG: pdftoppm)
+		ffmpeg
+		moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
+		renameutils
+		lighttpd # For git instaweb
+		nixos-icons
+
+		# Bullshit apps
+		hollywood
+        genact
+        wiki-tui
+
 		# Programming
 		heaptrack
-		gh # Git CLI client
+		gh # Github CLI client
 		gcc
 		cppcheck
-		arduino-cli
+		arduino-cli	
+		gdb # For debugging
 
 		# Microcontrollers
-		# realvnc-vnc-viewer
 		gnome.vinagre
-		novnc
 		rpi-imager
 
 		# UML
@@ -50,11 +73,6 @@
 		# Go
 		gopls
 		go
-
-		# PHP
-		php82
-		php82Packages.composer
-		phpactor # Language server
 
 		# SQL
 		sqls # Language server
@@ -102,20 +120,93 @@
 
 		# Neovim Setup
 		ripgrep # For Telescope
-		wl-clipboard # For copying to system keyboard
-		gdb # For debugging
-		nerdfonts # For custom fonts
   ];
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  programs.bat.enable = true;
+  programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf) 
+  programs.fzf.enable = true;
+
+  # Git config
   programs.git = {
     enable = true;
     userName = "ElrohirGT";
     userEmail = "elrohirgt@gmail.com";
+	diff-so-fancy.enable = true;
+	extraConfig = {
+		color = {
+			ui = true;
+			diff-highlight = {
+				oldNormal    ="red bold";
+				oldHighlight ="red bold 52";
+				newNormal    ="green bold";
+				newHighlight ="green bold 22";
+			};
+			diff = {
+				meta       ="11";
+				frag       ="magenta bold";
+				func       ="146 bold";
+				commit     ="yellow bold";
+				old        ="red bold";
+				new        ="green bold";
+				whitespace ="red reverse";
+			};
+		};
+	};
+  };
+  programs.git-cliff.enable = true;
+
+  # Firefox config
+  programs.firefox = {
+	enable = true;
+	package = pkgs.firefox.override {
+		# See nixpkgs' firefox/wrapper.nix to check which options you can use
+		nativeMessagingHosts = [
+			# Gnome shell native connector
+            pkgs.gnome-browser-connector
+            ];
+        };
+	profiles = {
+		default = {
+			name="Personal";
+			search = {
+				force = true;
+				engines = {
+                 "Nix Packages" = {
+                   urls = [{
+                     template = "https://search.nixos.org/packages";
+                     params = [
+                       { name = "type"; value = "packages"; }
+                       { name = "query"; value = "{searchTerms}"; }
+                     ];
+                   }];
+
+                   icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+                   definedAliases = [ "@np" ];
+                 };
+
+                 "NixOS Wiki" = {
+                   urls = [{ template = "https://nixos.wiki/index.php?search={searchTerms}"; }];
+                   iconUpdateURL = "https://nixos.wiki/favicon.png";
+                   updateInterval = 24 * 60 * 60 * 1000; # every day
+                   definedAliases = [ "@nw" ];
+                 };
+
+                 "Bing".metaData.hidden = true;
+                 "Google".metaData.alias = "@g"; # builtin engines only support specifying one additional alias
+               };
+			};
+		};
+		universidad = {
+			id = 1;
+			name = "Universidad";
+		};
+	};
   };
 
+  # Tmux config
   programs.tmux = {
     enable = true;
     extraConfig = ''
@@ -137,7 +228,6 @@
    '';
    };
 
-  programs.bat.enable = true;
 
    # Bash Configuration
     programs.bash = {
