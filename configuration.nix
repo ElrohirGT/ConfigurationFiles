@@ -102,6 +102,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+  	vimb
+
     	# Art
 	kdenlive
 	obs-studio
@@ -109,6 +111,7 @@
 	#gimp
     	cura
     	freecad
+	etcher # For bootable USBs
 
 	# GNOME extensions
 	gnome.gnome-shell-extensions
@@ -139,6 +142,7 @@
   # This openssl package is required by nixos 23.05 but is marked as insecure.
   nixpkgs.config.permittedInsecurePackages = [
     #"openssl-1.1.1u"
+    "electron-19.1.9"
     "electron-24.8.6"
     "electron-25.9.0"
   ];
