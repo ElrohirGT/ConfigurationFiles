@@ -118,7 +118,6 @@
     	# General Apps
 	discord
 	onlyoffice-bin
-	kitty
 	gnome.dconf-editor
 	zoom-us
 	#osu-lazer
