@@ -52,9 +52,20 @@
     enable = true;
     layout = "latam";
     xkbVariant = "";
-    windowManager.i3.enable = true;
+    desktopManager.wallpaper.mode = "fill";
+    windowManager.i3 = {
+      enable = true;
+      extraPackages = with pkgs; [
+        dmenu
+	i3status-rust
+	i3lock
+      ];
+    };
   };
   programs.i3lock.enable = true;
+
+  # Autorandr for auto adjusting to screens
+  services.autorandr.enable = true;
 
   # Configure console keymap
   console.keyMap = "la-latin1";
@@ -130,6 +141,7 @@
 	element-desktop # Matrix client
 	
     	# General utils
+	xorg.xrandr # For autorandr
 	nix-prefetch-git
 	pkg-config
 	gnuplot
@@ -137,6 +149,11 @@
 
 	# Bullshit apps
 	cool-retro-term
+  ];
+
+  # Fonts installed in the system
+  fonts.packages = with pkgs; [
+    nerdfonts
   ];
 
   # This openssl package is required by nixos 23.05 but is marked as insecure.
