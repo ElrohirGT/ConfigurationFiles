@@ -42,19 +42,19 @@
     LC_TIME = "es_GT.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.gnome.gnome-browser-connector.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
+  # services.gnome.gnome-browser-connector.enable = true;
 
-  # Configure keymap in X11
+  # Configure keymap and enable X11
   services.xserver = {
+    enable = true;
     layout = "latam";
     xkbVariant = "";
+    windowManager.i3.enable = true;
   };
+  programs.i3lock.enable = true;
 
   # Configure console keymap
   console.keyMap = "la-latin1";

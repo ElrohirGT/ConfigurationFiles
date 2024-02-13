@@ -56,3 +56,5 @@ git/
 environment.d/
 Element/
 balena-etcher/
+i3/
+systemd/

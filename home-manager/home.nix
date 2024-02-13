@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
  let my-python-packages = p: with p; [
 #       simpy
@@ -30,6 +30,11 @@
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+		# i3 configuration
+		pulseaudioFull
+		networkmanagerapplet
+		brightnessctl
+
 		# Compression utilities
 		zip
 		unzip
@@ -128,6 +133,46 @@
   programs.bat.enable = true;
   programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf) 
   programs.fzf.enable = true;
+
+  # i3 config
+  xsession.enable = true;
+  xsession.windowManager.i3 = {
+	enable = true;
+	config = {
+		modifier = "Mod4";
+		fonts = {
+			names = ["pango" "monospace"];
+			size = 8.0;
+		};
+		terminal = "kitty";
+		window = {
+			titlebar = false;
+		};
+		keybindings = let modifier = config.xsession.windowManager.i3.config.modifier;
+			in lib.mkOptionDefault {
+				# Brightness controls
+				"XF86MonBrightnessUp" =  "exec --no-startup-id brightnessctl set +20%";
+				"XF86MonBrightnessDown" =  "exec --no-startup-id brightnessctl set 20%-";
+
+				# Change focus
+				"${modifier}+h" = "focus left";
+				"${modifier}+j" = "focus down";
+				"${modifier}+k" = "focus up";
+				"${modifier}+l" = "focus right";
+
+				# Move focused window
+				"${modifier}+Shift+h" = "move left";
+				"${modifier}+Shift+j" = "move down";
+				"${modifier}+Shift+k" = "move up";
+				"${modifier}+Shift+l" = "move right";
+
+				# Split horizontally
+				"${modifier}+-" = "split h";
+				# Split vertically
+				"${modifier}+|" = "split v";
+		};
+	};
+  };
 
   # Git config
   programs.git = {
