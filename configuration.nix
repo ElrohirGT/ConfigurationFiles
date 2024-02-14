@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -47,18 +47,45 @@
   # services.xserver.desktopManager.gnome.enable = true;
   # services.gnome.gnome-browser-connector.enable = true;
 
-  # Configure keymap and enable X11
+  # Enable X11
   services.xserver = {
     enable = true;
+
+    # Configure keymap
     layout = "latam";
     xkbVariant = "";
+
+    # Configuring login screen
+    displayManager = {
+    	defaultSession = "i3";
+	session = [
+	  {
+	    manage = "desktop";
+	    name = "i3";
+	    start = ''
+	      exec ${pkgs.i3}/bin/i3
+	    '';
+	  }
+	];
+	sddm = {
+	  enable = true;
+	  theme = "where_is_my_sddm_theme";
+	};
+	# We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
+	# Which is a file that it doesn't have access to
+#    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
+    };
     desktopManager.wallpaper.mode = "fill";
+
+    # Activate i3
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
         dmenu
 	i3status-rust
 	i3lock
+	brightnessctl
+	networkmanagerapplet
       ];
     };
   };
@@ -113,6 +140,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+	where-is-my-sddm-theme
+	lemurs
   	vimb
 
     	# Art
@@ -146,6 +175,8 @@
 	pkg-config
 	gnuplot
 	geeqie # For duplicate images detection
+	gscreenshot # For taking screenshots
+	feh
 
 	# Bullshit apps
 	cool-retro-term
@@ -163,6 +194,19 @@
     "electron-24.8.6"
     "electron-25.9.0"
   ];
+
+  security.sudo = {
+    enable = true;
+    extraRules = [{
+      commands = [
+        {
+	  command = "${pkgs.lemurs}/bin/lemurs";
+	  options = ["NOPASSWD"];
+	}
+      ];
+      groups = [ "wheel" ];
+    }];
+  };
 
   # http
   # services.httpd.enable = true;

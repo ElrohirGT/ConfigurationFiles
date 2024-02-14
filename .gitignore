@@ -57,3 +57,4 @@ environment.d/
 Element/
 balena-etcher/
 systemd/
+autostart/
