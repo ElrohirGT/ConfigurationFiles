@@ -1,5 +1,4 @@
 # ConfigurationFiles
-All the folder should go under ~/.config
+Run the install script inside the cloning directory to setup everything NixOS related.
 
-# NixOS setup
-Copy the `nixos/` folder to `/etc/nixos/`
+This will delete everything from .config directory so make a backup if you want to keep it.
