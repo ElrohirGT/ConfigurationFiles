@@ -1,5 +1,5 @@
 # ConfigurationFiles
 All the folder should go under ~/.config
 
-# configuration.nix
-This file should go under /etc/nixos/configuration.nix
+# NixOS setup
+Copy the `nixos/` folder to `/etc/nixos/`
