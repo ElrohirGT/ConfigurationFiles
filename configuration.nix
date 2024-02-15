@@ -55,6 +55,16 @@
     layout = "latam";
     xkbVariant = "";
 
+    # Configure autolock
+    xautolock = {
+    	enable = true;
+	extraOptions = [
+	  "-detectsleep"
+	  "-time 3"
+	];
+	locker = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3";
+    };
+
     # Configuring login screen
     displayManager = {
     	defaultSession = "i3";
@@ -82,13 +92,23 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu
+	i3lock-fancy-rapid
 	i3status-rust
-	i3lock
 	brightnessctl
 	networkmanagerapplet
+	(where-is-my-sddm-theme.override {
+	  themeConfig.General = {
+	    background = "${config.users.users.elrohirgt.home}/.config/login-background.jpg";
+	    backgroundFill = "";
+	    backgroundMode = "fill";
+	  };
+	})
+	gscreenshot # For taking screenshots
+	feh
       ];
     };
   };
+  hardware.opengl.enable = true;
   programs.i3lock.enable = true;
 
   # Autorandr for auto adjusting to screens
@@ -140,8 +160,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	where-is-my-sddm-theme
-	lemurs
   	vimb
 
     	# Art
@@ -175,8 +193,6 @@
 	pkg-config
 	gnuplot
 	geeqie # For duplicate images detection
-	gscreenshot # For taking screenshots
-	feh
 
 	# Bullshit apps
 	cool-retro-term

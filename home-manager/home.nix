@@ -36,11 +36,18 @@
 		rar
 		p7zip
 
-		fd
-		eza
+		fd # find alternative
+		eza # ls alternative
+		zoxide # cd alternative
+		choose # select text between commands
+		rnr # Command line tool to batch rename files
+		gitui # Command line git client
+		rm-improved # rm command with trashbin
+
 		tldr
 		scrcpy
-		wl-clipboard # To copy to system clipboard
+		wl-clipboard # To copy to system clipboard (on wayland)
+		xclip # To copy to system clipboard (on X11)
 		wget
 		poppler_utils # For pdf utilities (EG: pdftoppm)
 		ffmpeg
@@ -276,11 +283,17 @@ export NODE_PATH=~/.npm-packages/lib/node_modules
 # Adds bindings to ctrl+f and ctrl+t to search inside documents.
 bind '"\C-f":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux \C-M"'
 bind '"\C-t":"D=$(fd -td -a \".*\" ~/Documents/ | fzf) && cd \"$D\" && tmux new-session nix-shell\C-M"'
+eval "$(zoxide init bash)"
 		'';
 		shellAliases = {
-			e = "exit";
-			graph = "git log --oneline --graph";
-			and = "android-studio > /dev/null 2>&1 &";
+			e = "exit"; # Exit
+			graph = "git log --oneline --graph"; # graph git log
+			and = "android-studio > /dev/null 2>&1 &"; # Start android studio in background
+			iv = "feh --auto-zoom --scale-down"; # Display image scaled down to window space
+			ls = "eza";
+			cd = "z";
+			rm = "rip";
+			xclip = "xclip -sel clip";
 		};
    };
 
