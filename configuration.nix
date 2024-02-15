@@ -98,8 +98,7 @@
 	networkmanagerapplet
 	(where-is-my-sddm-theme.override {
 	  themeConfig.General = {
-	    background = "${config.users.users.elrohirgt.home}/.config/login-background.jpg";
-	    backgroundFill = "";
+	    background = toString ./login-background.jpg;
 	    backgroundMode = "fill";
 	  };
 	})
