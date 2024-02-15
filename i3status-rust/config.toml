@@ -3,7 +3,7 @@ icons_format = "{icon}"
 [theme]
 theme = "solarized-dark"
 [theme.overrides]
-idle_bg = "#123456"
+idle_bg = "#710193"
 idle_fg = "#abcdef"
 
 [icons]
@@ -35,6 +35,9 @@ block = "sound"
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
 
 [[block]]
 block = "time"
