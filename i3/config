@@ -50,8 +50,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Use brightnessctl to adjust brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% $refresh_i3status;
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- $refresh_i3status;
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +10% && $refresh_i3status
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 10%- && $refresh_i3status
 
 # Bind to printscreen button
 bindsym Print exec --no-startup-id flameshot gui --clipboard
