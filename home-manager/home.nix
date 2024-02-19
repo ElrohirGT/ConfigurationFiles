@@ -294,6 +294,7 @@ eval "$(zoxide init bash)"
 			cd = "z";
 			rm = "rip";
 			xclip = "xclip -sel clip";
+			gup = "git commit -am 'feat: Update files' && git status";
 		};
    };
 
