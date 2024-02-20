@@ -102,8 +102,13 @@
 	    backgroundMode = "fill";
 	  };
 	})
-	gscreenshot # For taking screenshots
+	flameshot # For taking screenshots
 	feh
+	# Use xev to interactively obtain keys to keybind
+	xorg.xev
+	# Use `xmodmap -pke` to obtain whole keys to keybind
+	xorg.xmodmap
+	pulseaudio
       ];
     };
   };
@@ -145,7 +150,7 @@
     description = "ElrohirGT";
     extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout"];
     packages = with pkgs; [
-      # firefox
+      firefox
     #  thunderbird
     ];
   };

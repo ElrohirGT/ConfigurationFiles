@@ -203,13 +203,7 @@
   # Firefox config
   programs.firefox = {
 	enable = true;
-	package = pkgs.firefox.override {
-		# See nixpkgs' firefox/wrapper.nix to check which options you can use
-		nativeMessagingHosts = [
-			# Gnome shell native connector
-            pkgs.gnome-browser-connector
-            ];
-        };
+	package = null; # Firefox packages is installed through NixOS configuration.nix file
 	profiles = {
 		default = {
 			name="Personal";
@@ -295,6 +289,7 @@ eval "$(zoxide init bash)"
 			rm = "rip";
 			xclip = "xclip -sel clip";
 			gup = "git commit -am 'feat: Update files' && git status";
+			gs = "git status";
 		};
    };
 
