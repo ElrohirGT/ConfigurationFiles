@@ -63,6 +63,7 @@
 	  "-time 3"
 	];
 	locker = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3";
+	#locker = "if [ $(cat /proc/asound/card*/pcm*/sub*/status | grep RUNNING | wc --lines) == 0 ] then ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3 fi";
     };
 
     # Configuring login screen
@@ -103,7 +104,8 @@
 	  };
 	})
 	flameshot # For taking screenshots
-	feh
+	feh # For image viewing
+	nomacs
 	# Use xev to interactively obtain keys to keybind
 	xorg.xev
 	# Use `xmodmap -pke` to obtain whole keys to keybind
@@ -193,6 +195,7 @@
 	
     	# General utils
 	xorg.xrandr # For autorandr
+	arandr
 	nix-prefetch-git
 	pkg-config
 	gnuplot
