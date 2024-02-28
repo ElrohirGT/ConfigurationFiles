@@ -1,13 +1,15 @@
-
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, lib, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  lib,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -57,34 +59,34 @@
 
     # Configure autolock
     xautolock = {
-    	enable = true;
-	extraOptions = [
-	  "-detectsleep"
-	  "-time 3"
-	];
-	locker = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3";
-	#locker = "if [ $(cat /proc/asound/card*/pcm*/sub*/status | grep RUNNING | wc --lines) == 0 ] then ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3 fi";
+      enable = true;
+      extraOptions = [
+        "-detectsleep"
+        "-time 3"
+      ];
+      locker = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3";
+      #locker = "if [ $(cat /proc/asound/card*/pcm*/sub*/status | grep RUNNING | wc --lines) == 0 ] then ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3 fi";
     };
 
     # Configuring login screen
     displayManager = {
-    	defaultSession = "i3";
-	session = [
-	  {
-	    manage = "desktop";
-	    name = "i3";
-	    start = ''
-	      exec ${pkgs.i3}/bin/i3
-	    '';
-	  }
-	];
-	sddm = {
-	  enable = true;
-	  theme = "where_is_my_sddm_theme";
-	};
-	# We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
-	# Which is a file that it doesn't have access to
-#    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
+      defaultSession = "i3";
+      session = [
+        {
+          manage = "desktop";
+          name = "i3";
+          start = ''
+            exec ${pkgs.i3}/bin/i3
+          '';
+        }
+      ];
+      sddm = {
+        enable = true;
+        theme = "where_is_my_sddm_theme";
+      };
+      # We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
+      # Which is a file that it doesn't have access to
+      #    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
     };
     desktopManager.wallpaper.mode = "fill";
 
@@ -93,24 +95,24 @@
       enable = true;
       extraPackages = with pkgs; [
         dmenu
-	i3lock-fancy-rapid
-	i3status-rust
-	brightnessctl
-	networkmanagerapplet
-	(where-is-my-sddm-theme.override {
-	  themeConfig.General = {
-	    background = toString ./login-background.jpg;
-	    backgroundMode = "fill";
-	  };
-	})
-	flameshot # For taking screenshots
-	feh # For image viewing
-	nomacs
-	# Use xev to interactively obtain keys to keybind
-	xorg.xev
-	# Use `xmodmap -pke` to obtain whole keys to keybind
-	xorg.xmodmap
-	pulseaudio
+        i3lock-fancy-rapid
+        i3status-rust
+        brightnessctl
+        networkmanagerapplet
+        (where-is-my-sddm-theme.override {
+          themeConfig.General = {
+            background = toString ./login-background.jpg;
+            backgroundMode = "fill";
+          };
+        })
+        flameshot # For taking screenshots
+        feh # For image viewing
+        nomacs
+        # Use xev to interactively obtain keys to keybind
+        xorg.xev
+        # Use `xmodmap -pke` to obtain whole keys to keybind
+        xorg.xmodmap
+        pulseaudio
       ];
     };
   };
@@ -150,10 +152,10 @@
   users.users.elrohirgt = {
     isNormalUser = true;
     description = "ElrohirGT";
-    extraGroups = [ "networkmanager" "wheel" "adbusers" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "adbusers" "dialout"];
     packages = with pkgs; [
       firefox
-    #  thunderbird
+      #  thunderbird
     ];
   };
 
@@ -166,43 +168,43 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vimb
+    vimb
 
-    	# Art
-	kdenlive
-	obs-studio
-	pinta
-	#gimp
-    	cura
-    	freecad
-	etcher # For bootable USBs
+    # Art
+    kdenlive
+    obs-studio
+    pinta
+    #gimp
+    cura
+    freecad
+    etcher # For bootable USBs
 
-	# GNOME extensions
-	gnome.gnome-shell-extensions
-	gnomeExtensions.pop-shell
-	gnomeExtensions.color-picker
+    # GNOME extensions
+    gnome.gnome-shell-extensions
+    gnomeExtensions.pop-shell
+    gnomeExtensions.color-picker
 
-    	# General Apps
-	discord
-	onlyoffice-bin
-	gnome.dconf-editor
-	zoom-us
-	#osu-lazer
-	obsidian
-	zotero
-	gnome.gnome-boxes # For virtualization
-	element-desktop # Matrix client
-	
-    	# General utils
-	xorg.xrandr # For autorandr
-	arandr
-	nix-prefetch-git
-	pkg-config
-	gnuplot
-	geeqie # For duplicate images detection
+    # General Apps
+    discord
+    onlyoffice-bin
+    gnome.dconf-editor
+    zoom-us
+    #osu-lazer
+    obsidian
+    zotero
+    gnome.gnome-boxes # For virtualization
+    element-desktop # Matrix client
 
-	# Bullshit apps
-	cool-retro-term
+    # General utils
+    xorg.xrandr # For autorandr
+    arandr
+    nix-prefetch-git
+    pkg-config
+    gnuplot
+    geeqie # For duplicate images detection
+
+    # Bullshit apps
+    cool-retro-term
   ];
 
   # Fonts installed in the system
@@ -220,15 +222,17 @@
 
   security.sudo = {
     enable = true;
-    extraRules = [{
-      commands = [
-        {
-	  command = "${pkgs.lemurs}/bin/lemurs";
-	  options = ["NOPASSWD"];
-	}
-      ];
-      groups = [ "wheel" ];
-    }];
+    extraRules = [
+      {
+        commands = [
+          {
+            command = "${pkgs.lemurs}/bin/lemurs";
+            options = ["NOPASSWD"];
+          }
+        ];
+        groups = ["wheel"];
+      }
+    ];
   };
 
   # http
@@ -250,15 +254,15 @@
   # sudo -u postgres psql
   services.postgresql = {
     enable = true;
-    ensureDatabases = [ "TestDB" ];
-	enableTCPIP = true;
+    ensureDatabases = ["TestDB"];
+    enableTCPIP = true;
     authentication = pkgs.lib.mkOverride 10 ''
-      #type database DBuser origin-address auth-method
-	  local all all trust
-	  host all all ::1/128 trust
+         #type database DBuser origin-address auth-method
+      local all all trust
+      host all all ::1/128 trust
     '';
   };
-  
+
   # Libvirt
   # For virtualisation and VM's
   virtualisation.libvirtd.enable = true;
@@ -301,5 +305,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
