@@ -289,7 +289,7 @@ in {
       gs = "git status";
 
       # Neovim aliases
-			# Theres probably a better way to integrate NixVim inside HomeManager...
+      # Theres probably a better way to integrate NixVim inside HomeManager...
       vi = "nix run ~/.config/NixNeovim/";
       vim = "nix run ~/.config/NixNeovim/";
       nvim = "nix run ~/.config/NixNeovim/";
