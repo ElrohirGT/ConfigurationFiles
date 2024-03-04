@@ -169,6 +169,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vimb
+    manix # Nix documentation searcher
 
     # Art
     kdenlive
