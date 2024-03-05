@@ -268,14 +268,14 @@
   # For virtualisation and VM's
   virtualisation.libvirtd.enable = true;
 
-	# Docker
-	virtualisation.docker = {
-		enable = true;
-		rootless = {
-			enable = true;
-			setSocketVariable = true;
-		};
-	};
+  # Docker
+  virtualisation.docker = {
+    enable = true;
+    rootless = {
+      enable = true;
+      setSocketVariable = true;
+    };
+  };
 
   # Nix config
   nix = {
