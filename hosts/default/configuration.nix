@@ -4,11 +4,13 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
@@ -157,6 +159,14 @@
       firefox
       #  thunderbird
     ];
+  };
+
+  # Importing home configuration for user elrohirgt
+  home-manager = {
+    extraSpecialArgs = {inherit inputs;};
+    users = {
+      "elrohirgt" = import ./home.nix;
+    };
   };
 
   # Allow unfree packages
