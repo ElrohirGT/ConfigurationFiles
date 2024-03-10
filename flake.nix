@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       nixpkgs.follows = "nixpkgs";
     };
+    nixVim = {
+      url = "path:./NixNeovim/flake.nix";
+      nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {

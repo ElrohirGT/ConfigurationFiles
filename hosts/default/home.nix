@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: let
   my-python-packages = p:
@@ -34,6 +35,9 @@ in {
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+    # Vim config
+    (inputs.nixVim.packages.default)
+
     # Compression utilities
     zip
     unzip
@@ -47,7 +51,7 @@ in {
     rnr # Command line tool to batch rename files
     gitui # Command line git client
     rm-improved # rm command with trashbin
-		ripgrep # Search for a pattern recursively
+    ripgrep # Search for a pattern recursively
 
     tldr
     scrcpy
