@@ -47,6 +47,7 @@ in {
     rnr # Command line tool to batch rename files
     gitui # Command line git client
     rm-improved # rm command with trashbin
+		ripgrep # Search for a pattern recursively
 
     tldr
     scrcpy
