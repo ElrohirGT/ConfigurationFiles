@@ -45,6 +45,16 @@
           };
           system = system;
         });
+    buildVimModule = {
+      system,
+      module,
+    }: let
+      nixvimPkgs = nixVim.legacyPackages.${system};
+      nixVimModule = {
+        module = import "${module}";
+      };
+    in
+      nixvimPkgs.makeNixvimWithModule nixVimModule;
   in {
     nixosConfigurations.foxatop = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
@@ -61,18 +71,15 @@
       function = {
         pkgs,
         system,
-      }: let
-        nixvimPkgs = nixVim.legacyPackages.${system};
-
-        nixVimModuleFull = {
-          module = import ./modules/nixvim;
+      }: {
+        vim = buildVimModule {
+          system = system;
+          module = ./modules/nixvim;
         };
-        nixVimModuleMinimal = {
-          module = import ./modules/nixvim/minimal.nix;
+        vimMinimal = buildVimModule {
+          system = system;
+          module = ./modules/nixvim/minimal.nix;
         };
-      in {
-        vim = nixvimPkgs.makeNixvimWithModule nixVimModuleFull;
-        vimMinimal = nixvimPkgs.makeNixvimWithModule nixVimModuleMinimal;
       };
     };
 

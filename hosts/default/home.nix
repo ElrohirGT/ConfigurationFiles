@@ -2,6 +2,7 @@
   config,
   pkgs,
   lib,
+  inputs,
   ...
 }: let
   my-python-packages = p:
@@ -11,6 +12,8 @@
       #       numpy
       #       networkx
     ];
+  vimRice = inputs.self.outputs.packages.${pkgs.system}.vim;
+  vimRiceBin = "${inputs.self.outputs.packages.${pkgs.system}.vim}/bin/nvim";
 in {
   nixpkgs = {
     config = {
@@ -23,6 +26,10 @@ in {
   home.username = "elrohirgt";
   home.homeDirectory = "/home/elrohirgt";
 
+  home.sessionVariables = {
+    EDITOR = "${vimRiceBin}";
+  };
+
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -34,6 +41,9 @@ in {
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
+    # Installing the vim package from outputs
+    vimRice
+
     # Compression utilities
     zip
     unzip
@@ -290,10 +300,9 @@ in {
       gs = "git status";
 
       # Neovim aliases
-      # Theres probably a better way to integrate NixVim inside HomeManager...
       vi = "nix run github:ElrohirGT/ConfigurationFiles#vim";
-      vim = "nix run github:ElrohirGT/ConfigurationFiles#vim";
-      nvim = "nix run github:ElrohirGT/ConfigurationFiles#vim";
+      vim = "${vimRiceBin}";
+      nvim = "${vimRiceBin}";
     };
   };
 }
