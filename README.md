@@ -1,9 +1,19 @@
-# ConfigurationFiles
-Run the install script inside the cloning directory to setup everything NixOS related.
+# ElrohirGT NixOS config
 
-This will delete everything from .config directory so make a backup if you want to keep it.
-
-To clone the repo including the submodule then make sure to run:
+My NixOS configuration uses a Nix-Flake to get everything up and running. To switch to my NixOS config use:
 ```bash
-git clone --recurse-submodules git@github.com:ElrohirGT/ConfigurationFiles.git
+# If you HAVE NOT cloned the repo
+sudo nixos-rebuild switch --flake github:ElrohirGT/ConfigurationFiles#foxatop
+# If you HAVE cloned the repo
+sudo nixos-rebuild switch --flake {repoDir}#foxatop
 ```
+
+If you only want to run my Vim config then:
+```bash
+# If you HAVE NOT cloned the repo
+sudo nixos-rebuild switch --flake github:ElrohirGT/ConfigurationFiles#vim
+# If you HAVE cloned the repo
+sudo nixos-rebuild switch --flake {repoDir}#vim
+```
+
+Optionally you can change the `#vim` to `#vimMinimal` for a more lightweight config.

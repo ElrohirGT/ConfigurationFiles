@@ -291,9 +291,9 @@ in {
 
       # Neovim aliases
       # Theres probably a better way to integrate NixVim inside HomeManager...
-      vi = "nix run ~/.config/NixNeovim/";
-      vim = "nix run ~/.config/NixNeovim/";
-      nvim = "nix run ~/.config/NixNeovim/";
+      vi = "nix run github:ElrohirGT/ConfigurationFiles#vim";
+      vim = "nix run github:ElrohirGT/ConfigurationFiles#vim";
+      nvim = "nix run github:ElrohirGT/ConfigurationFiles#vim";
     };
   };
 }
