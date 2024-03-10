@@ -19,6 +19,10 @@ in {
     };
   };
 
+  imports = [
+    inputs.nixVim.homeManagerModules.nixvim
+  ];
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "elrohirgt";
@@ -35,9 +39,6 @@ in {
   home.stateVersion = "23.11";
 
   home.packages = with pkgs; [
-    # Vim config
-    (inputs.nixVim.packages.default)
-
     # Compression utilities
     zip
     unzip
@@ -131,6 +132,8 @@ in {
   programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf)
   programs.fzf.enable = true;
   programs.vscode.enable = true;
+
+  programs.nixvim = import ./../../NixNeovim/config/default.nix;
 
   # Git config
   programs.git = {
