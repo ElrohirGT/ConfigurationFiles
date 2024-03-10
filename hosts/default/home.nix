@@ -2,7 +2,6 @@
   config,
   pkgs,
   lib,
-  inputs,
   ...
 }: let
   my-python-packages = p:
@@ -18,10 +17,6 @@ in {
       allowUnfree = true;
     };
   };
-
-  imports = [
-    inputs.nixVim.homeManagerModules.nixvim
-  ];
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
@@ -132,8 +127,6 @@ in {
   programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf)
   programs.fzf.enable = true;
   programs.vscode.enable = true;
-
-  programs.nixvim = import ./../../NixNeovim/config/default.nix;
 
   # Git config
   programs.git = {
