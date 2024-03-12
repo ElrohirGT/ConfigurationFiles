@@ -59,7 +59,10 @@
         lua-ls.enable = true;
 
         # Go
-        gopls.enable = true;
+        gopls.enable = config.language-servers.isDefault;
+
+        # Gleam
+        gleam.enable = config.language-servers.isDefault;
 
         # Bash
         bashls.enable = true;

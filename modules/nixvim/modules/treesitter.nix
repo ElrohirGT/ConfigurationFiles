@@ -14,6 +14,7 @@
       c
       cpp
       latex
+      gleam
 
       # Neovim config
       lua
