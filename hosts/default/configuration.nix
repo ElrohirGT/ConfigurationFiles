@@ -114,7 +114,10 @@
         xorg.xev
         # Use `xmodmap -pke` to obtain whole keys to keybind
         xorg.xmodmap
+
+        # Audio control
         pulseaudio
+        ncpamixer
       ];
     };
   };
