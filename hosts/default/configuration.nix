@@ -175,8 +175,12 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # Optimise the store
+  # Nix and Nix Store options
   nix.settings.auto-optimise-store = true;
+  nix.settings.trusted-users = [
+    "root"
+    "elrohirgt"
+  ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
