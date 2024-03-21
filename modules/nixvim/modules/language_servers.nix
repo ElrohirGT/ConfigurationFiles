@@ -52,6 +52,9 @@
         };
       };
       servers = {
+        # HTML
+        html.enable = config.language-servers.isDefault;
+
         # Javascript / Typescript
         tsserver.enable = config.language-servers.isDefault;
 
