@@ -65,6 +65,9 @@
       # Plugin to find which key does what
       which-key.enable = true;
 
+      # HTML and JSX Tags
+      ts-autotag.enable = true;
+
       # Lateral file explorer
       nvim-tree.enable = true;
 
