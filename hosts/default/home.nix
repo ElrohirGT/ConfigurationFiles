@@ -43,6 +43,7 @@ in {
   home.packages = with pkgs; [
     # Installing the vim package from outputs
     vimRice
+    xcolor
 
     # Compression utilities
     zip
@@ -295,9 +296,11 @@ in {
       ls = "eza";
       cd = "z";
       rm = "rip";
-      xclip = "xclip -sel clip";
+      xclip = "xclip -sel clip"; # Copy to paperclip (only on X11)
+      xpick = "xcolor | xclip &"; # Copy color picker output to paperclip
       gup = "git commit -am 'feat: Update files' && git status";
       gs = "git status";
+      gp = "git push";
 
       # Neovim aliases
       vi = "nix run github:ElrohirGT/ConfigurationFiles#vim";

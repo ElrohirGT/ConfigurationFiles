@@ -187,7 +187,6 @@
   environment.systemPackages = with pkgs; [
     vimb
     manix # Nix documentation searcher
-    xcolor
 
     # Art
     kdenlive
