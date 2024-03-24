@@ -187,6 +187,7 @@
   environment.systemPackages = with pkgs; [
     vimb
     manix # Nix documentation searcher
+    xcolor
 
     # Art
     kdenlive
@@ -224,6 +225,11 @@
     # Bullshit apps
     cool-retro-term
   ];
+
+  # Shell Aliases
+  environment.shellAliases = {
+    xpick = "xcolor | xclip -i";
+  };
 
   # Fonts installed in the system
   fonts.packages = with pkgs; [
