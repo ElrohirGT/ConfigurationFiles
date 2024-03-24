@@ -62,7 +62,6 @@ in {
     tldr
     scrcpy
     wl-clipboard # To copy to system clipboard (on wayland)
-    xclip # To copy to system clipboard (on X11)
     wget
     poppler_utils # For pdf utilities (EG: pdftoppm)
     ffmpeg
@@ -295,7 +294,6 @@ in {
       ls = "eza";
       cd = "z";
       rm = "rip";
-      fclip = "xclip -sel clip"; # Copy file to paperclip (only on X11)
       gup = "git commit -am 'feat: Update files' && git status";
       gs = "git status";
       gp = "git push";

@@ -188,6 +188,7 @@
     vimb
     manix # Nix documentation searcher
     xcolor
+    xclip # To copy to system clipboard (on X11)
 
     # Art
     kdenlive
@@ -228,7 +229,8 @@
 
   # Shell Aliases
   environment.shellAliases = {
-    xpick = "xcolor | xclip -i";
+    fclip = "xclip -sel clip"; # Copy file to paperclip (only on X11)
+    xpick = "xcolor | fclip";
   };
 
   # Fonts installed in the system
