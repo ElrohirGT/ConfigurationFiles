@@ -15,6 +15,7 @@
       cpp
       latex
       gleam
+      mermaid
 
       # Neovim config
       lua
