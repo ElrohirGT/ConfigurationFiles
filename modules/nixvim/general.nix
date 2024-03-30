@@ -60,6 +60,7 @@
       maplocalleader = " ";
     };
 
+    # colorschemes.oxocarbon.enable = true;
     colorschemes.kanagawa.enable = true;
     plugins = {
       # Plugin to find which key does what
