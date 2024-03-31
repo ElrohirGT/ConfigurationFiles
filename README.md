@@ -11,9 +11,9 @@ sudo nixos-rebuild switch --flake {repoDir}#foxatop
 If you only want to run my Vim config then:
 ```bash
 # If you HAVE NOT cloned the repo
-sudo nixos-rebuild switch --flake github:ElrohirGT/ConfigurationFiles#vim
+nix run github:ElrohirGT/ConfigurationFiles#vim
 # If you HAVE cloned the repo
-sudo nixos-rebuild switch --flake {repoDir}#vim
+nix run {repoDir}#vim
 ```
 
 Optionally you can change the `#vim` to `#vimMinimal` for a more lightweight config.
