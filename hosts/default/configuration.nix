@@ -10,7 +10,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModules.default
+    inputs.home-manager.nixosModules.home-manager
   ];
 
   # Bootloader.
@@ -167,6 +167,8 @@
   # Importing home configuration for user elrohirgt
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
+    useGlobalPkgs = true;
+    useUserPackages = true;
     users = {
       "elrohirgt" = import ./home.nix;
     };
@@ -269,6 +271,23 @@
   services.httpd.virtualHosts."example.org" = {
     documentRoot = "/var/www/example.org";
     # want ssl + a let's encrypt certificate? add `forceSSL = true;` right here
+  };
+
+  system.activationScripts = {
+    i3Config.text = ''
+      cp -r /home/elrohirgt/ConfigurationFiles/i3 /home/elrohirgt/.config/
+    '';
+    i3StatusConfig.text = ''
+      #mkdir ~/.config/i3status-rust
+      cp -r /home/elrohirgt/ConfigurationFiles/i3status-rust /home/elrohirgt/.config/
+    '';
+    wiki-tui.text = ''
+      #mkdir ~/.config/wiki-tui
+      cp -r /home/elrohirgt/ConfigurationFiles/wiki-tui /home/elrohirgt/.config/
+    '';
+    backgroundImage.text = ''
+      cp /home/elrohirgt/ConfigurationFiles/wallpaper.jpg /home/elrohirgt/.background-image
+    '';
   };
 
   #systemd.tmpfiles.rules = [

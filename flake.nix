@@ -23,6 +23,7 @@
     nixpkgs,
     nixpkgs_unstable,
     nixVim,
+    home-manager,
     ...
   } @ inputs: let
     forAllSystems = {
@@ -79,13 +80,6 @@
         vimMinimal = buildVimModule {
           system = system;
           module = ./modules/nixvim/minimal.nix;
-        };
-        installOS = pkgs.writeShellApplication {
-          name = "reinstall_nixOS";
-          text = ''
-            cp ./wallpaper.jpg ~/.background-image
-            sudo nixos-rebuild boot --flake ".#$1"
-          '';
         };
       };
     };
