@@ -98,7 +98,7 @@
       extraPackages = with pkgs; [
         dmenu
         i3lock-fancy-rapid
-        i3status-rust
+        #i3status-rust
         brightnessctl
         networkmanagerapplet
         (where-is-my-sddm-theme.override {
