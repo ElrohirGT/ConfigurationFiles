@@ -305,6 +305,78 @@ in {
     };
   };
 
+  # i3 Config
+  # xsession.windowManager.i3 = {
+  #   enable = true;
+  #   config = {
+  #     modifier = "Mod4";
+  #     terminal = "kitty";
+  # 	startup = {
+  #
+  # 	};
+  #   };
+  # };
+
+  programs.i3status-rust = {
+    enable = true;
+    bars = {
+      default = {
+        blocks = [
+          {
+            block = "disk_space";
+            path = "/";
+            info_type = "available";
+            alert_unit = "GB";
+            interval = 20;
+            alert = 10.0;
+            warning = 20.0;
+            format = " $icon root: $available.eng(w:2) ";
+          }
+          {
+            block = "memory";
+            format = " $icon $mem_total_used_percents.eng(w:2) ";
+            format_alt = " $icon_swap $swap_used_percents.eng(w:2) ";
+          }
+          {
+            block = "cpu";
+            interval = 1;
+          }
+          {
+            block = "load";
+            format = " $icon $1m ";
+            interval = 1;
+          }
+          {
+            block = "sound";
+          }
+          {
+            block = "backlight";
+          }
+          {
+            block = "time";
+            format = " $timestamp.datetime(f:'%a %d/%m %R') ";
+            interval = 60;
+          }
+          {
+            block = "battery";
+          }
+        ];
+        settings = {
+          theme = {
+            theme = "solarized-dark";
+            overrides = {
+              idle_bg = "#710193";
+              idle_fg = "#abcdef";
+            };
+          };
+          icons = {
+            icons = "awesome4";
+          };
+        };
+      };
+    };
+  };
+
   # Enable wallpaper software
   services.random-background = {
     enable = true;

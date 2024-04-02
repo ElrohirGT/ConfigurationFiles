@@ -277,10 +277,6 @@
     i3Config.text = ''
       cp -r /home/elrohirgt/ConfigurationFiles/i3 /home/elrohirgt/.config/
     '';
-    i3StatusConfig.text = ''
-      #mkdir ~/.config/i3status-rust
-      cp -r /home/elrohirgt/ConfigurationFiles/i3status-rust /home/elrohirgt/.config/
-    '';
     wiki-tui.text = ''
       #mkdir ~/.config/wiki-tui
       cp -r /home/elrohirgt/ConfigurationFiles/wiki-tui /home/elrohirgt/.config/
