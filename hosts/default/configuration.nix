@@ -285,9 +285,6 @@
       #mkdir ~/.config/wiki-tui
       cp -r /home/elrohirgt/ConfigurationFiles/wiki-tui /home/elrohirgt/.config/
     '';
-    backgroundImage.text = ''
-      cp /home/elrohirgt/ConfigurationFiles/wallpaper.jpg /home/elrohirgt/.background-image
-    '';
   };
 
   #systemd.tmpfiles.rules = [

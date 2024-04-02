@@ -304,4 +304,10 @@ in {
       nvim = "${vimRiceBin}";
     };
   };
+
+  # Enable wallpaper software
+  services.random-background = {
+    enable = true;
+    imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
+  };
 }
