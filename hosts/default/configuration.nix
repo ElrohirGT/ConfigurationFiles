@@ -207,6 +207,7 @@
     gnomeExtensions.color-picker
 
     # General Apps
+    litecli
     discord
     onlyoffice-bin
     gnome.dconf-editor
