@@ -196,7 +196,7 @@
     kdenlive
     obs-studio
     pinta
-    #gimp
+    gimp
     cura
     freecad
     etcher # For bootable USBs
