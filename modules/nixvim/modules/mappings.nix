@@ -21,7 +21,7 @@
     {
       mode = "n";
       key = "<leader>e";
-      action = ":NvimTreeToggle<CR>";
+      action = ":Oil<CR>";
     }
 
     # CTRL-q saves and closes file

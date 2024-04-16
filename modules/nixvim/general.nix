@@ -69,12 +69,6 @@
       # HTML and JSX Tags
       ts-autotag.enable = true;
 
-      # Lateral file explorer
-      nvim-tree.enable = true;
-
-      # Status bar
-      lualine.enable = true;
-
       # Manage files in neovim buffer
       oil.enable = config.general.isDefault;
 
