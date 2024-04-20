@@ -17,7 +17,7 @@
       action = "mzJ`z";
     }
 
-    # Toggle NvimTree
+    # Toggle Oil
     {
       mode = "n";
       key = "<leader>e";
