@@ -3,6 +3,7 @@
     (
       pkgs.vimUtils.buildVimPlugin {
         name = "doge";
+        version = "v4.6.3";
         src = pkgs.fetchFromGitHub {
           owner = "kkoomen";
           repo = "vim-doge";
