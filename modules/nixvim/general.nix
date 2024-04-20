@@ -5,6 +5,8 @@
   options,
   ...
 }: {
+  imports = [./modules/doge.nix];
+
   options.general.isDefault = with lib;
     mkOption {
       type = types.nullOr types.bool;
