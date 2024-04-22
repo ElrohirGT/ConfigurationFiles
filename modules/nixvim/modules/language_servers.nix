@@ -55,6 +55,9 @@
         # HTML
         html.enable = config.language-servers.isDefault;
 
+        # CSS
+        cssls.enable = config.language-servers.isDefault;
+
         # Javascript / Typescript
         tsserver.enable = config.language-servers.isDefault;
 
