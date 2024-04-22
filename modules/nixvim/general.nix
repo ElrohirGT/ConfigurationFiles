@@ -16,7 +16,7 @@
 
   config = {
     # :h option-list
-    options = {
+    opts = {
       number = true;
       relativenumber = true;
 
@@ -91,8 +91,8 @@
       # TODO and friends formatting for comments
       todo-comments.enable = true;
 
-      # Support for nvim comments
-      comment-nvim.enable = true;
+      # Better support for comments in NeoVim
+      comment.enable = true;
 
       # Support for surrounding things with things
       surround.enable = true;
