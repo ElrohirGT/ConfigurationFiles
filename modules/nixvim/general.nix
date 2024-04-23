@@ -68,7 +68,7 @@
       # HTML and JSX Tags
       ts-autotag.enable = true;
       # Vim CSS plugin to display color
-      vim-css-color.enable = true;
+      nvim-colorizer.enable = true;
 
       # Manage files in neovim buffer
       oil.enable = config.general.isDefault;
