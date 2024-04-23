@@ -15,6 +15,7 @@
       cpp
       latex
       gleam
+      elm
       mermaid
 
       # Neovim config

@@ -81,6 +81,9 @@
 
         # LaTex
         texlab.enable = config.language-servers.isDefault;
+
+        # Elm language support
+        elmls.enable = config.language-servers.isDefault;
       };
     };
 
