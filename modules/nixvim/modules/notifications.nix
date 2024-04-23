@@ -5,7 +5,7 @@
   };
 
   # Override default notify to use installed notify plugin.
-  extraConfig = ''
+  extraConfigLua = ''
     vim.notify = require("notify")
   '';
 }
