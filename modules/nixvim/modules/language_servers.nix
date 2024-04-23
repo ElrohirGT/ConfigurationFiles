@@ -19,7 +19,7 @@
         diagnostic = {
           "<leader>k" = "goto_prev";
           "<leader>j" = "goto_next";
-          "<leader>e" = "open_float";
+          "<leader>of" = "open_float";
         };
 
         # All keymaps of the form vim.lsp.buf.<action>
