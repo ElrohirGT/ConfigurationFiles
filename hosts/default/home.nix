@@ -247,6 +247,10 @@ in {
         id = 1;
         name = "Universidad";
       };
+      explorax = {
+        id = 2;
+        name = "ExploraX";
+      };
     };
   };
 
