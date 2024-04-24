@@ -103,7 +103,7 @@
         networkmanagerapplet
         (where-is-my-sddm-theme.override {
           themeConfig.General = {
-            background = toString ./login-background.jpg;
+            background = "${./login-background.jpg}";
             backgroundMode = "fill";
           };
         })
@@ -283,11 +283,6 @@
       cp -r /home/elrohirgt/ConfigurationFiles/wiki-tui /home/elrohirgt/.config/
     '';
   };
-
-  #systemd.tmpfiles.rules = [
-  #  "d /var/www/example.org"
-  #  "f /var/www/example.org/index.php - - - - <?php phpinfo();"
-  #];
 
   # PostgreSQL
   # sudo -u postgres psql
