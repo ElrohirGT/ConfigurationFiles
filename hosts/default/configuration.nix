@@ -118,8 +118,6 @@
         # Audio control
         pulseaudio
         ncpamixer
-        # Get information about the current window
-        xorg.xwininfo
       ];
     };
   };
