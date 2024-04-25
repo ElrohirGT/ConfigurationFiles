@@ -62,6 +62,9 @@
     # colorschemes.oxocarbon.enable = true;
     colorschemes.kanagawa.enable = true;
     plugins = {
+      # Line information
+      lualine.enable = true;
+
       # Plugin to find which key does what
       which-key.enable = true;
 
