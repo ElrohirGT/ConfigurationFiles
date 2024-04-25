@@ -208,4 +208,8 @@ bar {
 }
 
 # Setting up floating windows
+# You can use `xprop` to get information about a window you click
+# Display OBS on floating mode for recording
 for_window [class = "obs"] floating enable
+# Browser and any other window pop-up
+for_window [window_role="pop-up"] floating enable
