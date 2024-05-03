@@ -212,4 +212,7 @@ bar {
 # Display OBS on floating mode for recording
 for_window [class = "obs"] floating enable
 # Browser and any other window pop-up
-for_window [window_role="pop-up"] floating enable
+for_window [class="Alert"] floating enable
+for_window [window_type="popup_menu"] floating enable
+for_window [window_type="notification"] floating enable
+for_window [window_name="Android Emulator*"] floating enable
