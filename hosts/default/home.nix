@@ -362,6 +362,12 @@ in {
             interval = 60;
           }
           {
+            blog = "temperature";
+            format = " $icon $max max ";
+            format_alt = " $icon $min min, $max max, $average avg ";
+            interval = 10;
+          }
+          {
             block = "battery";
           }
         ];
