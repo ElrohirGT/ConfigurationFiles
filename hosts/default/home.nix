@@ -362,10 +362,11 @@ in {
             interval = 60;
           }
           {
-            blog = "temperature";
+            block = "temperature";
             format = " $icon $max max ";
             format_alt = " $icon $min min, $max max, $average avg ";
             interval = 10;
+            chip = "*-isa-*";
           }
           {
             block = "battery";
