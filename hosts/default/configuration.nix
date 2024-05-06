@@ -96,6 +96,7 @@
     windowManager.i3 = {
       enable = true;
       extraPackages = with pkgs; [
+        lm_sensors
         dmenu
         i3lock-fancy-rapid
         #i3status-rust
