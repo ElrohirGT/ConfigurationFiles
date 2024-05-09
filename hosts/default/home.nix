@@ -363,7 +363,7 @@ in {
           }
           {
             block = "temperature";
-            format = " $icon $max max ";
+            format = " $icon $average avg ";
             format_alt = " $icon $min min, $max max, $average avg ";
             interval = 10;
           }
