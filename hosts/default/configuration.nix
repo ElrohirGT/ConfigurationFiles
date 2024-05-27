@@ -192,6 +192,7 @@
     manix # Nix documentation searcher
     xcolor
     xclip # To copy to system clipboard (on X11)
+    inxi
 
     # Art
     kdenlive
