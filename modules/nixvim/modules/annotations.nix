@@ -1,7 +1,7 @@
 {
   plugins.neogen = {
     enable = true;
-    enablePlaceHolders = true;
+    enablePlaceholders = true;
     snippetEngine = "luasnip";
   };
 
