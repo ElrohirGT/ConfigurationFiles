@@ -10,7 +10,7 @@
     {
       mode = "n";
       key = "<leader>af";
-      action = ":Neogen func";
+      action = ":Neogen func<CR>";
     }
   ];
 }

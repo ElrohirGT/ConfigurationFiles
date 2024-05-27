@@ -12,6 +12,7 @@
 
   config = {
     plugins = {
+      lspkind.enable = true;
       # Completions framework and sources
       cmp = {
         enable = true;
@@ -27,20 +28,8 @@
             "<C-e>" = "cmp.mapping.close()";
             "<C-n>" = "cmp.mapping.select_next_item()";
             "<C-p>" = "cmp.mapping.select_prev_item()";
-            "<CR>" = "cmp.mapping.confirm({ select = true })";
+            "<C-y>" = "cmp.mapping.confirm({ select = true })";
           };
-          formatting.format = ''
-            function(entry, item)
-             local menu_icon ={
-              nvim_lsp = "λ",
-              vsnip = "⋗",
-              buffer = "Ω",
-              path = "🖫",
-             }
-             item.menu = menu_icon[entry.source.name]
-             return item
-            end
-          '';
           sources =
             (
               if config.completions.isDefault
@@ -49,7 +38,6 @@
                 {name = "treesitter";}
                 {name = "nvim_lsp_signature_help";}
                 {name = "nvim_lua";}
-                {name = "luasnip";}
               ]
               else []
             )
