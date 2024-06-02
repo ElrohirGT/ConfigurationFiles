@@ -219,6 +219,7 @@
     zotero
     gnome.gnome-boxes # For virtualization
     element-desktop # Matrix client
+    vlc
 
     # General utils
     xorg.xrandr # For autorandr
