@@ -59,8 +59,12 @@
       maplocalleader = " ";
     };
 
-    # colorschemes.oxocarbon.enable = true;
-    colorschemes.kanagawa.enable = true;
+    # colorschemes.kanagawa.enable = true;
+    colorschemes.nightfox = {
+      enable = true;
+      flavor = "carbonfox";
+    };
+
     plugins = {
       # Line information
       lualine.enable = true;
