@@ -14,7 +14,10 @@
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.systemd-boot = {
+    enable = true;
+    configurationLimit = 2;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
   #boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
@@ -51,13 +54,35 @@
   # services.xserver.desktopManager.gnome.enable = true;
   # services.gnome.gnome-browser-connector.enable = true;
 
+  # Configuring login screen
+  services.displayManager = {
+    defaultSession = "i3";
+
+    sddm = {
+      enable = true;
+      theme = "where_is_my_sddm_theme";
+    };
+    # We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
+    # Which is a file that it doesn't have access to
+    #    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
+  };
+
   # Enable X11
   services.xserver = {
     enable = true;
-
     # Configure keymap
-    layout = "latam";
-    xkbVariant = "";
+    xkb.layout = "latam";
+    xkb.variant = "";
+
+    displayManager.session = [
+      {
+        manage = "desktop";
+        name = "i3";
+        start = ''
+          exec ${pkgs.i3}/bin/i3
+        '';
+      }
+    ];
 
     # Configure autolock
     xautolock = {
@@ -70,26 +95,6 @@
       #locker = "if [ $(cat /proc/asound/card*/pcm*/sub*/status | grep RUNNING | wc --lines) == 0 ] then ${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 5 3 fi";
     };
 
-    # Configuring login screen
-    displayManager = {
-      defaultSession = "i3";
-      session = [
-        {
-          manage = "desktop";
-          name = "i3";
-          start = ''
-            exec ${pkgs.i3}/bin/i3
-          '';
-        }
-      ];
-      sddm = {
-        enable = true;
-        theme = "where_is_my_sddm_theme";
-      };
-      # We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
-      # Which is a file that it doesn't have access to
-      #    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
-    };
     desktopManager.wallpaper.mode = "fill";
 
     # Activate i3
@@ -201,7 +206,7 @@
     gimp
     cura
     freecad
-    etcher # For bootable USBs
+    unetbootin # For bootable USBs
 
     # GNOME extensions
     gnome.gnome-shell-extensions
