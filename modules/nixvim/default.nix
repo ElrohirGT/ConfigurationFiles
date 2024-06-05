@@ -23,5 +23,6 @@ with lib; let
       (files dir));
 in {
   # Imports everything...
-  imports = (validFiles ./elements) ++ (validFiles ./atoms);
+  # imports = (validFiles ./elements) ++ (validFiles ./atoms);
+  imports = validFiles ./.;
 }

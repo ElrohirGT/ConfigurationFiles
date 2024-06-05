@@ -1,7 +1,7 @@
-{
+{pkgs, ...}: {
   # PlantUML support
-  plantuml-syntax = {
-    enable = config.general.isDefault;
+  plugins.plantuml-syntax = {
+    enable = true;
     executableScript = "${pkgs.plantuml}/bin/plantuml";
   };
 }

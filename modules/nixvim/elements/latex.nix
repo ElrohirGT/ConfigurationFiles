@@ -1,7 +1,7 @@
 {
   # LaTex setup
-  vimtex = {
-    enable = config.general.isDefault;
+  plugins.vimtex = {
+    enable = true;
     # Dont install any package
     # since texlive should be installed by the sistem.
     texlivePackage = null;

@@ -1,5 +1,5 @@
 {
-  imports = [../atoms/sqls-nvim.nix];
+  imports = [../atoms/sqls.nix];
 
   config = {
     plugins.lsp = {
