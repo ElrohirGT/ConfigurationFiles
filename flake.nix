@@ -67,19 +67,21 @@
       ];
     };
 
+    formatter = forAllSystems {
+      pkgs = nixpkgs_unstable;
+      function = {
+        pkgs,
+        system,
+      }:
+        pkgs.alejandra;
+    };
+
     packages = forAllSystems {
       pkgs = nixpkgs_unstable;
       function = {
         pkgs,
         system,
       }: {
-        format = pkgs.writeShellApplication {
-          name = "flake-formatter";
-          runtimeInputs = with pkgs; [alejandra];
-          text = ''
-            alejandra .
-          '';
-        };
         vim = buildVimModule {
           system = system;
           module = ./modules/nixvim;
