@@ -1,51 +1,51 @@
 {
-    # :h option-list
-    opts = {
-      number = true;
-      relativenumber = true;
+  # :h option-list
+  opts = {
+    number = true;
+    relativenumber = true;
 
-      shiftwidth = 2;
-      tabstop = 2;
-      softtabstop = 2;
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
 
-      expandtab = false;
-      hlsearch = false;
-      incsearch = true;
+    expandtab = false;
+    hlsearch = false;
+    incsearch = true;
 
-      scrolloff = 8;
-      updatetime = 50;
-      colorcolumn = "180";
+    scrolloff = 8;
+    updatetime = 50;
+    colorcolumn = "180";
 
-      spell = true;
-      termguicolors = true;
-    };
+    spell = true;
+    termguicolors = true;
+  };
 
-    globals = {
-      mapleader = " ";
-      maplocalleader = " ";
-    };
+  globals = {
+    mapleader = " ";
+    maplocalleader = " ";
+  };
 
-    # colorschemes.kanagawa.enable = true;
-    colorschemes.nightfox = {
-      enable = true;
-      flavor = "carbonfox";
-    };
+  # colorschemes.kanagawa.enable = true;
+  colorschemes.nightfox = {
+    enable = true;
+    flavor = "carbonfox";
+  };
 
-    plugins = {
-        # Line information
-      lualine.enable = true;
+  plugins = {
+    # Line information
+    lualine.enable = true;
 
-        # Plugin to find which key does what
-      which-key.enable = true;
-      
-        # Better support for comments in NeoVim
-      comment.enable = true;
+    # Plugin to find which key does what
+    which-key.enable = true;
 
-      # Support for surrounding things with things
-      surround.enable = true;
-    };
+    # Better support for comments in NeoVim
+    comment.enable = true;
 
-    keymaps = [
+    # Support for surrounding things with things
+    surround.enable = true;
+  };
+
+  keymaps = [
     {
       mode = "v";
       key = "J";
@@ -159,12 +159,12 @@
     }
 
     {
-        mode = ["n" "x"];
-        key = "<leader>p";
-        action = "\"0p";
-        options = {
-            desc = "Paste from yank register";
-        };
+      mode = ["n" "x"];
+      key = "<leader>p";
+      action = "\"0p";
+      options = {
+        desc = "Paste from yank register";
+      };
     }
-    ];
+  ];
 }

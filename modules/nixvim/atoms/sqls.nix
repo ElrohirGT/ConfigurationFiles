@@ -1,23 +1,23 @@
 {pkgs, ...}: {
-    extraPackages = with pkgs; [
+  extraPackages = with pkgs; [
     sqls
   ];
 
-    extraPlugins = [
-        (pkgs.vimUtils.buildVimPlugin {
-            name = "sqls.nvim";
-            src = pkgs.fetchFromGitHub {
-              owner = "nanotee";
-              repo = "sqls.nvim";
-              rev = "4b1274b5b44c48ce784aac23747192f5d9d26207";
-              # SHA-256 obtained using:
-              # nix-prefetch-url --unpack https://github.com/nanotee/sqls.nvim/archive/4b1274b5b44c48ce784aac23747192f5d9d26207.tar.gz
-              sha256 = "0jxgsajl7plw025a0h6r3cifrj0jyszn697247ggy0arlfvnx8cc";
-            };
-          })
-    ];
+  extraPlugins = [
+    (pkgs.vimUtils.buildVimPlugin {
+      name = "sqls.nvim";
+      src = pkgs.fetchFromGitHub {
+        owner = "nanotee";
+        repo = "sqls.nvim";
+        rev = "4b1274b5b44c48ce784aac23747192f5d9d26207";
+        # SHA-256 obtained using:
+        # nix-prefetch-url --unpack https://github.com/nanotee/sqls.nvim/archive/4b1274b5b44c48ce784aac23747192f5d9d26207.tar.gz
+        sha256 = "0jxgsajl7plw025a0h6r3cifrj0jyszn697247ggy0arlfvnx8cc";
+      };
+    })
+  ];
 
-    extraConfigLua = ''
+  extraConfigLua = ''
     require('lspconfig').sqls.setup{
            on_attach = function(client, bufnr)
              require('sqls').on_attach(client, bufnr) -- require sqls.nvim
@@ -34,5 +34,5 @@
              },
            };
          }
-         '';
+  '';
 }

@@ -1,8 +1,8 @@
 {
-    # Manage files in neovim a buffer
-      oil.enable = true;
-      keymaps = [
-        {
+  # Manage files in neovim a buffer
+  oil.enable = true;
+  keymaps = [
+    {
       mode = "n";
       key = "<leader>e";
       action = ":Oil<CR>";
@@ -10,5 +10,5 @@
         desc = "Toggle Oil";
       };
     }
-      ];
+  ];
 }

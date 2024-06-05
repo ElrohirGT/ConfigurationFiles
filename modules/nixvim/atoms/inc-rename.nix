@@ -1,7 +1,7 @@
 {
-    # Rename incrementally with LSP support
-    plugins.inc-rename.enable = true;
-    keymaps = [
+  # Rename incrementally with LSP support
+  plugins.inc-rename.enable = true;
+  keymaps = [
     {
       mode = "n";
       key = "<leader>rn";

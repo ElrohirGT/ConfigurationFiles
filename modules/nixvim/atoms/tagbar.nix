@@ -1,4 +1,4 @@
 {
-    # Display tags inside a file
-    plugins.tagbar.enable = true;
+  # Display tags inside a file
+  plugins.tagbar.enable = true;
 }

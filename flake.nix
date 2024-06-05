@@ -71,7 +71,7 @@
       pkgs = nixpkgs_unstable;
       function = {
         pkgs,
-        system
+        system,
       }: {
         default = pkgs.mkShell {
           packages = with pkgs; [

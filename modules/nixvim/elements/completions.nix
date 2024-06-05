@@ -7,7 +7,7 @@
   config = {
     plugins = {
       lspkind.enable = true;
-      
+
       # Completions framework and sources
       cmp = {
         enable = true;

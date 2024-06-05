@@ -1,22 +1,22 @@
 {
-    autoGroups = {
-      "kickstart-highlight-yank" = {
-        clear = true;
-      };
+  autoGroups = {
+    "kickstart-highlight-yank" = {
+      clear = true;
     };
+  };
 
-    autoCmd = [
-      {
-        event = "TextYankPost";
-        desc = "Highlight when yanking text";
-        group = "kickstart-highlight-yank";
-        callback = {
-          __raw = ''
-            function ()
-            	vim.highlight.on_yank()
-            end
-          '';
-        };
-      }
-    ];
+  autoCmd = [
+    {
+      event = "TextYankPost";
+      desc = "Highlight when yanking text";
+      group = "kickstart-highlight-yank";
+      callback = {
+        __raw = ''
+          function ()
+          	vim.highlight.on_yank()
+          end
+        '';
+      };
+    }
+  ];
 }
