@@ -1,6 +1,6 @@
 {
   # Manage files in neovim a buffer
-  oil.enable = true;
+  plugins.oil.enable = true;
   keymaps = [
     {
       mode = "n";
