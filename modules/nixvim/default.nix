@@ -22,10 +22,6 @@ with lib; let
       (file: hasSuffix ".nix" file && file != "default.nix")
       (files dir));
 in {
-  # Import all your configuration modules here
-  imports =
-    [
-      ./general.nix
-    ]
-    ++ validFiles ./modules;
+  # Imports everything...
+  imports = (validFiles ./elements) ++ (validFiles ./atoms);
 }

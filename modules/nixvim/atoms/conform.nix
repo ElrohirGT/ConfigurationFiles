@@ -9,10 +9,13 @@
       sqlfluff = {
         "inherit" = false; # Don't merge with default config
         command = "${pkgs.sqlfluff}/bin/sqlfluff";
+        args = ["format" "--dialect" "postgres" "$FILENAME"];
         # Since `sqlfluff` formats the file on disk by default
         # and it doesn't support outputing the formatted file to stdout
-        # we need to add the `cat` command to print to stdout
-        args = ["format" "--dialect" "postgres" "$FILENAME" "&&" "cat" "$FILENAME"];
+        # we add stdin = false and a format for the temp file generated
+        # for formatting.
+        stdin = false;
+        tmpfile_format = ".conform.deleteMe.$FILENAME";
       };
       alejandra = {
         command = "${pkgs.alejandra}/bin/alejandra";
@@ -23,21 +26,25 @@
       prettierd = {
         command = "${pkgs.prettierd}/bin/prettierd";
       };
+      npm-format = {
+        command = "npm";
+        args = ["run" "format" "$FILENAME"];
+        stdin = false;
+      };
+      yarn-format = {
+        command = "yarn";
+        args = ["format" "$FILENAME"];
+        stdin = false;
+        tmpfile_format = ".conform.deleteMe.$FILENAME";
+      };
     };
 
     formattersByFt = {
       nix = ["alejandra"];
-      javascript = [["npm format" "yarn format" "prettierd"]];
-      typescript = [["npm format" "yarn format" "prettierd"]];
+      javascript = [["npm-format" "yarn-format" "prettierd"]];
+      typescript = [["npm-format" "yarn-format" "prettierd"]];
       bash = ["shfmt"];
       sql = ["sqlfluff"];
     };
   };
-
-  extraPlugins = with pkgs; [
-    prettierd
-    alejandra
-    shfmt
-    sqlfluff
-  ];
 }

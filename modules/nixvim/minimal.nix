@@ -1,12 +1,13 @@
 {
-  # Import all your configuration modules here
   imports = [
-    ./general.nix
-    ./modules/treesitter.nix
-    ./modules/completions.nix
-    ./modules/mappings.nix
-  ];
+    # Big elements that use multiple plugins.
+    ./elements/basic.nix
+    ./elements/completions.nix
 
-  general.isDefault = false;
-  completions.isDefault = false;
+    # Single plugins configuration
+    ./atoms/treesitter.nix
+    ./atoms/oil.nix
+    ./atoms/telescope.nix
+    ./atoms/highlight-on-yank.nix
+  ];
 }

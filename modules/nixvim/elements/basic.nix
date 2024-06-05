@@ -1,5 +1,51 @@
 {
-  keymaps = [
+    # :h option-list
+    opts = {
+      number = true;
+      relativenumber = true;
+
+      shiftwidth = 2;
+      tabstop = 2;
+      softtabstop = 2;
+
+      expandtab = false;
+      hlsearch = false;
+      incsearch = true;
+
+      scrolloff = 8;
+      updatetime = 50;
+      colorcolumn = "180";
+
+      spell = true;
+      termguicolors = true;
+    };
+
+    globals = {
+      mapleader = " ";
+      maplocalleader = " ";
+    };
+
+    # colorschemes.kanagawa.enable = true;
+    colorschemes.nightfox = {
+      enable = true;
+      flavor = "carbonfox";
+    };
+
+    plugins = {
+        # Line information
+      lualine.enable = true;
+
+        # Plugin to find which key does what
+      which-key.enable = true;
+      
+        # Better support for comments in NeoVim
+      comment.enable = true;
+
+      # Support for surrounding things with things
+      surround.enable = true;
+    };
+
+    keymaps = [
     {
       mode = "v";
       key = "J";
@@ -23,15 +69,6 @@
       action = "mzJ`z";
       options = {
         desc = "Append next line to current line";
-      };
-    }
-
-    {
-      mode = "n";
-      key = "<leader>e";
-      action = ":Oil<CR>";
-      options = {
-        desc = "Toggle Oil";
       };
     }
 
@@ -96,21 +133,7 @@
     }
 
     {
-      mode = "x";
-      key = "<leader>p";
-      action = "\"_dP";
-    }
-
-    {
-      mode = "n";
-      key = "<leader>y";
-      action = "\"+y";
-      options = {
-        desc = "Yank to system clipboard";
-      };
-    }
-    {
-      mode = "v";
+      mode = ["n" "v"];
       key = "<leader>y";
       action = "\"+y";
       options = {
@@ -136,21 +159,12 @@
     }
 
     {
-      mode = "n";
-      key = "<leader>rn";
-      action = ":IncRename ";
-      options = {
-        desc = "Rename symbols using IncRename";
-      };
+        mode = ["n" "x"];
+        key = "<leader>p";
+        action = "\"0p";
+        options = {
+            desc = "Paste from yank register";
+        }
     }
-
-    {
-      mode = "n";
-      key = "<leader>gl";
-      action = ":Git log --oneline --graph<CR>";
-      options = {
-        desc = "Vim fugitive gitlog graph";
-      };
-    }
-  ];
+    ];
 }
