@@ -67,6 +67,20 @@
       ];
     };
 
+    devShells = forAllSystems {
+      pkgs = nixpkgs_unstable;
+      function = {
+        pkgs,
+        system
+      }: {
+        default = pkgs.mkShell {
+          packages = with pkgs; [
+            alejandra
+          ];
+        };
+      };
+    };
+
     packages = forAllSystems {
       pkgs = nixpkgs_unstable;
       function = {
