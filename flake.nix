@@ -4,10 +4,17 @@
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixpkgs_unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    # Nix formatting pack
+    # https://gerschtli.github.io/nix-formatter-pack/nix-formatter-pack-options.html
+    nix-formatter-pack = {
+      url = "github:Gerschtli/nix-formatter-pack";
+      inputs.nixpkgs.follows = "nixpkgs_unstable";
     };
     nixVim = {
       # I prefer to have nixvim run on unstable instead
@@ -19,11 +26,10 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     nixpkgs_unstable,
     nixVim,
-    home-manager,
+    nix-formatter-pack,
     ...
   } @ inputs: let
     forAllSystems = {
@@ -35,7 +41,8 @@
         "x86_64-macos"
         "aarch64-linux"
         "aarch64-darwin"
-      ] (system:
+      ]
+      (system:
         function {
           pkgs = import pkgs {
             inherit system;
@@ -44,7 +51,7 @@
               #inputs.something.overlays.default
             ];
           };
-          system = system;
+          inherit system;
         });
     buildVimModule = {
       system,
@@ -73,21 +80,26 @@
         pkgs,
         system,
       }:
-        pkgs.alejandra;
+        nix-formatter-pack.lib.mkFormatter {
+          pkgs = nixpkgs.legacyPackages.${system};
+
+          config.tools = {
+            deadnix.enable = true;
+            alejandra.enable = true;
+            statix.enable = true;
+          };
+        };
     };
 
     packages = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {
-        pkgs,
-        system,
-      }: {
+      function = {system}: {
         vim = buildVimModule {
-          system = system;
+          inherit system;
           module = ./modules/nixvim;
         };
         vimMinimal = buildVimModule {
-          system = system;
+          inherit system;
           module = ./modules/nixvim/minimal.nix;
         };
       };
@@ -95,10 +107,7 @@
 
     checks = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {
-        pkgs,
-        system,
-      }: let
+      function = {system}: let
         nixvimLib = nixVim.lib.${system};
 
         nixVimModuleFull = {
