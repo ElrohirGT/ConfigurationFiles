@@ -1,10 +1,4 @@
 {
-  pkgs,
-  lib,
-  config,
-  options,
-  ...
-}: {
   imports = [../atoms/sqls-nvim.nix];
 
   config = {

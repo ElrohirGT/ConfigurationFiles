@@ -1,9 +1,4 @@
-{
-  lib,
-  config,
-  options,
-  ...
-}: {
+{config, ...}: {
   config = {
     plugins = {
       lspkind.enable = true;
