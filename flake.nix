@@ -93,7 +93,7 @@
 
     packages = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {system}: {
+      function = {system, ...}: {
         vim = buildVimModule {
           inherit system;
           module = ./modules/nixvim;
@@ -107,7 +107,7 @@
 
     checks = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {system}: let
+      function = {system, ...}: let
         nixvimLib = nixVim.lib.${system};
 
         nixVimModuleFull = {
