@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
     plugins = {
         # HTML and JSX Tags auto updater
         ts-autotag.enable = true;

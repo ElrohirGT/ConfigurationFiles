@@ -164,7 +164,7 @@
         action = "\"0p";
         options = {
             desc = "Paste from yank register";
-        }
+        };
     }
     ];
 }
