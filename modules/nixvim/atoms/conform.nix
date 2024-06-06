@@ -30,6 +30,7 @@
         command = "npm";
         args = ["run" "format" "$FILENAME"];
         stdin = false;
+        tmpfile_format = ".conform.deleteMe.$FILENAME";
       };
       yarn-format = {
         command = "yarn";
