@@ -35,10 +35,10 @@
             action = "code_action";
             desc = "[C]ode [A]ctions";
           };
-          # "<leader>rn" = {
-          #   action = "rename";
-          #   desc = "[R]e[n]ame";
-          # };
+          "<c-s>" = {
+            action = "signature_help";
+            desc = "[S]ignature help from the LSP";
+          };
         };
       };
       servers = {
