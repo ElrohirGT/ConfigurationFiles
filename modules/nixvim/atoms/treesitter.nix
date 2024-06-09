@@ -11,12 +11,21 @@
       proto
       bash
       sql
+      latex
+      mermaid
+
+      # Gleam
+      gleam
+
+      # Elm
+      elm
+
+      # C
       c
       cpp
-      latex
-      gleam
-      elm
-      mermaid
+
+      # Zig
+      zig
 
       # Neovim config
       lua
