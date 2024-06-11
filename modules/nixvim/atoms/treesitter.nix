@@ -4,21 +4,13 @@
     enable = true;
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       # General
-      nix
       regex
       python
-      go
       proto
       bash
       sql
       latex
       mermaid
-
-      # Gleam
-      gleam
-
-      # Elm
-      elm
 
       # C
       c
@@ -38,13 +30,6 @@
       # Rust
       rust
       toml
-
-      # Web
-      typescript
-      javascript
-      html
-      css
-      markdown
     ];
   };
 }

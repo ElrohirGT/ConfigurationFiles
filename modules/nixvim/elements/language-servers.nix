@@ -42,38 +42,14 @@
         };
       };
       servers = {
-        # HTML
-        html.enable = true;
-
-        # CSS
-        cssls.enable = true;
-
-        # Javascript / Typescript
-        tsserver.enable = true;
-
         # Lua
         lua-ls.enable = true;
-
-        # Go
-        gopls.enable = true;
-
-        # Gleam
-        gleam.enable = true;
 
         # Bash
         bashls.enable = true;
 
-        # Nix
-        nil_ls.enable = true;
-
-        # Markdown
-        marksman.enable = true;
-
         # LaTex
         texlab.enable = true;
-
-        # Elm language support
-        elmls.enable = true;
       };
     };
 
