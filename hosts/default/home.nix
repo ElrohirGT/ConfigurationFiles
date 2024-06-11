@@ -386,9 +386,11 @@ in {
     };
   };
 
-  # Enable wallpaper software
-  services.random-background = {
-    enable = true;
-    imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
+  # Files to simlink to home dir
+  home.file = {
+    ".background-image" = {
+      source = ./wallpapers/wallpaper.jpg;
+      enable = true;
+    };
   };
 }
