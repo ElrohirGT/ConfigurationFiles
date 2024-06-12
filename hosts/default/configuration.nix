@@ -112,6 +112,7 @@
             background = "${./login-background.jpg}";
             backgroundMode = "fill";
           };
+          variants = ["qt5"];
         })
         flameshot # For taking screenshots
         feh # For image viewing
