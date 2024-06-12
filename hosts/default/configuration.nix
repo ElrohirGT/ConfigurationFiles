@@ -61,6 +61,7 @@
     sddm = {
       enable = true;
       theme = "where_is_my_sddm_theme";
+      # theme = "where_is_my_sddm_theme_qt5";
     };
     # We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
     # Which is a file that it doesn't have access to
