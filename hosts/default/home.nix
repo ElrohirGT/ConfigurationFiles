@@ -390,5 +390,6 @@ in {
   services.random-background = {
     enable = true;
     imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
+    interval = "30m";
   };
 }
