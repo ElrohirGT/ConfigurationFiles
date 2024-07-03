@@ -51,6 +51,15 @@
 
     keymaps = [
       {
+        mode = "n";
+        key = "<leader>z";
+        action = ":set foldmethod=indent<CR>";
+        options = {
+          desc = "Set folding method to use indentation";
+        };
+      }
+
+      {
         mode = "v";
         key = "J";
         action = ":m '>+1<CR>gv=gv";
