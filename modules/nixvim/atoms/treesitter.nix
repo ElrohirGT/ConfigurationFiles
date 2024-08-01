@@ -37,15 +37,4 @@
       highlight.enable = true;
     };
   };
-
-  keymaps = [
-    {
-      mode = "n";
-      key = "<leader>z";
-      action = ":set foldmethod=expr<CR> :set foldexpr=nvim_treesitter#foldexpr()<CR>";
-      options = {
-        desc = "Set folding method to use indentation";
-      };
-    }
-  ];
 }
