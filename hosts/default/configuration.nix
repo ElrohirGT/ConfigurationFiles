@@ -60,8 +60,8 @@
 
     sddm = {
       enable = true;
-      theme = "where_is_my_sddm_theme";
-      # theme = "where_is_my_sddm_theme_qt5";
+      theme = "catppuccin-mocha";
+      package = pkgs.kdePackages.sddm;
     };
     # We need the no-log flag because lemurs tries to log to /var/log/lemurs.log
     # Which is a file that it doesn't have access to
@@ -108,12 +108,10 @@
         #i3status-rust
         brightnessctl
         networkmanagerapplet
-        (where-is-my-sddm-theme.override {
-          themeConfig.General = {
-            background = "${./login-background.jpg}";
-            backgroundMode = "fill";
-          };
-          variants = ["qt5"];
+        (catppuccin-sddm.override {
+          flavor = "mocha";
+          background = "${./login-background.jpg}";
+          loginBackground = true;
         })
         flameshot # For taking screenshots
         feh # For image viewing
