@@ -6,32 +6,12 @@
     {
       mode = "n";
       key = "<leader>xx";
-      action = "<cmd>TroubleToggle<cr>";
-    }
-    {
-      mode = "n";
-      key = "<leader>xw";
-      action = "<cmd>TroubleToggle workspace_diagnostics<cr>";
-    }
-    {
-      mode = "n";
-      key = "<leader>xd";
-      action = "<cmd>TroubleToggle document_diagnostics<cr>";
+      action = "<cmd>Trouble diagnostics toggle<cr>";
     }
     {
       mode = "n";
       key = "<leader>xq";
-      action = "<cmd>TroubleToggle quickfix<cr>";
-    }
-    {
-      mode = "n";
-      key = "<leader>xl";
-      action = "<cmd>TroubleToggle loclist<cr>";
-    }
-    {
-      mode = "n";
-      key = "gR";
-      action = "<cmd>TroubleToggle lsp_references<cr>";
+      action = "<cmd>Trouble qflist toggle<cr>";
     }
   ];
 }
