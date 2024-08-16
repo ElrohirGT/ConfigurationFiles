@@ -42,20 +42,9 @@
         };
       };
       servers = {
-        # Lua
-        lua-ls.enable = true;
-
-        # Bash
-        bashls.enable = true;
-
         # LaTex
         texlab.enable = true;
       };
-    };
-
-    plugins = {
-      # Rust setup
-      rustaceanvim.enable = true;
     };
   };
 }
