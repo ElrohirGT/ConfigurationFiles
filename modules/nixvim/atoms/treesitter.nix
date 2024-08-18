@@ -6,7 +6,6 @@
     grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
       # General
       regex
-      python
       proto
       bash
       sql
