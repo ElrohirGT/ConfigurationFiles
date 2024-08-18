@@ -37,4 +37,8 @@
       highlight.enable = true;
     };
   };
+
+  extraConfigVim = ''
+    set nofoldenable " Disable fold on startup
+  '';
 }
