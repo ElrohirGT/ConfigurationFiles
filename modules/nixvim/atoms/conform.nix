@@ -23,18 +23,10 @@
       shfmt = {
         command = "${pkgs.shfmt}/bin/shfmt";
       };
-      prettierd = {
-        command = "${pkgs.prettierd}/bin/prettierd";
-      };
-      npm-format = {
-        command = "npm";
-        args = ["run" "format" "$FILENAME"];
-        stdin = false;
-        tmpfile_format = ".conform.deleteMe.$FILENAME";
-      };
-      yarn-format = {
-        command = "yarn";
-        args = ["format" "$FILENAME"];
+      biome = {
+        "inherit" = false; # Don't merge with default config
+        command = "${pkgs.biome}/bin/biome";
+        args = ["format" "--write" "$FILENAME"];
         stdin = false;
         tmpfile_format = ".conform.deleteMe.$FILENAME";
       };
@@ -42,8 +34,8 @@
 
     formattersByFt = {
       nix = ["alejandra"];
-      javascript = [["npm-format" "yarn-format" "prettierd"]];
-      typescript = [["npm-format" "yarn-format" "prettierd"]];
+      javascript = ["biome"];
+      typescript = ["biome"];
       bash = ["shfmt"];
       sql = ["sqlfluff"];
     };
