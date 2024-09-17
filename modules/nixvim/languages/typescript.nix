@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   plugins.lsp = {
-    servers.tsserver.enable = true;
+    servers.ts-ls.enable = true;
   };
 
   plugins.treesitter = {
