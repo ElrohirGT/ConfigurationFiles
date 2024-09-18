@@ -11,10 +11,10 @@
     }
     {
       action = ":FormatEnable<CR>";
-      key = "<leader>ef";
+      key = "<leader>fe";
       mode = "n";
       options = {
-        desc = "[E]nable [F]ormatting";
+        desc = "[F]ormatting [E]nable";
       };
     }
   ];
