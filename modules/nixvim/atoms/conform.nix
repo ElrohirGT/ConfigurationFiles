@@ -84,6 +84,8 @@
         };
         alejandra = {
           command = "${pkgs.alejandra}/bin/alejandra";
+					args = ["$FILENAME"];
+					stdin = false;
         };
         shfmt = {
           command = "${pkgs.shfmt}/bin/shfmt";
