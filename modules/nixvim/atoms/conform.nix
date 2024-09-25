@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  lib,
+  ...
+}: {
   # Enabling/Disabling formatting according to keybinds
   keymaps = [
     {
@@ -73,7 +77,7 @@
       formatters = {
         sqlfluff = {
           "inherit" = false; # Don't merge with default config
-          command = "${pkgs.sqlfluff}/bin/sqlfluff";
+          command = lib.getExe pkgs.sqlfluff;
           args = ["format" "--dialect" "postgres" "$FILENAME"];
           # Since `sqlfluff` formats the file on disk by default
           # and it doesn't support outputing the formatted file to stdout
@@ -83,16 +87,17 @@
           tmpfile_format = ".conform.deleteMe.$FILENAME";
         };
         alejandra = {
-          command = "${pkgs.alejandra}/bin/alejandra";
-					args = ["$FILENAME"];
-					stdin = false;
+          "inherit" = false; # Don't merge with default config
+          command = lib.getExe pkgs.alejandra;
+          args = ["$FILENAME"];
+          stdin = false;
         };
         shfmt = {
-          command = "${pkgs.shfmt}/bin/shfmt";
+          command = lib.getExe pkgs.shfmt;
         };
         biome = {
           "inherit" = false; # Don't merge with default config
-          command = "${pkgs.biome}/bin/biome";
+          command = lib.getExe pkgs.biome;
           args = ["format" "--write" "$FILENAME"];
           stdin = false;
           tmpfile_format = ".conform.deleteMe.$FILENAME";
