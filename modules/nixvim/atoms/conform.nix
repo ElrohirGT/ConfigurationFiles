@@ -56,6 +56,11 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
+      default_format_opts = {
+        lsp_format = "fallback";
+        quite = false;
+        timeout_ms = 1000;
+      };
       format_on_save = ''
         	function(bufnr)
           -- Disable with a global or buffer-local variable
