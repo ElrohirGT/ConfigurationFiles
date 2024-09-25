@@ -98,11 +98,7 @@
           command = lib.getExe pkgs.shfmt;
         };
         biome = {
-          "inherit" = false; # Don't merge with default config
           command = lib.getExe pkgs.biome;
-          args = ["format" "--write" "$FILENAME"];
-          stdin = false;
-          tmpfile_format = ".conform.deleteMe.$FILENAME";
         };
       };
     };
