@@ -87,10 +87,10 @@
           tmpfile_format = ".conform.deleteMe.$FILENAME";
         };
         alejandra = {
-          "inherit" = false; # Don't merge with default config
+          # "inherit" = false; # Don't merge with default config
           command = lib.getExe pkgs.alejandra;
-          args = ["$FILENAME"];
-          stdin = false;
+          # args = ["$FILENAME"];
+          # stdin = false;
         };
         shfmt = {
           command = lib.getExe pkgs.shfmt;
