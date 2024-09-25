@@ -76,12 +76,9 @@
 
     formatter = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {
-        pkgs,
-        system,
-      }:
+      function = {pkgs, ...}:
         nix-formatter-pack.lib.mkFormatter {
-          pkgs = nixpkgs.legacyPackages.${system};
+          inherit pkgs;
 
           config.tools = {
             deadnix.enable = true;
