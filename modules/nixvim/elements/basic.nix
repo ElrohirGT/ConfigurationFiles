@@ -43,7 +43,7 @@
       comment.enable = true;
 
       # Support for surrounding things with things
-      surround.enable = true;
+      vim-surround.enable = true;
 
       # Autoclose parenthesis, braces, etc.
       autoclose.enable = true;
