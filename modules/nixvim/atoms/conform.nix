@@ -81,15 +81,7 @@
       };
       formatters = {
         sqlfluff = {
-          "inherit" = false; # Don't merge with default config
           command = lib.getExe pkgs.sqlfluff;
-          args = ["format" "--dialect" "postgres" "$FILENAME"];
-          # Since `sqlfluff` formats the file on disk by default
-          # and it doesn't support outputing the formatted file to stdout
-          # we add stdin = false and a format for the temp file generated
-          # for formatting.
-          stdin = false;
-          tmpfile_format = ".conform.deleteMe.$FILENAME";
         };
         alejandra = {
           command = lib.getExe pkgs.alejandra;
