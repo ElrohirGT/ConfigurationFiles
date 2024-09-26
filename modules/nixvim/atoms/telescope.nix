@@ -66,8 +66,8 @@
     };
   };
 
-	# Icons needed for telescope
-	plugins.web-devicons.enable = true;
+  # Icons needed for telescope
+  plugins.web-devicons.enable = true;
 
   extraPackages = with pkgs; [
     ripgrep

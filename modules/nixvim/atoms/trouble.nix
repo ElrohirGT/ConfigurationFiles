@@ -1,6 +1,6 @@
 {
-	# Icons needed for trouble
-	plugins.web-devicons.enable = true;
+  # Icons needed for trouble
+  plugins.web-devicons.enable = true;
 
   # Better error messages
   plugins.trouble.enable = true;
