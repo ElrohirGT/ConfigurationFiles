@@ -9,7 +9,7 @@
   keymaps = [
     {
       mode = ["i" "s"];
-      key = "<c-k>";
+      key = "<c-j>";
       action = {
         __raw = ''
           function()
@@ -28,7 +28,7 @@
 
     {
       mode = ["i" "s"];
-      key = "<c-j>";
+      key = "<c-k>";
       action = {
         __raw = ''
           function()
