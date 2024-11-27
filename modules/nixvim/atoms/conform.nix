@@ -58,7 +58,7 @@
     settings = {
       default_format_opts = {
         lsp_format = "fallback";
-        quite = false;
+        quiet = false;
         timeout_ms = 1000;
       };
       format_on_save = ''
@@ -78,8 +78,12 @@
         typescript = ["biome"];
         bash = ["shfmt"];
         sql = ["sqlfluff"];
+				python = ["black"];
       };
       formatters = {
+				black = {
+					command =lib.getExe pkgs.black;
+				};
         sqlfluff = {
           command = lib.getExe pkgs.sqlfluff;
         };
