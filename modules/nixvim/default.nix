@@ -18,11 +18,20 @@ with lib; let
   validFiles = dir:
     map
     (file: "${dir}/${file}")
-    (filter
-      (file: hasSuffix ".nix" file && file != "default.nix")
-      (files dir));
+    (
+      filter
+      (file: let
+        fileIsNixFile = hasSuffix ".nix" file;
+        fileIsNotCustomPlugin = !(hasSuffix ".plugin.nix" file);
+        fileIsNotModuleIndex = file != "default.nix";
+        fileIsNotMinimalConfig = file != "minimal.nix";
+      in
+        fileIsNixFile && fileIsNotCustomPlugin && fileIsNotModuleIndex && fileIsNotMinimalConfig)
+      (files dir)
+    );
 in {
   # Imports everything...
   # imports = (validFiles ./elements) ++ (validFiles ./atoms);
+  # imports = debug.traceValSeq (validFiles ./.);
   imports = validFiles ./.;
 }

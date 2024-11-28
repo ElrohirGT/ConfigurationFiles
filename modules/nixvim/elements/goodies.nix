@@ -3,5 +3,6 @@
     # You'll need to install nerdfont symbol font.
     vimPlugins.nvim-web-devicons
     vimPlugins.dropbar-nvim
+    (import ../plugins/faster.plugin.nix pkgs)
   ];
 }
