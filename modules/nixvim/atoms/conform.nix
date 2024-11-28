@@ -78,12 +78,12 @@
         typescript = ["biome"];
         bash = ["shfmt"];
         sql = ["sqlfluff"];
-				python = ["black"];
+        python = ["black"];
       };
       formatters = {
-				black = {
-					command =lib.getExe pkgs.black;
-				};
+        black = {
+          command = lib.getExe pkgs.black;
+        };
         sqlfluff = {
           command = lib.getExe pkgs.sqlfluff;
         };
