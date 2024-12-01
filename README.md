@@ -3,7 +3,7 @@
 My NixOS configuration uses a Nix-Flake to get everything up and running. To switch to my NixOS config use:
 ```bash
 # If you HAVE cloned the repo
-sudo nixos-rebuild switch --flake {repoDir}#foxatop
+sudo nixos-rebuild switch --flake {repoDir}#elrohirgt
 ```
 
 If you only want to run my Vim config then:

@@ -64,7 +64,7 @@
     in
       nixvimPkgs.makeNixvimWithModule nixVimModule;
   in {
-    nixosConfigurations.foxatop = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.elrohirgt = nixpkgs.lib.nixosSystem {
       specialArgs = {inherit inputs;};
       system = "x86_64-linux";
       modules = [
