@@ -1,7 +1,6 @@
-{pkgs, ...}: 
-let 
-fasterPlugin = import ../plugins/faster.plugin.nix pkgs;
-in{
+{pkgs, ...}: let
+  fasterPlugin = import ../plugins/faster.plugin.nix pkgs;
+in {
   extraPlugins = with pkgs; [
     # You'll need to install nerdfont symbol font.
     vimPlugins.nvim-web-devicons
@@ -9,5 +8,5 @@ in{
     (fasterPlugin.package)
   ];
 
-	extraConfigLua = fasterPlugin.luaConfig;
+  extraConfigLua = fasterPlugin.luaConfig;
 }
