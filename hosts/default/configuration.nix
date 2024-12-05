@@ -209,20 +209,20 @@
     unetbootin # For bootable USBs
 
     # GNOME extensions
-    gnome.gnome-shell-extensions
-    gnomeExtensions.pop-shell
-    gnomeExtensions.color-picker
+    # gnome.gnome-shell-extensions
+    # gnomeExtensions.pop-shell
+    # gnomeExtensions.color-picker
 
     # General Apps
     litecli
     discord
     onlyoffice-bin
-    gnome.dconf-editor
+    # gnome.dconf-editor
     zoom-us
     #osu-lazer
     obsidian
     zotero
-    gnome.gnome-boxes # For virtualization
+    # gnome.gnome-boxes # For virtualization
     element-desktop # Matrix client
     vlc
 
@@ -236,6 +236,9 @@
 
     # Bullshit apps
     cool-retro-term
+
+    # Run commands in an FHS compliant environment
+    steam-run
   ];
 
   # Shell Aliases

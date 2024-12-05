@@ -5,7 +5,7 @@ in {
     # You'll need to install nerdfont symbol font.
     vimPlugins.nvim-web-devicons
     vimPlugins.dropbar-nvim
-    (fasterPlugin.package)
+    fasterPlugin.package
   ];
 
   extraConfigLua = fasterPlugin.luaConfig;
