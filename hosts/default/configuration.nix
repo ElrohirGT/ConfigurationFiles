@@ -198,6 +198,7 @@
     xcolor
     xclip # To copy to system clipboard (on X11)
     inxi
+		dbeaver
 
     # Art
     kdenlive
