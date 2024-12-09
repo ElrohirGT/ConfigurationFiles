@@ -51,7 +51,7 @@
         __raw = ''
           function(args)
           	if not vim.b.disable_autoformat then
-          		vim.cmd(${command})
+          		vim.cmd("${command}")
           	end
           end
         '';
