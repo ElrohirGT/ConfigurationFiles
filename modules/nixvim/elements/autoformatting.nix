@@ -88,5 +88,8 @@
 
     # Zig files
     (genCmd ["*.zig"] "!${pkgs.zig}/bin/zig fmt %")
+
+    # Go files
+    (genCmd ["*.go"] "!${pkgs.go}/bin/go fmt %")
   ];
 }
