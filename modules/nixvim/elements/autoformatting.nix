@@ -85,5 +85,8 @@
 
     # Markdown files
     (genCmd ["*.md"] "!${pkgs.mdformat}/bin/mdformat %")
+
+    # Zig files
+    (genCmd ["*.zig"] "!${pkgs.zig}/bin/zig fmt %")
   ];
 }
