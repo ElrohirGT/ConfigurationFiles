@@ -2,7 +2,7 @@
   # Enabling/Disabling formatting according to keybinds
   keymaps = [
     {
-      action = ":FormatDisable!<CR>";
+      action = ":FormatDisable<CR>";
       key = "<leader>df";
       mode = "n";
       options = {
@@ -26,58 +26,61 @@
         __raw = ''
           function()
           	vim.b.disable_autoformat = false
-          	vim.g.disable_autoformat = false
           end
         '';
       };
     };
+
     FormatDisable = {
-      bang = true;
       desc = "Disable autoformating";
       command = {
         __raw = ''
           function(args)
-            if args.bang then
-              -- FormatDisable! will disable formatting just for this buffer
-              vim.b.disable_autoformat = true
-            else
-              vim.g.disable_autoformat = true
-            end
+            vim.b.disable_autoformat = true
           end
         '';
       };
     };
   };
 
-  autoCmd = 
-	let
-		genCmd = patterns: command: {
-			event = ["BufWritePost"];
-			pattern = patterns;
-			callback = {
-				__raw = ''
-					function(args)
-						if not vim.b.disable_autoformat then
-							vim.cmd(command)
-						end
-					end
-				'';
-			};
-		};
-	in [
-		# Nix language
-		genCmd ["*.nix"] "!${pkgs.alejandra}/bin/alejandra %"
+  autoCmd = let
+    genCmd = patterns: command: {
+      event = ["BufWritePost"];
+      pattern = patterns;
+      callback = {
+        __raw = ''
+          function(args)
+          	if not vim.b.disable_autoformat then
+          		vim.cmd(command)
+          	end
+          end
+        '';
+      };
+    };
+  in [
+    # Nix language
+    (genCmd
+      ["*.nix"]
+      "!${pkgs.alejandra}/bin/alejandra %")
 
-		# Javascript and Typescript
-		genCmd ["*.js" "*.ts"] "!${pkgs.biome}/bin/biome format --write %"
+    # Javascript and Typescript
+    (genCmd
+      ["*.js" "*.ts"]
+      "!${pkgs.biome}/bin/biome format --write %")
 
-		# Bash files
-		genCmd ["*.sh"] "!${pkgs.shfmt}/bin/shfmt --write %"
+    # Bash files
+    (genCmd
+      ["*.sh"]
+      "!${pkgs.shfmt}/bin/shfmt --write %")
 
-		# SQL files
-		genCmd ["*.sql"] "!${pkgs.sqlfluff}/bin/sqlfluff format --dialect postgres %"
+    # SQL files
+    (genCmd
+      ["*.sql"]
+      "!${pkgs.sqlfluff}/bin/sqlfluff format --dialect postgres %")
 
-		# Python files
-		genCmd ["*.py"] "!${pkgs.black}/bin/black %"
+    # Python files
+    (genCmd
+      ["*.py"]
+      "!${pkgs.black}/bin/black %")
   ];
 }
