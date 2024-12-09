@@ -49,19 +49,35 @@
     };
   };
 
-  autoCmd = [
-    {
-      event = ["BufWritePost"];
-      pattern = ["*.nix"];
-      callback = {
-        __raw = ''
-          function(args)
-          	if not vim.b.disable_autoformat then
-          		vim.cmd("!${pkgs.alejandra}/bin/alejandra %")
-          	end
-          end
-        '';
-      };
-    }
+  autoCmd = 
+	let
+		genCmd = patterns: command: {
+			event = ["BufWritePost"];
+			pattern = patterns;
+			callback = {
+				__raw = ''
+					function(args)
+						if not vim.b.disable_autoformat then
+							vim.cmd(command)
+						end
+					end
+				'';
+			};
+		};
+	in [
+		# Nix language
+		genCmd ["*.nix"] "!${pkgs.alejandra}/bin/alejandra %"
+
+		# Javascript and Typescript
+		genCmd ["*.js" "*.ts"] "!${pkgs.biome}/bin/biome format --write %"
+
+		# Bash files
+		genCmd ["*.sh"] "!${pkgs.shfmt}/bin/shfmt --write %"
+
+		# SQL files
+		genCmd ["*.sql"] "!${pkgs.sqlfluff}/bin/sqlfluff format --dialect postgres %"
+
+		# Python files
+		genCmd ["*.py"] "!${pkgs.black}/bin/black %"
   ];
 }
