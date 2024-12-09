@@ -82,5 +82,8 @@
     (genCmd
       ["*.py"]
       "!${pkgs.black}/bin/black %")
+
+    # Markdown files
+    (genCmd ["*.md"] "!${pkgs.mdformat}/bin/mdformat %")
   ];
 }
