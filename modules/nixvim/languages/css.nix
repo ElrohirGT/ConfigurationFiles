@@ -10,5 +10,5 @@
   };
 
   # Vim CSS plugin to display color
-  plugins.nvim-colorizer.enable = true;
+  plugins.colorizer.enable = true;
 }

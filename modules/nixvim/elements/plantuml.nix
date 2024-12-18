@@ -2,6 +2,8 @@
   # PlantUML support
   plugins.plantuml-syntax = {
     enable = true;
-    executableScript = "${pkgs.plantuml}/bin/plantuml";
+    settings = {
+      executable_script = "${pkgs.plantuml}/bin/plantuml";
+    };
   };
 }
