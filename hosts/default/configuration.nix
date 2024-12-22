@@ -198,7 +198,8 @@
     xcolor
     xclip # To copy to system clipboard (on X11)
     inxi
-		dbeaver-bin
+    dbeaver-bin
+    sonic-pi
 
     # Art
     kdenlive
