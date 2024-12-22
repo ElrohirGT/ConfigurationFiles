@@ -93,6 +93,6 @@
     (genCmd ["*.go"] "!${pkgs.go}/bin/go fmt %")
 
     # Elm files
-    (genCmd ["*.elm"] "!${pkgs.elmPackages.elm-format}/bin/elm-fmt %")
+    (genCmd ["*.elm"] "!${pkgs.elmPackages.elm-format}/bin/elm-format --yes %")
   ];
 }
