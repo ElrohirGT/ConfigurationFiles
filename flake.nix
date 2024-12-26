@@ -53,6 +53,7 @@
           };
           inherit system;
         });
+
     buildVimModule = {
       system,
       module,

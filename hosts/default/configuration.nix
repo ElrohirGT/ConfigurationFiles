@@ -116,11 +116,12 @@
         })
         flameshot # For taking screenshots
         feh # For image viewing
-        nomacs
         # Use xev to interactively obtain keys to keybind
         xorg.xev
         # Use `xmodmap -pke` to obtain whole keys to keybind
         xorg.xmodmap
+        xorg.xrandr # For autorandr
+        arandr
 
         # Audio control
         pulseaudio
@@ -165,10 +166,10 @@
     isNormalUser = true;
     description = "ElrohirGT";
     extraGroups = ["networkmanager" "wheel" "adbusers" "dialout"];
-    packages = with pkgs; [
-      firefox
-      #  thunderbird
-    ];
+    # packages = with pkgs; [
+    #   firefox
+    #   #  thunderbird
+    # ];
   };
 
   # Importing home configuration for user elrohirgt
@@ -194,55 +195,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vimb
-    manix # Nix documentation searcher
-    xcolor
-    xclip # To copy to system clipboard (on X11)
-    inxi
-    dbeaver-bin
-    sonic-pi
     pkgs_unstable.zed-editor
-
-    # Art
-    kdenlive
-    obs-studio
-    pinta
-    gimp
-    cura
-    freecad
-    unetbootin # For bootable USBs
-
-    # GNOME extensions
-    # gnome.gnome-shell-extensions
-    # gnomeExtensions.pop-shell
-    # gnomeExtensions.color-picker
-
-    # General Apps
-    litecli
-    discord
-    onlyoffice-bin
-    # gnome.dconf-editor
-    zoom-us
-    #osu-lazer
-    obsidian
-    zotero
-    # gnome.gnome-boxes # For virtualization
-    element-desktop # Matrix client
-    vlc
-
-    # General utils
-    xorg.xrandr # For autorandr
-    arandr
-    nix-prefetch-git
-    pkg-config
-    gnuplot
-    geeqie # For duplicate images detection
-
-    # Bullshit apps
-    cool-retro-term
-
-    # Run commands in an FHS compliant environment
-    steam-run
   ];
 
   # Shell Aliases

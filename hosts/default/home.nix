@@ -2,6 +2,7 @@
   config,
   pkgs,
   inputs,
+  pkgs_unstable,
   ...
 }: let
   my-python-packages = p:
@@ -39,94 +40,86 @@ in {
   # changes in each release.
   home.stateVersion = "23.11";
 
-  home.packages = with pkgs; [
-    # Installing the vim package from outputs
-    vimRice
+  home.packages = let
+    guiApps = [
+      pkgs.dbeaver-bin
+      pkgs.sonic-pi
 
-    # Compression utilities
-    zip
-    unzip
-    rar
-    p7zip
+      # Art
+      pkgs.kdenlive
+      pkgs.obs-studio
+      pkgs.pinta
+      pkgs.gimp
+      pkgs.cura
+      pkgs.freecad
+      pkgs.unetbootin # For bootable USBs
 
-    fd # find alternative
-    eza # ls alternative
-    zoxide # cd alternative
-    choose # select text between commands
-    rnr # Command line tool to batch rename files
-    gitui # Command line git client
-    rm-improved # rm command with trashbin
-    ripgrep # Search for a pattern recursively
+      # General
+      pkgs.discord
+      pkgs.zoom-us
+      pkgs.obsidian
+      pkgs.vlc
+      pkgs.geeqie # For duplicate images detection
+    ];
 
-    tldr
-    scrcpy
-    wl-clipboard # To copy to system clipboard (on wayland)
-    wget
-    poppler_utils # For pdf utilities (EG: pdftoppm)
-    ffmpeg
-    moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
-    renameutils
-    lighttpd # For git instaweb
-    nixos-icons
+    terminalUtilities = [
+      # Installing the vim package from outputs
+      vimRice
+      pkgs.alejandra
 
-    # Bullshit apps
-    hollywood
-    genact
-    wiki-tui
+      pkgs.manix # Nix documentation searcher
+      pkgs.xcolor
+      pkgs.xclip # To copy to system clipboard (on X11)
+      pkgs.inxi
+      pkgs.litecli
 
-    # Programming
-    heaptrack
-    gh # Github CLI client
-    gcc
-    cppcheck
-    arduino-cli
-    gdb # For debugging
+      # Compression utilities
+      pkgs.zip
+      pkgs.unzip
+      pkgs.rar
+      pkgs.p7zip
 
-    # Microcontrollers
-    gnome.vinagre
-    rpi-imager
+      pkgs.fd # find alternative
+      pkgs.eza # ls alternative
+      pkgs.zoxide # cd alternative
+      pkgs.choose # select text between commands
+      pkgs.rnr # Command line tool to batch rename files
+      pkgs.gitui # Command line git client
+      pkgs.rm-improved # rm command with trashbin
+      pkgs.ripgrep # Search for a pattern recursively
 
-    # UML
-    plantuml
-    graphviz
+      pkgs.tldr
+      pkgs.scrcpy
+      pkgs.poppler_utils # For pdf utilities (EG: pdftoppm)
+      pkgs.ffmpeg
+      pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
+      pkgs.renameutils
+      pkgs.lighttpd # For git instaweb
+    ];
 
-    # Go
-    go
+    bullshitApps = [
+      pkgs.hollywood
+      pkgs.genact
+      pkgs.wiki-tui
+      pkgs.cool-retro-term
+    ];
 
-    # SQL
-    sqls # Language server
-    oracle-instantclient
-    pgmanage
+    programming = [
+      # Python
+      (pkgs.python3.withPackages my-python-packages)
 
-    # Javascript
-    nodejs
-    yarn
+      # Latex
+      pkgs.texlive.combined.scheme-medium
+      pkgs.texlab
 
-    # Kotlin
-    kotlin
-    kotlin-language-server
-
-    # Nix support
-    alejandra
-
-    # Java development
-    jdk17
-    # jprofiler # This profiler is commented because the free trial expired
-    maven
-
-    # C# development
-    dotnet-sdk
-
-    # C++ development
-    clang-tools
-
-    # Python
-    (python310Full.withPackages my-python-packages)
-
-    # Latex
-    texlive.combined.scheme-medium
-    texlab
-  ];
+      # General
+      pkgs.gdb
+      pkgs.heaptrack
+      pkgs.nix-prefetch-git
+      pkgs.pkg-config
+    ];
+  in
+    guiApps ++ programming ++ bullshitApps ++ terminalUtilities;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -173,7 +166,7 @@ in {
   # Firefox config
   programs.firefox = {
     enable = true;
-    package = null; # Firefox packages is installed through NixOS configuration.nix file
+    # package = null; # Firefox packages is installed through NixOS configuration.nix file
     profiles = {
       default = {
         name = "Personal";
