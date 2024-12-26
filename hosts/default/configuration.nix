@@ -5,6 +5,7 @@
   pkgs,
   lib,
   inputs,
+  pkgs_unstable,
   ...
 }: {
   imports = [
@@ -200,7 +201,7 @@
     inxi
     dbeaver-bin
     sonic-pi
-    zed-editor
+    pkgs_unstable.zed-editor
 
     # Art
     kdenlive

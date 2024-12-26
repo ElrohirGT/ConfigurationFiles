@@ -64,15 +64,24 @@
     in
       nixvimPkgs.makeNixvimWithModule nixVimModule;
   in {
-    nixosConfigurations.elrohirgt = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
+    nixosConfigurations.elrohirgt = let
       system = "x86_64-linux";
-      modules = [
-        # Import the previous configuration.nix we used,
-        # so the old configuration file still takes effect
-        ./hosts/default/configuration.nix
-      ];
-    };
+    in
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+          pkgs_unstable = import nixpkgs_unstable {
+            inherit system;
+            allowUnfree = true;
+          };
+        };
+        modules = [
+          # Import the previous configuration.nix we used,
+          # so the old configuration file still takes effect
+          ./hosts/default/configuration.nix
+        ];
+      };
 
     formatter = forAllSystems {
       pkgs = nixpkgs_unstable;
