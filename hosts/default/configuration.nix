@@ -200,6 +200,7 @@
     inxi
     dbeaver-bin
     sonic-pi
+    zed-editor
 
     # Art
     kdenlive

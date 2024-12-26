@@ -134,7 +134,6 @@ in {
   programs.bat.enable = true;
   programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf)
   programs.fzf.enable = true;
-  programs.vscode.enable = true;
 
   # Git config
   programs.git = {
