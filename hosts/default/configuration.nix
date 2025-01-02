@@ -196,6 +196,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     pkgs_unstable.zed-editor
+    pkgs_unstable.ghostty
   ];
 
   # Shell Aliases
