@@ -157,12 +157,6 @@ in {
   };
   programs.git-cliff.enable = true;
 
-  # Wezterm
-  programs.wezterm = {
-    enable = true;
-    enableBashIntegration = true;
-  };
-
   # Firefox config
   programs.firefox = {
     enable = true;
