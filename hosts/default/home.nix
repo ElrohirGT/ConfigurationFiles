@@ -265,18 +265,6 @@ in {
     };
   };
 
-  # i3 Config
-  # xsession.windowManager.i3 = {
-  #   enable = true;
-  #   config = {
-  #     modifier = "Mod4";
-  #     terminal = "kitty";
-  # 	startup = {
-  #
-  # 	};
-  #   };
-  # };
-
   programs.i3status-rust = {
     enable = true;
     bars = {
@@ -348,5 +336,10 @@ in {
     enable = true;
     imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
     interval = "30m";
+  };
+
+  home.file.".config/ghostty/config" = {
+    enable = true;
+    source = ../../ghostty/config;
   };
 }
