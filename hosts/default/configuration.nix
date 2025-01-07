@@ -129,7 +129,7 @@
       ];
     };
   };
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   programs.i3lock.enable = true;
 
   # Autorandr for auto adjusting to screens
@@ -142,7 +142,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
@@ -282,7 +282,7 @@
 
   # Nix config
   nix = {
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';

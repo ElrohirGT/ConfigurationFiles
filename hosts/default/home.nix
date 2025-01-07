@@ -50,7 +50,8 @@ in {
       pkgs.obs-studio
       pkgs.pinta
       pkgs.gimp
-      pkgs.cura
+      # Broken for 24.11!
+      # pkgs.cura
       pkgs.freecad
       pkgs.unetbootin # For bootable USBs
 
