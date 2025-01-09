@@ -130,10 +130,10 @@ in {
   programs.fzf.enable = true;
 
   # Wezterm
-  programs.wezterm = {
-    enable = true;
-    enableBashIntegration = true;
-  };
+  # programs.wezterm = {
+  #   enable = true;
+  #   enableBashIntegration = true;
+  # };
 
   # Git config
   programs.git = {
