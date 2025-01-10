@@ -129,12 +129,6 @@ in {
   programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf)
   programs.fzf.enable = true;
 
-  # Wezterm
-  # programs.wezterm = {
-  #   enable = true;
-  #   enableBashIntegration = true;
-  # };
-
   # Git config
   programs.git = {
     enable = true;

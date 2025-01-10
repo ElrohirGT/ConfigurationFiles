@@ -198,7 +198,8 @@
   environment.systemPackages = [
     pkgs_unstable.zed-editor
     pkgs_unstable.ghostty
-    pkgs.wezterm
+    pkgs.kitty
+    # pkgs_unstable.wezterm
   ];
 
   # Shell Aliases
