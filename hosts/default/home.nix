@@ -67,6 +67,7 @@ in {
       # Installing the vim package from outputs
       vimRice
       pkgs.alejandra
+      pkgs.networkmanager_dmenu
 
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
