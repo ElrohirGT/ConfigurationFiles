@@ -44,6 +44,7 @@ in {
     guiApps = [
       pkgs.dbeaver-bin
       pkgs.sonic-pi
+      pkgs.jetbrains.mps
 
       # Art
       pkgs.kdenlive
