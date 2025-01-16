@@ -4,7 +4,7 @@
     settings = {
       autoStart = false;
       theme = "dark";
-      browser = "vimb";
+      browser = "firefox";
     };
     #        browserFunc = ''
     #          function OpenMarkdownPreview (url)
