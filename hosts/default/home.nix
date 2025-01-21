@@ -45,6 +45,7 @@ in {
       pkgs.dbeaver-bin
       pkgs.sonic-pi
       pkgs.jetbrains.mps
+      pkgs.rstudio
 
       # Art
       pkgs.kdenlive
@@ -69,6 +70,7 @@ in {
       vimRice
       pkgs.alejandra
       pkgs.networkmanager_dmenu
+      pkgs.quickemu
 
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
@@ -98,6 +100,9 @@ in {
       pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
       pkgs.renameutils
       pkgs.lighttpd # For git instaweb
+
+      # Nix LSP
+      pkgs.nixd
     ];
 
     bullshitApps = [
