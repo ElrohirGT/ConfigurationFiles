@@ -46,6 +46,7 @@ in {
       pkgs.sonic-pi
       pkgs.jetbrains.mps
       pkgs.rstudio
+      pkgs.vscode-fhs
 
       # Art
       pkgs.kdenlive
