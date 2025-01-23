@@ -72,6 +72,7 @@ in {
       pkgs.alejandra
       pkgs.networkmanager_dmenu
       pkgs.quickemu
+      pkgs.btop
 
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
