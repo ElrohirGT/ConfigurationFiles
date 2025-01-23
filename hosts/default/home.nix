@@ -47,6 +47,8 @@ in {
       pkgs.jetbrains.mps
       pkgs.rstudio
       pkgs.vscode-fhs
+      pkgs.qbittorrent
+      pkgs.kiwix
 
       # Art
       pkgs.kdenlive
