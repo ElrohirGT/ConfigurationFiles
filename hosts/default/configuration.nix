@@ -123,6 +123,8 @@
         xorg.xrandr # For autorandr
         arandr
 
+        networkmanager_dmenu
+
         # Audio control
         pulseaudio
         ncpamixer

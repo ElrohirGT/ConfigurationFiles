@@ -49,7 +49,7 @@ in {
       pkgs.vscode-fhs
       pkgs.qbittorrent
       pkgs.kiwix
-      pkgs.squirreldisk
+      pkgs.squirreldisk # For disk usage purposes
 
       # Art
       pkgs.kdenlive
@@ -72,15 +72,16 @@ in {
     terminalUtilities = [
       # Installing the vim package from outputs
       vimRice
-      pkgs.alejandra
-      pkgs.networkmanager_dmenu
-      pkgs.btop
+      pkgs.alejandra # nix formatter
+      pkgs.btop # Fancy process monitor
 
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
       pkgs.xclip # To copy to system clipboard (on X11)
       pkgs.inxi
       pkgs.litecli
+
+      pkgs.writedisk # Utility for creating bootable usb's
 
       # Compression utilities
       pkgs.zip
