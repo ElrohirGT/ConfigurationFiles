@@ -73,7 +73,7 @@ in {
       vimRice
       pkgs.alejandra
       pkgs.networkmanager_dmenu
-      pkgs.quickemu
+      pkgs.qemu
       pkgs.btop
 
       pkgs.manix # Nix documentation searcher
