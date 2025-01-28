@@ -49,6 +49,7 @@ in {
       pkgs.vscode-fhs
       pkgs.qbittorrent
       pkgs.kiwix
+      pkgs.squirreldisk
 
       # Art
       pkgs.kdenlive
