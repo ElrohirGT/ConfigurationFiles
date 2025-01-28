@@ -73,7 +73,6 @@ in {
       vimRice
       pkgs.alejandra
       pkgs.networkmanager_dmenu
-      pkgs.qemu
       pkgs.btop
 
       pkgs.manix # Nix documentation searcher
@@ -87,6 +86,10 @@ in {
       pkgs.unzip
       pkgs.rar
       pkgs.p7zip
+
+      # VM utilities
+      pkgs.qemu
+      pkgs.virt-v2v
 
       pkgs.fd # find alternative
       pkgs.eza # ls alternative
