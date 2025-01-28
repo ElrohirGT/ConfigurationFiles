@@ -89,6 +89,9 @@
     # Zig files
     (genCmd ["*.zig"] "!${pkgs.zig}/bin/zig fmt %")
 
+    # C files
+    (genCmd ["*.c"] "!${pkgs.clang-tools}/bin/clang-format -i %")
+
     # Go files
     (genCmd ["*.go"] "!${pkgs.go}/bin/go fmt %")
 
