@@ -271,9 +271,10 @@
     '';
   };
 
-  # Libvirt
   # For virtualisation and VM's
   virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["elrohirgt"];
 
   # Docker
   virtualisation.docker = {
