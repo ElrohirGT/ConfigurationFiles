@@ -201,6 +201,7 @@
     pkgs_unstable.zed-editor
     pkgs_unstable.ghostty
     pkgs.kitty
+    pkgs.man-pages
     # pkgs_unstable.wezterm
   ];
 
