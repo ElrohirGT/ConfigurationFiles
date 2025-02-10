@@ -77,8 +77,9 @@ in {
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
       pkgs.xclip # To copy to system clipboard (on X11)
-      pkgs.inxi
+      pkgs.inxi # Get information about the system
       pkgs.litecli
+      pkgs.cloc # Program that counts lines of code
 
       pkgs.writedisk # Utility for creating bootable usb's
 
