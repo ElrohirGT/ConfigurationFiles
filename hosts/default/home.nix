@@ -73,6 +73,7 @@ in {
       vimRice
       pkgs.alejandra # nix formatter
       pkgs.btop # Fancy process monitor
+      pkgs.cmake
 
       pkgs.manix # Nix documentation searcher
       pkgs.xcolor
