@@ -203,11 +203,6 @@
     pkgs.kitty
     pkgs.man-pages
     # pkgs_unstable.wezterm
-
-    # Remove after project
-    pkgs.cmake
-    # pkgs.zlib
-    pkgs.zlib-ng
   ];
 
   # Shell Aliases
