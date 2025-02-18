@@ -198,11 +198,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = [
-    pkgs_unstable.zed-editor
-    pkgs_unstable.ghostty
-    pkgs.kitty
     pkgs.man-pages
-    # pkgs_unstable.wezterm
   ];
 
   # Shell Aliases

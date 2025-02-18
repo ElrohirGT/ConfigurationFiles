@@ -49,6 +49,8 @@ in {
       pkgs.vscode-fhs
       pkgs.qbittorrent
       pkgs.kiwix
+      pkgs.zed-editor
+      pkgs.ghostty
 
       # Art
       pkgs.kdenlive
