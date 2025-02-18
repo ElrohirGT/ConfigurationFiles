@@ -189,11 +189,21 @@
   nixpkgs.config.allowUnfree = true;
 
   # Nix and Nix Store options
-  nix.settings.auto-optimise-store = true;
-  nix.settings.trusted-users = [
-    "root"
-    "elrohirgt"
-  ];
+  nix.settings = {
+    auto-optimise-store = true;
+    trusted-users = ["root" "elrohirgt"];
+    substituters = [
+      "https://cache.nixos.org/"
+      "https://nixcache.reflex-frp.org"
+      "https://cache.iog.io"
+      "https://digitallyinduced.cachix.org"
+      "https://ghc-nix.cachix.org"
+      "https://ic-hs-test.cachix.org"
+      "https://kaleidogen.cachix.org"
+      "https://static-haskell-nix.cachix.org"
+      "https://tttool.cachix.org"
+    ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
