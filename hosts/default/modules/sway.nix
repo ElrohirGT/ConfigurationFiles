@@ -48,6 +48,9 @@ in {
       # networkmanagerapplet
       networkmanager_dmenu
 
+      # Show keys when typing
+      showmethekey
+
       # XDG Autostart
       dex
 
@@ -57,7 +60,10 @@ in {
       (flameshot.override {enableWlrSupport = true;})
 
       mako # notification system developed by swaywm maintainer
-      wmenu # dmenu replacement
+      (bemenu.override {
+        x11Support = false;
+        waylandSupport = true;
+      }) # dmenu replacement
 
       # Xrandr and arandr replacement
       wlr-randr
@@ -72,8 +78,11 @@ in {
     ];
 
     system.activationScripts = {
-      i3Config.text = ''
+      swayConfig.text = ''
         cp -r /home/elrohirgt/ConfigurationFiles/sway /home/elrohirgt/.config/
+      '';
+      NM_dmenu.text = ''
+        cp -r /home/elrohirgt/ConfigurationFiles/networkmanager-dmenu /home/elrohirgt/.config
       '';
     };
 
