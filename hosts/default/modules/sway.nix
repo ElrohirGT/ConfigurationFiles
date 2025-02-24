@@ -45,7 +45,8 @@ in {
       swaylock-effects
 
       # Network manager applet
-      networkmanagerapplet
+      # networkmanagerapplet
+      networkmanager_dmenu
 
       # XDG Autostart
       dex
