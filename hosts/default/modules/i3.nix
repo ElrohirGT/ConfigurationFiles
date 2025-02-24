@@ -87,10 +87,20 @@ in {
         ];
       };
     };
-    hardware.graphics.enable = true;
     programs.i3lock.enable = true;
 
     # Autorandr for auto adjusting to screens
     services.autorandr.enable = true;
+
+    system.activationScripts = {
+      i3Config.text = ''
+        cp -r /home/elrohirgt/ConfigurationFiles/i3 /home/elrohirgt/.config/
+      '';
+    };
+
+    environment.shellAliases = {
+      fclip = "xclip -sel clip"; # Copy file to paperclip (only on X11)
+      xpick = "xcolor | fclip";
+    };
   };
 }

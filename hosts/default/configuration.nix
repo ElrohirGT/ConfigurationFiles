@@ -58,9 +58,9 @@
   # services.gnome.gnome-browser-connector.enable = true;
 
   # Enable the i3 alternative module
-  i3Alt.enable = true;
+  i3Alt.enable = false;
   # Enable the Sway alternative module
-  swayAlt.enable = false;
+  swayAlt.enable = true;
 
   # Configure console keymap
   console.keyMap = "la-latin1";
@@ -138,9 +138,8 @@
 
   # Shell Aliases
   environment.shellAliases = {
-    fclip = "xclip -sel clip"; # Copy file to paperclip (only on X11)
-    xpick = "xcolor | fclip";
   };
+  hardware.graphics.enable = true;
 
   # Fonts installed in the system
   fonts.packages = with pkgs; [
@@ -162,17 +161,13 @@
   # services.httpd.adminAddr = "elrohirgt@gmail.com";
   # services.httpd.enablePHP = true; # oof... not a great idea in my opinion
 
-  services.httpd.virtualHosts."example.org" = {
-    documentRoot = "/var/www/example.org";
-    # want ssl + a let's encrypt certificate? add `forceSSL = true;` right here
-  };
+  # services.httpd.virtualHosts."example.org" = {
+  #   documentRoot = "/var/www/example.org";
+  #   # want ssl + a let's encrypt certificate? add `forceSSL = true;` right here
+  # };
 
   system.activationScripts = {
-    i3Config.text = ''
-      cp -r /home/elrohirgt/ConfigurationFiles/i3 /home/elrohirgt/.config/
-    '';
     wiki-tui.text = ''
-      #mkdir ~/.config/wiki-tui
       cp -r /home/elrohirgt/ConfigurationFiles/wiki-tui /home/elrohirgt/.config/
     '';
   };
