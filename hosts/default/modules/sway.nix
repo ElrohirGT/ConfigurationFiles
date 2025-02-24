@@ -50,6 +50,9 @@ in {
 
       # Wallpaper manager for linux
       variety
+
+      # Alternative terminal in case ghostty keeps being slow >:v
+      wezterm
     ];
 
     system.activationScripts = {
