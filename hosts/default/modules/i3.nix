@@ -99,6 +99,7 @@ in {
     };
 
     environment.shellAliases = {
+      iv = "feh --auto-zoom --scale-down"; # Display image scaled down to window space
       fclip = "xclip -sel clip"; # Copy file to paperclip (only on X11)
       xpick = "xcolor | fclip";
     };

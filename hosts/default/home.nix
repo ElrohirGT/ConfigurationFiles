@@ -68,6 +68,7 @@ in {
       pkgs.obsidian
       pkgs.vlc
       pkgs.geeqie # For duplicate images detection
+      # pkgs.imv # For image viewing
     ];
 
     terminalUtilities = [
@@ -269,7 +270,6 @@ in {
       e = "exit"; # Exit
       graph = "git log --oneline --graph"; # graph git log
       and = "android-studio > /dev/null 2>&1 &"; # Start android studio in background
-      iv = "feh --auto-zoom --scale-down"; # Display image scaled down to window space
       ls = "eza";
       cd = "z";
       rm = "rip";

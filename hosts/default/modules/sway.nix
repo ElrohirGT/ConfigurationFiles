@@ -34,7 +34,6 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
-      # sway-contrib.grimshot
       grim
       slurp
       (flameshot.override {enableWlrSupport = true;})
@@ -48,6 +47,9 @@ in {
       # Clipboard history
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       cliphist
+
+      # Wallpaper manager for linux
+      variety
     ];
 
     system.activationScripts = {
