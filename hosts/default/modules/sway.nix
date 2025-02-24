@@ -34,9 +34,27 @@ in {
     };
 
     environment.systemPackages = with pkgs; [
+      # Catpuccin theme
+      (catppuccin-sddm.override {
+        flavor = "mocha";
+        background = "${../login-background.jpg}";
+        loginBackground = true;
+      })
+
+      # Screen locking
+      swaylock-effects
+
+      # Network manager applet
+      networkmanagerapplet
+
+      # XDG Autostart
+      dex
+
+      # Screenshots
       grim
       slurp
       (flameshot.override {enableWlrSupport = true;})
+
       mako # notification system developed by swaywm maintainer
       wmenu # dmenu replacement
 
@@ -47,9 +65,6 @@ in {
       # Clipboard history
       wl-clipboard # wl-copy and wl-paste for copy/paste from stdin / stdout
       cliphist
-
-      # Wallpaper manager for linux
-      variety
 
       # Alternative terminal in case ghostty keeps being slow >:v
       wezterm
