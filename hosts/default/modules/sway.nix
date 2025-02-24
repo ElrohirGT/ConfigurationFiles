@@ -75,6 +75,10 @@ in {
 
       # Alternative terminal in case ghostty keeps being slow >:v
       wezterm
+
+      # Wallpapers
+      waypaper
+      swaybg
     ];
 
     system.activationScripts = {
