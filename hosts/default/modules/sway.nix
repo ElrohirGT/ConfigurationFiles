@@ -45,7 +45,7 @@ in {
       swaylock-effects
 
       # Network manager applet
-      # networkmanagerapplet
+      networkmanagerapplet
       networkmanager_dmenu
 
       # Show keys when typing
@@ -79,6 +79,7 @@ in {
       # Wallpapers
       waypaper
       swaybg
+      wpaperd
     ];
 
     system.activationScripts = {
@@ -87,6 +88,9 @@ in {
       '';
       NM_dmenu.text = ''
         cp -r /home/elrohirgt/ConfigurationFiles/networkmanager-dmenu /home/elrohirgt/.config
+      '';
+      BG_wpaperd.text = ''
+        cp -r /home/elrohirgt/ConfigurationFiles/wpaperd /home/elrohirgt/.config
       '';
     };
 
