@@ -54,6 +54,9 @@ in {
       # XDG Autostart
       dex
 
+      # OBS plugins for capturing windows in Wayland
+      obs-studio-plugins.wlrobs
+
       # Screenshots
       grim
       slurp
