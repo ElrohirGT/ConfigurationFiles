@@ -51,6 +51,7 @@ in {
       pkgs.kiwix
       pkgs.zed-editor
       pkgs.ghostty
+      pkgs.postman
 
       # Art
       pkgs.kdenlive

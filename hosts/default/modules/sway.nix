@@ -53,6 +53,7 @@ in {
 
       # XDG Autostart
       dex
+      xdg-desktop-portal-wlr
 
       # OBS plugins for capturing windows in Wayland
       obs-studio-plugins.wlrobs
