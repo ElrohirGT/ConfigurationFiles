@@ -52,6 +52,7 @@ in {
       pkgs.zed-editor
       pkgs.ghostty
       pkgs.postman
+      pkgs.mongodb-compass
 
       # Art
       pkgs.kdenlive
