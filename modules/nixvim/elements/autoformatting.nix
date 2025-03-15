@@ -84,7 +84,7 @@
       "!${pkgs.black}/bin/black %")
 
     # Markdown files
-    (genCmd ["*.md"] "!${pkgs.mdformat}/bin/mdformat --wrap 80 %")
+    (genCmd ["*.md"] "!${pkgs.mdformat.withPlugins (p: with p; [mdformat-myst])}/bin/mdformat --wrap 80 %")
 
     # Zig files
     (genCmd ["*.zig"] "!${pkgs.zig}/bin/zig fmt %")
