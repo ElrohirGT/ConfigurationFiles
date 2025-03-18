@@ -70,7 +70,7 @@ in {
       pkgs.obsidian
       pkgs.vlc
       pkgs.geeqie # For duplicate images detection
-      # pkgs.imv # For image viewing
+      pkgs.imv # For image viewing
     ];
 
     terminalUtilities = [
@@ -113,7 +113,7 @@ in {
       pkgs.poppler_utils # For pdf utilities (EG: pdftoppm)
       pkgs.ffmpeg
       pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
-      pkgs.renameutils
+      # pkgs.renameutils
       pkgs.lighttpd # For git instaweb
 
       # Nix LSP
