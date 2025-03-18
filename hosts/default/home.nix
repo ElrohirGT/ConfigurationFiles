@@ -107,6 +107,7 @@ in {
       pkgs.gitui # Command line git client
       pkgs.rm-improved # rm command with trashbin
       pkgs.ripgrep # Search for a pattern recursively
+      pkgs.mtpfs # Connect to android file system
 
       pkgs.tldr
       pkgs.scrcpy
