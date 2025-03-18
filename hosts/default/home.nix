@@ -107,13 +107,18 @@ in {
       pkgs.gitui # Command line git client
       pkgs.rm-improved # rm command with trashbin
       pkgs.ripgrep # Search for a pattern recursively
-      pkgs.mtpfs # Connect to android file system
+
+      # Connect to android file system
+      pkgs.go-mtpfs
+      pkgs.simple-mtpfs
+      pkgs.jmtpfs
 
       pkgs.tldr
       pkgs.scrcpy
       pkgs.poppler_utils # For pdf utilities (EG: pdftoppm)
       pkgs.ffmpeg
-      pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
+      # pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
+      pkgs.parallel-full
       # pkgs.renameutils
       pkgs.lighttpd # For git instaweb
 

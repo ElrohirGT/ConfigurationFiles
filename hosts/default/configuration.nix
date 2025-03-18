@@ -62,6 +62,9 @@
   # Enable the Sway alternative module
   swayAlt.enable = true;
 
+  # Enable GVfs, a userspace virtual filesystem.
+  services.gvfs.enable = true;
+
   # Configure console keymap
   console.keyMap = "la-latin1";
 
