@@ -110,8 +110,8 @@ in {
 
       # Connect to android file system
       pkgs.go-mtpfs
-      pkgs.simple-mtpfs
-      pkgs.jmtpfs
+      # pkgs.simple-mtpfs # Fast but also fails randomly and with no explanation
+      # pkgs.jmtpfs # Slow garbage, fucking java
 
       pkgs.tldr
       pkgs.scrcpy
