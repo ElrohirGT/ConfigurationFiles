@@ -71,6 +71,7 @@ in {
       pkgs.vlc
       pkgs.geeqie # For duplicate images detection
       pkgs.imv # For image viewing
+      pkgs.mpv # For video viewing
     ];
 
     terminalUtilities = [
