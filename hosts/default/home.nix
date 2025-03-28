@@ -72,6 +72,7 @@ in {
       pkgs.geeqie # For duplicate images detection
       pkgs.imv # For image viewing
       pkgs.mpv # For video viewing
+      pkgs.onlyoffice-desktopeditors # For local word and other office docs
     ];
 
     terminalUtilities = [
