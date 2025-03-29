@@ -61,12 +61,12 @@
     # Nix language
     (genCmd
       ["*.nix"]
-      "!${pkgs.alejandra}/bin/alejandra '%'")
+      "!alejandra '%'")
 
     # Javascript and Typescript
     (genCmd
       ["*.js" "*.ts"]
-      "!${pkgs.biome}/bin/biome format --write '%'")
+      "!biome format --write '%'")
 
     # Bash files
     (genCmd
@@ -81,21 +81,21 @@
     # Python files
     (genCmd
       ["*.py"]
-      "!${pkgs.black}/bin/black '%'")
+      "!black '%'")
 
     # Markdown files
     (genCmd ["*.md"] "!${pkgs.mdformat.withPlugins (p: with p; [mdformat-myst])}/bin/mdformat --wrap 80 '%'")
 
     # Zig files
-    (genCmd ["*.zig"] "!${pkgs.zig}/bin/zig fmt '%'")
+    (genCmd ["*.zig"] "!zig fmt '%'")
 
     # C files
-    (genCmd ["*.c"] "!${pkgs.clang-tools}/bin/clang-format -i '%'")
+    (genCmd ["*.c"] "!clang-format -i '%'")
 
     # Go files
-    (genCmd ["*.go"] "!${pkgs.go}/bin/go fmt '%'")
+    (genCmd ["*.go"] "go fmt '%'")
 
     # Elm files
-    (genCmd ["*.elm"] "!${pkgs.elmPackages.elm-format}/bin/elm-format --yes '%'")
+    (genCmd ["*.elm"] "!elm-format --yes '%'")
   ];
 }
