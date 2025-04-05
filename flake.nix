@@ -129,5 +129,10 @@
         minimal = nixvimLib.check.mkTestDerivationFromNixvimModule nixVimModuleMinimal;
       };
     };
+
+    templates.default = {
+      path = ./modules/templates/basic.nix;
+      description = "A very basic multiplatform nix template!";
+    };
   };
 }
