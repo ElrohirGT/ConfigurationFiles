@@ -131,7 +131,7 @@
     };
 
     templates.default = {
-      path = ./modules/templates/basic.nix;
+      path = ./modules/templates/basic;
       description = "A very basic multiplatform nix template!";
     };
   };
