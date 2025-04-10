@@ -49,7 +49,7 @@ in {
       pkgs.vscode-fhs
       pkgs.qbittorrent
       pkgs.kiwix
-      pkgs.zed-editor
+      # pkgs.zed-editor
       pkgs.ghostty
       pkgs.postman
       pkgs.mongodb-compass

@@ -11,6 +11,22 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.portal = {
+      xdgOpenUsePortal = true;
+      wlr.enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        # pkgs.xdg-desktop-portal-hyprland
+        # pkgs.xdg-desktop-portal-gnome
+      ];
+
+      config = {
+        sway = {
+          # default = ["wlr" "gtk"];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+        };
+      };
+    };
     services.gnome.gnome-keyring = {
       enable = true;
     };
@@ -53,7 +69,6 @@ in {
 
       # XDG Autostart
       dex
-      xdg-desktop-portal-wlr
 
       # OBS plugins for capturing windows in Wayland
       obs-studio-plugins.wlrobs
@@ -106,5 +121,9 @@ in {
         value = 1;
       }
     ];
+
+    environment.variables = {
+      GTK_USE_PORTAL = 1;
+    };
   };
 }

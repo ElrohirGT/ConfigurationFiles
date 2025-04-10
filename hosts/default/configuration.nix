@@ -137,6 +137,7 @@
   # $ nix search wget
   environment.systemPackages = [
     pkgs.man-pages
+    pkgs_unstable.zed-editor
   ];
 
   # Shell Aliases
@@ -158,6 +159,9 @@
   ];
 
   security.sudo.enable = true;
+
+  # Enable XDG portals
+  xdg.portal.enable = true;
 
   # http
   # services.httpd.enable = true;

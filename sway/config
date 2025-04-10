@@ -31,6 +31,9 @@ font pango:monospace 8
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment sway
+# Importing PATH into XDG service, for some reason it needs it to find the apps...
+exec --no-startup-id systemctl --user import-environment PATH
+exec --no-startup-id systemctl --user restart xdg-desktop-portal.service
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
