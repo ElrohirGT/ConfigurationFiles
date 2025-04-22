@@ -44,6 +44,7 @@ in {
 
     programs.sway = {
       enable = true;
+      xwayland.enable = false;
       wrapperFeatures = {
         gtk = true;
       };
