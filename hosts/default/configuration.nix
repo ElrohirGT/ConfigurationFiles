@@ -140,6 +140,19 @@
     pkgs_unstable.zed-editor
   ];
 
+  # programs.systemtap.enable = true;
+
+  # Virtual Machines (VM's)
+  virtualisation.virtualbox.host = {
+    enable = true;
+    enableExtensionPack = true;
+    # enableKvm = true;
+    addNetworkInterface = true;
+  };
+  virtualisation.virtualbox.guest = {
+    enable = true;
+  };
+
   # Shell Aliases
   environment.shellAliases = {
   };
