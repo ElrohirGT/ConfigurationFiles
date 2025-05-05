@@ -21,7 +21,9 @@
           "<C-y>" = "cmp.mapping.confirm({ select = true })";
         };
         sources = [
-          # LSP and Treessitter on top
+          # Snippets on top
+          {name = "luasnip";}
+          # LSP and Treessitter later
           {name = "nvim_lsp";}
           {name = "nvim_lsp_signature_help";}
           {name = "treesitter";}
