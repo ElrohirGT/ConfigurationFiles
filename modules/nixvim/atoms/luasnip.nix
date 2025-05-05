@@ -1,6 +1,9 @@
 {
   plugins = {
-    luasnip.enable = true;
+    luasnip = {
+      enable = true;
+      fromVscode = [{} {paths = ../snippets;}];
+    };
   };
 
   # Setting up the completion engine to use luasnip
