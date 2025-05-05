@@ -16,6 +16,12 @@
                 ],
                 "path": "./global.json"
             },
+						{
+							"language": [
+								"go"
+							],
+							"path": "./go.json"
+						}
 				]
 		}
 }
