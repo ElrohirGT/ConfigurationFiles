@@ -26,10 +26,9 @@
           # LSP and Treessitter later
           {name = "nvim_lsp";}
           {name = "nvim_lsp_signature_help";}
-          {name = "treesitter";}
 
           {name = "path";}
-          {name = "calc";}
+          # {name = "calc";}
           {name = "buffer";}
 
           # Completion for neovim Lua API.
