@@ -58,6 +58,22 @@
           desc = "Set folding method to use indentation";
         };
       }
+      {
+        mode = "n";
+        key = "<leader>t";
+        action = ":set foldmethod=expr<CR>";
+        options = {
+          desc = "Set folding method to use treesitter";
+        };
+      }
+      {
+        mode = "n";
+        key = "<leader>n";
+        action = ":vnew<CR>";
+        options = {
+          desc = "Create a new vertical split with an empty buffer";
+        };
+      }
 
       {
         mode = "v";
