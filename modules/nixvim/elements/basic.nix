@@ -52,7 +52,7 @@
     keymaps = [
       {
         mode = "n";
-        key = "<leader>z";
+        key = "<leader>zi";
         action = ":set foldmethod=indent<CR>";
         options = {
           desc = "Set folding method to use indentation";
@@ -60,7 +60,7 @@
       }
       {
         mode = "n";
-        key = "<leader>t";
+        key = "<leader>zt";
         action = ":set foldmethod=expr<CR>";
         options = {
           desc = "Set folding method to use treesitter";

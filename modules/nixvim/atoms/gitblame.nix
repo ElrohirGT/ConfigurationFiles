@@ -3,8 +3,8 @@
   keymaps = [
     {
       mode = "n";
-      key = "<leader>g";
-      action = ":GitBlameToggle";
+      key = "<leader>tg";
+      action = ":GitBlameToggle<CR>";
       options = {
         desc = "Toggles the git blame virtual text";
       };
