@@ -10,11 +10,17 @@
       mode = "n";
       key = "<leader>xx";
       action = "<cmd>Trouble diagnostics toggle<cr>";
+      options = {
+        desc = "Toggle Trouble diagnostics.";
+      };
     }
     {
       mode = "n";
       key = "<leader>xq";
       action = "<cmd>Trouble qflist toggle<cr>";
+      options = {
+        desc = "Toggle Trouble quickfix list";
+      };
     }
   ];
 }
