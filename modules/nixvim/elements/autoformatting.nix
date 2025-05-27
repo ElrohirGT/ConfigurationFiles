@@ -97,5 +97,8 @@
 
     # Elm files
     (genCmd ["*.elm"] "!elm-format --yes '%'")
+
+    # Elm files
+    (genCmd ["*.nim"] "!nph '%'")
   ];
 }
