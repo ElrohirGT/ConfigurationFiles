@@ -99,6 +99,7 @@
     (genCmd ["*.elm"] "!elm-format --yes '%'")
 
     # Nim files
-    (genCmd ["*.nim"] "!nph '%'")
+    # It cannot convert tabs to spaces
+    # (genCmd ["*.nim"] "!nph '%'")
   ];
 }
