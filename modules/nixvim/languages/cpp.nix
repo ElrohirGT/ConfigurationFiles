@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   plugins.lsp = {
-    servers.clangd.enable = true;
+    servers.ccls.enable = true;
   };
 
   plugins.treesitter = {
