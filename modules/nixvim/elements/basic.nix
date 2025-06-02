@@ -66,12 +66,22 @@
           desc = "Set folding method to use treesitter";
         };
       }
+
       {
         mode = "n";
         key = "<leader>n";
         action = ":vnew<CR>";
         options = {
           desc = "Create a new vertical split with an empty buffer";
+        };
+      }
+
+      {
+        mode = "n";
+        key = "<C-J>";
+        action = ":vnew<CR>:terminal<CR>";
+        options = {
+          desc = "Create a new vertical split with a terminal buffer";
         };
       }
 
