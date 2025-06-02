@@ -80,7 +80,7 @@
       {
         mode = "n";
         key = "<C-J>";
-        action = ":vnew<CR>:terminal<CR>";
+        action = ":tabnew<CR>:terminal<CR>";
         options = {
           desc = "Create a new vertical split with a terminal buffer";
         };
