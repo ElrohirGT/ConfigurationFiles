@@ -372,4 +372,8 @@ in {
     enable = true;
     source = ../../ghostty/config;
   };
+  home.file.".config/flameshot/flameshot.ini" = {
+    enable = true;
+    source = ../../flameshot/flameshot.ini;
+  };
 }
