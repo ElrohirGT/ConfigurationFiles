@@ -76,6 +76,7 @@
         };
       }
 
+      # Vim terminal
       {
         mode = "n";
         key = "<C-J>";
@@ -85,6 +86,16 @@
         };
       }
 
+      {
+        mode = "t";
+        key = "<ESC>";
+        action = "<C-\\><C-n>";
+        options = {
+          desc = "Enter normal mode without closing the terminal";
+        };
+      }
+
+      # Other stuff
       {
         mode = "v";
         key = "J";
