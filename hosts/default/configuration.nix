@@ -73,7 +73,7 @@
 
   # Enable sound with pipewire.
   # sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -105,8 +105,8 @@
   # Importing home configuration for user elrohirgt
   home-manager = {
     extraSpecialArgs = {inherit inputs;};
-    useGlobalPkgs = true;
-    useUserPackages = true;
+    # useGlobalPkgs = true;
+    # useUserPackages = true;
     users = {
       "elrohirgt" = import ./home.nix;
     };
@@ -159,9 +159,10 @@
   hardware.graphics.enable = true;
 
   # Fonts installed in the system
-  fonts.packages = with pkgs; [
-    nerdfonts
-  ];
+  # fonts.packages = with pkgs; [
+  #   nerdfonts
+  # ];
+  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # This openssl package is required by nixos 23.05 but is marked as insecure.
   nixpkgs.config.permittedInsecurePackages = [
