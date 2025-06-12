@@ -95,6 +95,9 @@
     # Go files
     (genCmd ["*.go"] "!go fmt '%'")
 
+    # Gleam files
+    (genCmd ["*.gleam"] "!gleam format '%'")
+
     # Elm files
     (genCmd ["*.elm"] "!elm-format --yes '%'")
 
