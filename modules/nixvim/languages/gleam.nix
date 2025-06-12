@@ -1,6 +1,9 @@
 {pkgs, ...}: {
   plugins.lsp = {
-    servers.gleam.enable = true;
+    servers.gleam = {
+      enable = true;
+      package = null;
+    };
   };
 
   plugins.treesitter = {
