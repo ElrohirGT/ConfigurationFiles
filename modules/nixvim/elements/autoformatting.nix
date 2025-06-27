@@ -93,7 +93,7 @@
     (genCmd ["*.c"] "!clang-format -i '%'")
 
     # Go files
-    (genCmd ["*.go"] "!go fmt '%'")
+    (genCmd ["*.go"] "!gofmt -w '%'")
 
     # Gleam files
     (genCmd ["*.gleam"] "!gleam format '%'")
