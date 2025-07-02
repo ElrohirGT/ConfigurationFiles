@@ -73,6 +73,7 @@ in {
       pkgs.imv # For image viewing
       pkgs.mpv # For video viewing
       pkgs.onlyoffice-desktopeditors # For local word and other office docs
+      pkgs.wireshark # For analyzing network protocols
     ];
 
     terminalUtilities = [
