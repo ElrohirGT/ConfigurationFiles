@@ -95,7 +95,7 @@
   users.users.elrohirgt = {
     isNormalUser = true;
     description = "ElrohirGT";
-    extraGroups = ["networkmanager" "wheel" "adbusers" "dialout"];
+    extraGroups = ["networkmanager" "wheel" "adbusers" "dialout" "wireshark"];
     # packages = with pkgs; [
     #   firefox
     #   #  thunderbird
@@ -141,6 +141,9 @@
   ];
 
   # programs.systemtap.enable = true;
+
+  # Wireshark
+  programs.wireshark.enable = true;
 
   # Virtual Machines (VM's)
   virtualisation.virtualbox.host = {
