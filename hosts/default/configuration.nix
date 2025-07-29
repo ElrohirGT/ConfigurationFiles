@@ -244,6 +244,8 @@
   programs.java.enable = true;
 
   # List services that you want to enable:
+  services.logind.powerKey = "ignore";
+  services.logind.powerKeyLongPress = "poweroff";
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
