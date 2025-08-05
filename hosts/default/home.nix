@@ -111,6 +111,7 @@ in {
       pkgs.gitui # Command line git client
       pkgs.rm-improved # rm command with trashbin
       pkgs.ripgrep # Search for a pattern recursively
+      pkgs.cht-sh # CLI client for cht.sh, cheat sheets!
 
       # Connect to android file system
       pkgs.go-mtpfs
