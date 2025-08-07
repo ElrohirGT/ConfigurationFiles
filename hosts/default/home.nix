@@ -143,7 +143,7 @@ in {
       (pkgs.python3.withPackages my-python-packages)
 
       # Latex
-      pkgs.texlive.combined.scheme-medium
+      pkgs.texlive.combined.scheme-full
       pkgs.texlab
 
       # General
