@@ -200,6 +200,7 @@ in {
         name = "Personal";
         search = {
           force = true;
+          default = "ddg";
           engines = {
             "Nix Packages" = {
               urls = [
