@@ -81,6 +81,7 @@ in {
       # Installing the vim package from outputs
       vimRice
       pkgs.alejandra # nix formatter
+      pkgs.nixfmt # nix formatter
       pkgs.btop # Fancy process monitor
       pkgs.gh # Github from the command line
 
