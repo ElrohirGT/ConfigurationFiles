@@ -165,7 +165,7 @@
   # fonts.packages = with pkgs; [
   #   nerdfonts
   # ];
-  fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
+  fonts.packages = builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 
   # This openssl package is required by nixos 23.05 but is marked as insecure.
   nixpkgs.config.permittedInsecurePackages = [

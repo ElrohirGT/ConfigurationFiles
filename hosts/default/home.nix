@@ -2,7 +2,6 @@
   config,
   pkgs,
   inputs,
-  pkgs_unstable,
   ...
 }: let
   my-python-packages = p:
