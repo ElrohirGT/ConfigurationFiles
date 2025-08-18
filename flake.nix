@@ -109,6 +109,10 @@
           inherit system;
           module = ./modules/nixvim/minimal.nix;
         };
+        vimTribal = buildVimModule {
+          inherit system;
+          module = ./modules/nixvim/tribal.nix;
+        };
       };
     };
 
