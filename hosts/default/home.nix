@@ -52,6 +52,7 @@ in {
       pkgs.ghostty
       pkgs.postman
       pkgs.mongodb-compass
+      pkgs.chatmcp # LLM client with MCP support
 
       # Art
       pkgs.kdePackages.kdenlive
