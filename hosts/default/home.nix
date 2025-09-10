@@ -54,10 +54,6 @@ in {
       pkgs.mongodb-compass
       pkgs.cherry-studio # LLM client with MCP support
 
-      # C#
-      pkgs.unityhub
-      pkgs.omnisharp-roslyn
-
       # Art
       pkgs.kdePackages.kdenlive
       pkgs.obs-studio
@@ -150,6 +146,13 @@ in {
       # Latex
       pkgs.texlive.combined.scheme-full
       pkgs.texlab
+
+      # C#
+      pkgs.unityhub
+      pkgs.omnisharp-roslyn
+
+      # Godot
+      pkgs.godot
 
       # General
       pkgs.gdb
