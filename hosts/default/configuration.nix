@@ -145,6 +145,9 @@
   # Wireshark
   programs.wireshark.enable = true;
 
+  # Gaming zzz
+  programs.steam.enable = true;
+
   # Virtual Machines (VM's)
   virtualisation.virtualbox.host = {
     enable = true;
