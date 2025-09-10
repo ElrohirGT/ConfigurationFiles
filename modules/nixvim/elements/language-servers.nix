@@ -41,10 +41,6 @@
           };
         };
       };
-      servers = {
-        # LaTex
-        texlab.enable = true;
-      };
     };
   };
 }
