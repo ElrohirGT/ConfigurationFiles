@@ -28,5 +28,6 @@
     ./languages/nix.nix
     ./languages/typescript.nix
     ./languages/javascript.nix
+    ./languages/python.nix
   ];
 }
