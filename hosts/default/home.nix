@@ -54,7 +54,9 @@ in {
       pkgs.mongodb-compass
       pkgs.cherry-studio # LLM client with MCP support
 
+      # C#
       pkgs.unityhub
+      pkgs.omnisharp-roslyn
 
       # Art
       pkgs.kdePackages.kdenlive
