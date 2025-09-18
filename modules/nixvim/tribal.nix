@@ -21,6 +21,7 @@
     ./atoms/todo-comments.nix
     ./atoms/treesitter.nix
     ./atoms/trouble.nix
+    ./atoms/lint.nix
 
     # Languages
     ./languages/go.nix
