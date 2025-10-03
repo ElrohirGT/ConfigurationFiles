@@ -75,6 +75,7 @@ in {
       pkgs.onlyoffice-desktopeditors # For local word and other office docs
       pkgs.wireshark # For analyzing network protocols
       pkgs.parsec-bin # Remote desktop control
+      pkgs.anytype
     ];
 
     terminalUtilities = [
