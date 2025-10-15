@@ -6,7 +6,7 @@
         "golangcilint"
       ];
       python = [
-        "pylint"
+        "ruff"
       ];
       javascript = [
         "biomejs"

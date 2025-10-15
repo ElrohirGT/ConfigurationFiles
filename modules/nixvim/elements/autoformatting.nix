@@ -81,7 +81,7 @@
     # Python files
     (genCmd
       ["*.py"]
-      "!black '%'")
+      "!ruff format '%'")
 
     # Markdown files
     (genCmd ["*.md"] "!${pkgs.mdformat.withPlugins (p: with p; [mdformat-myst])}/bin/mdformat --wrap 80 '%'")
