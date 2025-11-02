@@ -76,6 +76,7 @@ in {
       pkgs.wireshark # For analyzing network protocols
       pkgs.parsec-bin # Remote desktop control
       pkgs.anytype
+      pkgs.ladybird
     ];
 
     terminalUtilities = [
