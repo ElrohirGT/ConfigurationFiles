@@ -135,6 +135,7 @@ in {
     ];
 
     bullshitApps = [
+      pkgs.cmatrix
       pkgs.hollywood
       pkgs.genact
       pkgs.wiki-tui
