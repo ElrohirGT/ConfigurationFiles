@@ -152,7 +152,7 @@
   virtualisation.virtualbox.host = {
     enable = true;
     enableExtensionPack = true;
-    # enableKvm = true;
+    enableKvm = true;
     addNetworkInterface = true;
   };
   virtualisation.virtualbox.guest = {
