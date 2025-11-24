@@ -153,7 +153,7 @@
     enable = true;
     enableExtensionPack = true;
     enableKvm = true;
-    addNetworkInterface = true;
+    addNetworkInterface = false;
   };
   virtualisation.virtualbox.guest = {
     enable = true;
