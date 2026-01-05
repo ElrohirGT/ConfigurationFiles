@@ -25,6 +25,7 @@
 
     # Languages
     ./languages/go.nix
+    ./languages/elm.nix
     ./languages/markdown.nix
     ./languages/nix.nix
     ./languages/typescript.nix
