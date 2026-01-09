@@ -28,6 +28,8 @@
     ./languages/elm.nix
     ./languages/markdown.nix
     ./languages/nix.nix
+    ./languages/html.nix
+    ./languages/css.nix
     ./languages/typescript.nix
     ./languages/javascript.nix
     ./languages/python.nix
