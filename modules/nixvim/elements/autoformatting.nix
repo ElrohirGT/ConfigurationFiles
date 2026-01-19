@@ -65,7 +65,7 @@
 
     # Javascript and Typescript
     (genCmd
-      ["*.js" "*.ts"]
+      ["*.js" "*.ts" "*.json"]
       "!biome format --write '%'")
 
     # Bash files
