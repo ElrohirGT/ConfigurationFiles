@@ -266,4 +266,11 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
+  environment.etc."udev/rules.d/60-arduino-mbed.rules".text = ''
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2e8a", MODE:="0666"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="2341", MODE:="0666"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="1fc9", MODE:="0666"
+    SUBSYSTEMS=="usb", ATTRS{idVendor}=="0525", MODE:="0666"
+  '';
 }
