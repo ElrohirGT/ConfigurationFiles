@@ -176,10 +176,11 @@ in {
   # Git config
   programs.git = {
     enable = true;
-    userName = "ElrohirGT";
-    userEmail = "elrohirgt@gmail.com";
-    diff-so-fancy.enable = true;
-    extraConfig = {
+    settings = {
+      user = {
+        name = "ElrohirGT";
+        email = "elrohirgt@gmail.com";
+      };
       color = {
         ui = true;
         diff-highlight = {
@@ -201,6 +202,7 @@ in {
     };
   };
   programs.git-cliff.enable = true;
+  programs.diff-so-fancy.enable = true;
 
   # Firefox config
   programs.firefox = {
