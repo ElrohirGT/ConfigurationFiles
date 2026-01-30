@@ -1,8 +1,10 @@
 {
   plugins.neogen = {
     enable = true;
-    enablePlaceholders = true;
-    snippetEngine = "luasnip";
+    settings = {
+      enablePlaceholders = true;
+      snippetEngine = "luasnip";
+    };
   };
 
   keymaps = [

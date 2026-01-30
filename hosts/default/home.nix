@@ -123,7 +123,7 @@ in {
 
       pkgs.tldr
       pkgs.scrcpy
-      pkgs.poppler_utils # For pdf utilities (EG: pdftoppm)
+      pkgs.poppler-utils # For pdf utilities (EG: pdftoppm)
       pkgs.ffmpeg
       # pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
       pkgs.parallel-full
