@@ -44,13 +44,7 @@
       ]
       (system:
         function {
-          pkgs = import pkgs {
-            inherit system;
-            config.allowUnfree = true;
-            overlays = [
-              #inputs.something.overlays.default
-            ];
-          };
+          pkgs = pkgs.legacyPackages.${system};
           inherit system;
         });
 
@@ -69,11 +63,10 @@
       system = "x86_64-linux";
     in
       nixpkgs.lib.nixosSystem {
-        inherit system;
         specialArgs = {
           inherit inputs;
           pkgs_unstable = import nixpkgs_unstable {
-            inherit system;
+            localSystem = system;
             allowUnfree = true;
           };
         };
