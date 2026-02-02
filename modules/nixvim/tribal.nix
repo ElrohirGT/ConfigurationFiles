@@ -33,5 +33,6 @@
     ./languages/typescript.nix
     ./languages/javascript.nix
     ./languages/python.nix
+    ./languages/dhall.nix
   ];
 }
