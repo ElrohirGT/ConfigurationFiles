@@ -67,7 +67,9 @@
           inherit inputs;
           pkgs_unstable = import nixpkgs_unstable {
             localSystem = system;
-            allowUnfree = true;
+            config = {
+              allowUnfree = true;
+            };
           };
         };
         modules = [
