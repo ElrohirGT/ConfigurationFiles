@@ -20,12 +20,11 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
-    echo Current: $(ls)
-    mkdir -p $out
+    echo Current: "$(ls)"
+    mkdir -p "$out"
 
     mv lib "$out/lib"
-    mv usr/bin "$out/bin"
-    mv usr/share "$out/share"
+    mv usr "$out/usr"
 
     runHook postInstall
     echo "Final: $out"
