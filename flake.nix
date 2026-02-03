@@ -95,7 +95,11 @@
 
     packages = forAllSystems {
       pkgs = nixpkgs_unstable;
-      function = {system, ...}: {
+      function = {
+        system,
+        pkgs,
+      }: {
+        aruba = pkgs.callPackage ./packages/aruba/package.nix {};
         vim = buildVimModule {
           inherit system;
           module = ./modules/nixvim;
