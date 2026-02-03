@@ -91,6 +91,7 @@ in {
       pkgs.gh # Github from the command line
 
       pkgs.manix # Nix documentation searcher
+      pkgs.nix-index-unwrapped
       pkgs.xcolor
       pkgs.xclip # To copy to system clipboard (on X11)
       pkgs.inxi # Get information about the system
