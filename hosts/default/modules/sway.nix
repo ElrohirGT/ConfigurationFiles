@@ -58,6 +58,8 @@ in {
         loginBackground = true;
       })
 
+      qt5.qtwayland
+
       # Screen locking
       swaylock-effects
 
