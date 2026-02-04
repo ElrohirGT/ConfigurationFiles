@@ -1,7 +1,9 @@
 {
+  lib,
   stdenv,
   fetchurl,
   dpkg,
+  qt5,
 }:
 stdenv.mkDerivation {
   name = "hpe-aruba-networking";
@@ -20,13 +22,39 @@ stdenv.mkDerivation {
 
   installPhase = ''
     runHook preInstall
+
     echo Current: "$(ls)"
     mkdir -p "$out"
 
     mv lib "$out/lib"
-    mv usr "$out/usr"
+    mv usr/share/aruba-onboard/bin "$out/bin"
+
+    echo "Final: $out"
 
     runHook postInstall
-    echo "Final: $out"
+  '';
+
+  preFixup = let
+    # we prepare our library path in the let clause to avoid it become part of the input of mkDerivation
+    libPath = lib.makeLibraryPath [
+      qt5.qtbase # libQt5PrintSupport.so.5
+      qt5.qtsvg # libQt5Svg.so.5
+      stdenv.cc.cc.lib # libstdc++.so.6
+    ];
+  in ''
+    patchelf \
+      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+      --set-rpath "${libPath}" \
+      $out/bin/onboard-ui
+
+    patchelf \
+      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+      --set-rpath "${libPath}" \
+      $out/bin/onboard-cli
+
+    patchelf \
+      --set-interpreter "$(cat $NIX_CC/nix-support/dynamic-linker)" \
+      --set-rpath "${libPath}" \
+      $out/bin/onboard-srv
   '';
 }
