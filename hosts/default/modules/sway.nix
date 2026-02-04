@@ -58,7 +58,9 @@ in {
         loginBackground = true;
       })
 
-      qt5.qtwayland
+      # Aruba HPE Networking
+      # (pkgs.callPackage ../../../packages/aruba/package.nix {})
+      # qt5.qtwayland
 
       # Screen locking
       swaylock-effects

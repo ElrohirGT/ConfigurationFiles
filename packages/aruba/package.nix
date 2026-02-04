@@ -21,17 +21,24 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    runHook preInstall
+    		runHook preInstall
 
-    echo Current: "$(ls)"
-    mkdir -p "$out"
+    		echo Current: "$(ls)"
+    		mkdir -p "$out"
 
-    mv lib "$out/lib"
-    mv usr/share/aruba-onboard/bin "$out/bin"
+    # Do not install the onboard-srv systemd
+    # service mv lib "$out/lib"
+    		mv usr/share/aruba-onboard/bin "$out/bin"
+    		mv usr/share "$out/share"
 
-    echo "Final: $out"
+    		echo "Fixing desktop shortcut..."
+    		CURRENT="\/usr\/share\/aruba-onboard\/bin\/onboard-ui %u"
+    		REPLACE="\/run\/current-system\/sw\/bin\/onboard-ui %u"
+    		sed -i "s/$CURRENT/$REPLACE/g" "$out/share/applications/onboard-launcher.desktop"
 
-    runHook postInstall
+    		echo "Final: $out"
+
+    		runHook postInstall
   '';
 
   preFixup = let

@@ -40,10 +40,7 @@ in {
   home.stateVersion = "23.11";
 
   home.packages = let
-    aruba = pkgs.callPackage ../../packages/aruba/package.nix {};
-
     guiApps = [
-      aruba
       pkgs.dbeaver-bin
       pkgs.sonic-pi
       pkgs.jetbrains.mps
