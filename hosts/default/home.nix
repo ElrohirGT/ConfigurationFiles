@@ -41,18 +41,17 @@ in {
 
   home.packages = let
     guiApps = [
-      pkgs.dbeaver-bin
-      pkgs.sonic-pi
-      pkgs.jetbrains.mps
-      pkgs.rstudio
+      pkgs.dbeaver-bin # Access databases like postgresql and mysql
+      pkgs.sonic-pi # Do live music with programming!
+      # pkgs.jetbrains.mps # Build domain specific languages with jetbrains
+      # pkgs.rstudio
       pkgs.vscode-fhs
       pkgs.qbittorrent
-      pkgs.kiwix
-      # pkgs.zed-editor
+      pkgs.kiwix # Download wikipedia or other wikies and read it offline.
       pkgs.ghostty
       pkgs.postman
       pkgs.mongodb-compass
-      pkgs.cherry-studio # LLM client with MCP support
+      # pkgs.cherry-studio # LLM client with MCP support
 
       # Art
       pkgs.kdePackages.kdenlive
@@ -61,8 +60,7 @@ in {
       pkgs.gimp
       # Broken for 24.11!
       # pkgs.cura
-      pkgs.freecad
-      pkgs.unetbootin # For bootable USBs
+      # pkgs.freecad
 
       # General
       pkgs.discord
@@ -75,8 +73,8 @@ in {
       pkgs.onlyoffice-desktopeditors # For local word and other office docs
       pkgs.wireshark # For analyzing network protocols
       pkgs.parsec-bin # Remote desktop control
-      pkgs.anytype
-      pkgs.ladybird
+      pkgs.anytype # OS Notion
+      pkgs.ladybird # THE BASED BROWSER
     ];
 
     terminalUtilities = [
@@ -89,10 +87,8 @@ in {
 
       pkgs.manix # Nix documentation searcher
       pkgs.nix-index-unwrapped
-      pkgs.xcolor
-      pkgs.xclip # To copy to system clipboard (on X11)
       pkgs.inxi # Get information about the system
-      pkgs.litecli
+      pkgs.litecli # SQLite client in the terminal
       pkgs.cloc # Program that counts lines of code
 
       pkgs.writedisk # Utility for creating bootable usb's
@@ -122,12 +118,11 @@ in {
       # pkgs.simple-mtpfs # Fast but also fails randomly and with no explanation
       # pkgs.jmtpfs # Slow garbage, fucking java
 
-      pkgs.tldr
-      pkgs.scrcpy
+      pkgs.tldr # Summary of man pages
+      pkgs.scrcpy # Mirror android screen on desktop
       pkgs.poppler-utils # For pdf utilities (EG: pdftoppm)
-      pkgs.ffmpeg
-      # pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
-      pkgs.parallel-full
+      pkgs.ffmpeg # Video suite CLI utilities
+      pkgs.moreutils # Collection of the unix tools that nobody thought to write long ago when unix was young.
       # pkgs.renameutils
       pkgs.lighttpd # For git instaweb
 
@@ -139,7 +134,6 @@ in {
       pkgs.cmatrix
       pkgs.hollywood
       pkgs.genact
-      pkgs.wiki-tui
       pkgs.cool-retro-term
     ];
 

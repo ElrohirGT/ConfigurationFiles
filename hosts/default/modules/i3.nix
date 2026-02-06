@@ -80,6 +80,8 @@ in {
           arandr
 
           networkmanager_dmenu
+          xcolor # Color picker (on X11)
+          xclip # To copy to system clipboard (on X11)
 
           # Audio control
           pulseaudio
