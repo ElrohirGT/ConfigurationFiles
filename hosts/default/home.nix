@@ -95,7 +95,7 @@ in {
 
       # Kubernetes
       pkgs.kubectl
-      pkgs.k3d
+      pkgs.kind
 
       # Compression utilities
       pkgs.zip
