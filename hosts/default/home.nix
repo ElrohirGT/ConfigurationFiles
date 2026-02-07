@@ -93,6 +93,10 @@ in {
 
       pkgs.writedisk # Utility for creating bootable usb's
 
+      # Kubernetes
+      pkgs.kubectl
+      pkgs.k3d
+
       # Compression utilities
       pkgs.zip
       pkgs.unzip
