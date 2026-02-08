@@ -13,6 +13,7 @@
     ./hardware-configuration.nix
     ./modules/i3.nix
     ./modules/sway.nix
+    ./modules/hyprland.nix
     inputs.home-manager.nixosModules.home-manager
   ];
 
@@ -60,7 +61,9 @@
   # Enable the i3 alternative module
   i3Alt.enable = false;
   # Enable the Sway alternative module
-  swayAlt.enable = true;
+  swayAlt.enable = false;
+  # Enable the hyprland alternative module
+  hyprlandAlt.enable = true;
 
   # Enable GVfs, a userspace virtual filesystem.
   services.gvfs.enable = true;
@@ -104,7 +107,10 @@
 
   # Importing home configuration for user elrohirgt
   home-manager = {
-    extraSpecialArgs = {inherit inputs;};
+    extraSpecialArgs = {
+      inherit inputs;
+      hyprlandEnabled = config.hyprlandAlt.enable;
+    };
     # useGlobalPkgs = true;
     # useUserPackages = true;
     users = {
