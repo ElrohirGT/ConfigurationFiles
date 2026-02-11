@@ -11,6 +11,25 @@ in {
   };
 
   config = lib.mkIf cfg.enable {
+    xdg.portal = {
+      xdgOpenUsePortal = true;
+      wlr.enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
+        # pkgs.xdg-desktop-portal-gnome
+      ];
+
+      config = {
+        sway = {
+          # default = ["wlr" "gtk"];
+          "org.freedesktop.impl.portal.Secret" = ["gnome-keyring"];
+        };
+      };
+    };
+    services.gnome.gnome-keyring = {
+      enable = true;
+    };
     # Configuring login screen
     services.displayManager = {
       defaultSession = "hyprland-uwsm";
@@ -33,10 +52,5 @@ in {
     };
     environment.variables.NIXOS_OZONE_WL = "1";
     environment.variables.GTK_USE_PORTAL = 1;
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = with pkgs; [xdg-desktop-portal-hyprland];
-    };
   };
 }

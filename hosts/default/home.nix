@@ -79,6 +79,7 @@ in
           pkgs.parsec-bin # Remote desktop control
           pkgs.anytype # OS Notion
           pkgs.ladybird # THE BASED BROWSER
+          pkgs.pavucontrol # Sound mixer
         ];
 
         terminalUtilities = [
@@ -415,7 +416,12 @@ in
         wayland.windowManager.hyprland = {
           enable = true;
           settings = {
-            "$mod" = "SUPER";
+            "$mod" = "SUPER&SHIFT";
+
+            monitor = [
+              "DP-1, 1920x1080@60, 0x0, 1"
+              ", preferred, auto, 1"
+            ];
 
             bind = let
               wlr-which-key = pkgs.callPackage ./modules/wlr-which-key.nix {
@@ -452,25 +458,152 @@ in
 
                   menu = [
                     {
-                      key = "XF86AudioRasieVolume";
-                      desc = "More volume";
-                      cmd = "pactl set-sink-volume @DEFAULT_SINK@ +10%";
+                      key = "v";
+                      desc = "Volume controls";
+                      submenu = [
+                        {
+                          key = "+";
+                          desc = "More volume";
+                          cmd = "pactl set-sink-volume @DEFAULT_SINK@ +10%";
+                        }
+                        {
+                          key = "-";
+                          desc = "Less volume";
+                          cmd = "pactl set-sink-volume @DEFAULT_SINK@ -10%";
+                        }
+                        {
+                          key = "m";
+                          desc = "Toggle mute volume";
+                          cmd = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+                        }
+                        {
+                          key = "i";
+                          desc = "Toggle mute microphone";
+                          cmd = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+                        }
+                        {
+                          key = "s";
+                          desc = "Launch sound mixer";
+                          cmd = "pavucontrol";
+                        }
+                      ];
                     }
+
                     {
-                      key = "XF86AudioLowerVolume";
-                      desc = "Less volume";
-                      cmd = "pactl set-sink-volume @DEFAULT_SINK@ -10%";
+                      key = "w";
+                      desc = "Window";
+                      submenu = let
+                        gen = n: {
+                          key = "shift+${n}";
+                          desc = "Move to workspace ${n}";
+                          cmd = "hyprctl dispatch movetoworkspace ${n}";
+                        };
+                        recursive_gen = limit: collected:
+                          if limit <= 1
+                          then gen 1
+                          else collected ++ gen limit - 1;
+                      in
+                        [
+                          # Reorganize between the same workspace
+                          {
+                            key = "shift+l";
+                            desc = "Move right";
+                            cmd = "hyprctl dispatch movewindow r";
+                          }
+                          {
+                            key = "shift+h";
+                            desc = "Move left";
+                            cmd = "hyprctl dispatch movewindow l";
+                          }
+                          {
+                            key = "shift+k";
+                            desc = "Move Up";
+                            cmd = "hyprctl dispatch movewindow u";
+                          }
+                          {
+                            key = "shift+j";
+                            desc = "Move Down";
+                            cmd = "hyprctl dispatch movewindow d";
+                          }
+
+                          # Reorganize between workspaces
+                          {
+                            key = "shift+0";
+                            desc = "Move to workspace 10";
+                            cmd = "hyprctl dispatch movetoworkspace 10";
+                          }
+                        ]
+                        ++ recursive_gen 9 [];
                     }
+
                     {
-                      key = "XF86AudioMute";
-                      desc = "Toggle mute volume";
-                      cmd = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+                      key = "f";
+                      desc = "Move focus";
+                      submenu = let
+                        gen = n: {
+                          key = "${n}";
+                          desc = "Move to workspace ${n}";
+                          cmd = "hyprctl dispatch workspace ${n}";
+                        };
+                        recursive_gen = limit: collected:
+                          if limit <= 1
+                          then gen 1
+                          else collected ++ gen limit - 1;
+                      in
+                        [
+                          # Move focus
+                          {
+                            key = "l";
+                            desc = "Move right";
+                            cmd = "hyprctl dispatch movefocus r";
+                          }
+                          {
+                            key = "h";
+                            desc = "Move left";
+                            cmd = "hyprctl dispatch movefocus l";
+                          }
+                          {
+                            key = "k";
+                            desc = "Move Up";
+                            cmd = "hyprctl dispatch movefocus u";
+                          }
+                          {
+                            key = "j";
+                            desc = "Move Down";
+                            cmd = "hyprctl dispatch movefocus d";
+                          }
+
+                          # Move focus between workspaces
+                          {
+                            key = "0";
+                            desc = "Move to workspace 10";
+                            cmd = "hyprctl dispatch workspace 10";
+                          }
+                        ]
+                        ++ recursive_gen 9 [];
                     }
-                    {
-                      key = "XF86AudioMicMute";
-                      desc = "Toggle mute microphone";
-                      cmd = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
-                    }
+
+                    # FIXME: Fix this controls
+                    # {
+                    #   key = "XF86AudioRasieVolume";
+                    #   desc = "More volume";
+                    #   cmd = "pactl set-sink-volume @DEFAULT_SINK@ +10%";
+                    # }
+                    # {
+                    #   key = "XF86AudioLowerVolume";
+                    #   desc = "Less volume";
+                    #   cmd = "pactl set-sink-volume @DEFAULT_SINK@ -10%";
+                    # }
+                    # {
+                    #   key = "XF86AudioMute";
+                    #   desc = "Toggle mute volume";
+                    #   cmd = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+                    # }
+                    # {
+                    #   key = "XF86AudioMicMute";
+                    #   desc = "Toggle mute microphone";
+                    #   cmd = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+                    # }
                     {
                       key = "p";
                       desc = "Power";
@@ -489,6 +622,37 @@ in
                           key = "o";
                           desc = "Off";
                           cmd = "poweroff";
+                        }
+                      ];
+                    }
+                    {
+                      key = "c";
+                      desc = "Modify configuration";
+                      cmd = "ghostty -e bash -c 'cd ~/ConfigurationFiles && nvim .'";
+                    }
+                    {
+                      key = "s";
+                      desc = "Screenshot";
+                      submenu = [
+                        {
+                          key = "r";
+                          desc = "Region";
+                          cmd = "hyprshot -z -m region --clipboard-only";
+                        }
+                        {
+                          key = "w";
+                          desc = "Window";
+                          cmd = "hyprshot -z -m window --clipboard-only";
+                        }
+                        {
+                          key = "a";
+                          desc = "Active";
+                          cmd = "hyprshot -z -m active --clipboard-only";
+                        }
+                        {
+                          key = "o";
+                          desc = "Output";
+                          cmd = "hyprshot -z -m output --clipboard-only";
                         }
                       ];
                     }
@@ -513,17 +677,22 @@ in
                         }
                         {
                           key = "l";
-                          desc = "launcher";
+                          desc = "App Launcher";
                           cmd = "hyprlauncher";
                         }
                       ];
+                    }
+                    {
+                      key = "q";
+                      desc = "Close current";
+                      cmd = "hyprctl dispatch killactive";
                     }
                   ];
                 };
               };
             in [
-              "$mod, $mod, exec, ${lib.getExe wlr-which-key}"
-              "$mod, w, exec, ${lib.getExe wlr-which-key}"
+              ", SUPER_L, exec, ${lib.getExe wlr-which-key}"
+              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
               "$mod, g, exec, ghostty"
             ];
 
