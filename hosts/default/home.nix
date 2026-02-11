@@ -524,6 +524,7 @@ in
             in [
               "$mod, $mod, exec, ${lib.getExe wlr-which-key}"
               "$mod, w, exec, ${lib.getExe wlr-which-key}"
+              "$mod, g, exec, ghostty"
             ];
 
             exec-once = [
