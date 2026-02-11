@@ -10,5 +10,5 @@
 in
   pkgs.writeShellApplication {
     name = "wlr-which-key-wrapper";
-    text = "${pkgs.wlr-which-key} ${configFile}";
+    text = "${lib.getExe pkgs.wlr-which-key} ${configFile}";
   }
