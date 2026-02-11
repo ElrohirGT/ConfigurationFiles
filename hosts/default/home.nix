@@ -423,7 +423,12 @@ in
               ", preferred, auto, 1"
             ];
 
-            bind = let
+            bind = [
+              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
+              "$mod, g, exec, ghostty"
+            ];
+
+            bindr = let
               wlr-which-key = pkgs.callPackage ./modules/wlr-which-key.nix {
                 yamlConfig = {
                   # Theming
@@ -494,46 +499,46 @@ in
                       desc = "Window";
                       submenu = let
                         gen = n: {
-                          key = "shift+${n}";
-                          desc = "Move to workspace ${n}";
-                          cmd = "hyprctl dispatch movetoworkspace ${n}";
+                          key = "alt+${toString n}";
+                          desc = "Move to workspace ${toString n}";
+                          cmd = "hyprctl dispatch movetoworkspace ${toString n}";
                         };
-                        recursive_gen = limit: collected:
+                        recursive_gen = limit:
                           if limit <= 1
-                          then gen 1
-                          else collected ++ gen limit - 1;
+                          then [(gen 1)]
+                          else [(gen limit)] ++ recursive_gen (limit - 1);
                       in
                         [
                           # Reorganize between the same workspace
                           {
-                            key = "shift+l";
+                            key = "alt+l";
                             desc = "Move right";
                             cmd = "hyprctl dispatch movewindow r";
                           }
                           {
-                            key = "shift+h";
+                            key = "alt+h";
                             desc = "Move left";
                             cmd = "hyprctl dispatch movewindow l";
                           }
                           {
-                            key = "shift+k";
+                            key = "alt+k";
                             desc = "Move Up";
                             cmd = "hyprctl dispatch movewindow u";
                           }
                           {
-                            key = "shift+j";
+                            key = "alt+j";
                             desc = "Move Down";
                             cmd = "hyprctl dispatch movewindow d";
                           }
 
                           # Reorganize between workspaces
                           {
-                            key = "shift+0";
+                            key = "alt+0";
                             desc = "Move to workspace 10";
                             cmd = "hyprctl dispatch movetoworkspace 10";
                           }
                         ]
-                        ++ recursive_gen 9 [];
+                        ++ recursive_gen 9;
                     }
 
                     {
@@ -541,14 +546,14 @@ in
                       desc = "Move focus";
                       submenu = let
                         gen = n: {
-                          key = "${n}";
-                          desc = "Move to workspace ${n}";
-                          cmd = "hyprctl dispatch workspace ${n}";
+                          key = "${toString n}";
+                          desc = "Move to workspace ${toString n}";
+                          cmd = "hyprctl dispatch workspace ${toString n}";
                         };
-                        recursive_gen = limit: collected:
+                        recursive_gen = limit:
                           if limit <= 1
-                          then gen 1
-                          else collected ++ gen limit - 1;
+                          then [(gen 1)]
+                          else [(gen limit)] ++ recursive_gen (limit - 1);
                       in
                         [
                           # Move focus
@@ -580,7 +585,7 @@ in
                             cmd = "hyprctl dispatch workspace 10";
                           }
                         ]
-                        ++ recursive_gen 9 [];
+                        ++ recursive_gen 9;
                     }
 
                     # FIXME: Fix this controls
@@ -691,9 +696,7 @@ in
                 };
               };
             in [
-              ", SUPER_L, exec, ${lib.getExe wlr-which-key}"
-              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
-              "$mod, g, exec, ghostty"
+              "SUPER, SUPER_L, exec, ${lib.getExe wlr-which-key}"
             ];
 
             exec-once = [

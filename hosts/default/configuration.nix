@@ -74,6 +74,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Enable Power services.
+  services.upower.enable = true;
+
   # Enable sound with pipewire.
   # sound.enable = true;
   services.pulseaudio.enable = false;
