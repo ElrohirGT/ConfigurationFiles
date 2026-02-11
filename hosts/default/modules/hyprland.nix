@@ -30,6 +30,15 @@ in {
     services.gnome.gnome-keyring = {
       enable = true;
     };
+
+    # Configure loading
+    services.xserver = {
+      # Configure keymap
+      xkb.layout = "us,latam";
+      xkb.variant = ",qwerty";
+      xkb.options = "grp:alt_shift_toggle,grp_led:scroll";
+    };
+
     # Configuring login screen
     services.displayManager = {
       defaultSession = "hyprland-uwsm";
