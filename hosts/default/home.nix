@@ -423,12 +423,7 @@ in
               ", preferred, auto, 1"
             ];
 
-            bind = [
-              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
-              "$mod, g, exec, ghostty"
-            ];
-
-            bindr = let
+            bind = let
               wlr-which-key = pkgs.callPackage ./modules/wlr-which-key.nix {
                 yamlConfig = {
                   # Theming
@@ -499,7 +494,7 @@ in
                       desc = "Window";
                       submenu = let
                         gen = n: {
-                          key = "alt+${toString n}";
+                          key = "${toString n}";
                           desc = "Move to workspace ${toString n}";
                           cmd = "hyprctl dispatch movetoworkspace ${toString n}";
                         };
@@ -511,29 +506,29 @@ in
                         [
                           # Reorganize between the same workspace
                           {
-                            key = "alt+l";
+                            key = "l";
                             desc = "Move right";
                             cmd = "hyprctl dispatch movewindow r";
                           }
                           {
-                            key = "alt+h";
+                            key = "h";
                             desc = "Move left";
                             cmd = "hyprctl dispatch movewindow l";
                           }
                           {
-                            key = "alt+k";
+                            key = "k";
                             desc = "Move Up";
                             cmd = "hyprctl dispatch movewindow u";
                           }
                           {
-                            key = "alt+j";
+                            key = "j";
                             desc = "Move Down";
                             cmd = "hyprctl dispatch movewindow d";
                           }
 
                           # Reorganize between workspaces
                           {
-                            key = "alt+0";
+                            key = "0";
                             desc = "Move to workspace 10";
                             cmd = "hyprctl dispatch movetoworkspace 10";
                           }
@@ -696,7 +691,9 @@ in
                 };
               };
             in [
-              "SUPER, SUPER_L, exec, ${lib.getExe wlr-which-key}"
+              ", SUPER_L, exec, ${lib.getExe wlr-which-key}"
+              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
+              "$mod, g, exec, ghostty"
             ];
 
             exec-once = [
