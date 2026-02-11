@@ -61,9 +61,9 @@
   # Enable the i3 alternative module
   i3Alt.enable = false;
   # Enable the Sway alternative module
-  swayAlt.enable = true;
+  swayAlt.enable = false;
   # Enable the hyprland alternative module
-  hyprlandAlt.enable = false;
+  hyprlandAlt.enable = true;
 
   # Enable GVfs, a userspace virtual filesystem.
   services.gvfs.enable = true;

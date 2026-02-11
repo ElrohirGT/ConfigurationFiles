@@ -417,11 +417,113 @@ in
           settings = {
             "$mod" = "SUPER";
 
-            bind = [
-              "$mod, F, exec, firefox"
-              "$mod, U, exec, unityhub"
-              "$mod, D, exec, hyprlauncher"
-              "$mod, ENTER, exec, ghostty"
+            bind = let
+              wlr-which-key = pkgs.callPackage ./modules/wlr-which-key.nix {
+                yamlConfig = {
+                  # Theming
+                  font = "JetBrainsMono Nerd Font 12";
+                  background = "#282828d0";
+                  color = "#fbf1c7";
+                  border = "#8ec07c";
+                  separator = " ➜ ";
+                  border_width = 2;
+                  corner_r = 10;
+                  padding = 15; # Defaults to corner_r
+                  rows_per_column = 5; # No limit by default
+                  column_padding = 25; # Defaults to padding
+
+                  # Anchor and margin
+                  anchor = "center"; # One of center, left, right, top, bottom, bottom-left, top-left, etc.
+                  # Only relevant when anchor is not center
+                  margin_right = 0;
+                  margin_bottom = 0;
+                  margin_left = 0;
+                  margin_top = 0;
+
+                  # namespace to use for the layer shell surface
+                  # namespace = "wlr_which_key";
+
+                  # Permits key bindings that conflict with compositor key bindings.
+                  # Default is `false`.
+                  inhibit_compositor_keyboard_shortcuts = true;
+
+                  # Try to guess the correct keyboard layout to use. Default is `false`.
+                  auto_kbd_layout = true;
+
+                  menu = [
+                    {
+                      key = "XF86AudioRasieVolume";
+                      desc = "More volume";
+                      cmd = "pactl set-sink-volume @DEFAULT_SINK@ +10%";
+                    }
+                    {
+                      key = "XF86AudioLowerVolume";
+                      desc = "Less volume";
+                      cmd = "pactl set-sink-volume @DEFAULT_SINK@ -10%";
+                    }
+                    {
+                      key = "XF86AudioMute";
+                      desc = "Toggle mute volume";
+                      cmd = "pactl set-sink-mute @DEFAULT_SINK@ toggle";
+                    }
+                    {
+                      key = "XF86AudioMicMute";
+                      desc = "Toggle mute microphone";
+                      cmd = "pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+                    }
+                    {
+                      key = "p";
+                      desc = "Power";
+                      submenu = [
+                        {
+                          key = "s";
+                          desc = "Sleep";
+                          cmd = "systemctl suspend";
+                        }
+                        {
+                          key = "r";
+                          desc = "Reboot";
+                          cmd = "reboot";
+                        }
+                        {
+                          key = "o";
+                          desc = "Off";
+                          cmd = "poweroff";
+                        }
+                      ];
+                    }
+                    {
+                      key = "m";
+                      desc = "Menu";
+                      submenu = [
+                        {
+                          key = "f";
+                          desc = "Firefox";
+                          cmd = "firefox";
+                        }
+                        {
+                          key = "g";
+                          desc = "Ghostty";
+                          cmd = "ghostty";
+                        }
+                        {
+                          key = "u";
+                          desc = "Unity";
+                          cmd = "unity-hub";
+                        }
+                        {
+                          key = "l";
+                          desc = "launcher";
+                          cmd = "hyprlauncher";
+                        }
+                      ];
+                    }
+                  ];
+                };
+              };
+            in [
+              "$mod, $mod, exec, ${lib.getExe wlr-which-key}"
+              "$mod, w, exec, ${lib.getExe wlr-which-key}"
             ];
 
             exec-once = [

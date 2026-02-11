@@ -31,7 +31,8 @@ in {
       withUWSM = true;
       xwayland.enable = true;
     };
-    environment.sessionVariables.NIXOS_OZONE_WL = "1";
+    environment.variables.NIXOS_OZONE_WL = "1";
+    environment.variables.GTK_USE_PORTAL = 1;
 
     xdg.portal = {
       enable = true;
