@@ -159,13 +159,13 @@
 
   # Virtual Machines (VM's)
   virtualisation.virtualbox.host = {
-    enable = true;
+    enable = false;
     enableExtensionPack = true;
     enableKvm = true;
     addNetworkInterface = false;
   };
   virtualisation.virtualbox.guest = {
-    enable = true;
+    enable = false;
   };
 
   # Shell Aliases

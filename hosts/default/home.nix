@@ -413,6 +413,13 @@ in
           pkgs.hyprlauncher
         ];
 
+        programs.hyprpanel = {
+          enable = true;
+          settings = {
+            bar.clock.format = "%H:%M:%S";
+          };
+        };
+
         wayland.windowManager.hyprland = {
           enable = true;
           settings = {

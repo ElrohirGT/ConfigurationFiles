@@ -34,7 +34,7 @@ in {
     # Configure loading
     services.xserver = {
       # Configure keymap
-      xkb.layout = "us,latam";
+      xkb.layout = "latam,us";
       xkb.variant = ",qwerty";
       xkb.options = "grp:alt_shift_toggle,grp_led:scroll";
     };
