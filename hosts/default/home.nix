@@ -680,7 +680,7 @@ in
                         {
                           key = "u";
                           desc = "Unity";
-                          cmd = "unity-hub";
+                          cmd = "unityhub";
                         }
                         {
                           key = "l";
