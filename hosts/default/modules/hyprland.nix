@@ -41,7 +41,7 @@ in {
 
     # Configuring login screen
     services.displayManager = {
-      defaultSession = "hyprland-uwsm";
+      defaultSession = "hyprland";
 
       sddm = {
         enable = true;
@@ -56,7 +56,7 @@ in {
 
     programs.hyprland = {
       enable = true;
-      withUWSM = true;
+      withUWSM = false;
       xwayland.enable = true;
     };
     environment.variables.NIXOS_OZONE_WL = "1";
