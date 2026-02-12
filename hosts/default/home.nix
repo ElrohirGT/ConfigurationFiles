@@ -425,6 +425,12 @@ in
           settings = {
             "$mod" = "SUPER&SHIFT";
 
+            input = {
+              kb_layout = "latam";
+              kb_variant = "";
+              kb_options = "grp:alt_shift_toggle";
+            };
+
             monitor = [
               "DP-1, 1920x1080@60, 0x0, 1"
               ", preferred, auto, 1"
