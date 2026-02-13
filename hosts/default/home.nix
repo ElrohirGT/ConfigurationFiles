@@ -418,7 +418,7 @@ in
         programs.hyprpanel = {
           enable = true;
           settings = {
-            bar.clock.format = "%H:%M:%S";
+            bar.clock.format = "%H:%M";
           };
         };
 
