@@ -98,6 +98,8 @@ in
 
           pkgs.writedisk # Utility for creating bootable usb's
 
+          pkgs.usbutils # lsusb and others
+
           # Kubernetes
           pkgs.kubectl
           pkgs.kind
