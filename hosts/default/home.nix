@@ -642,6 +642,11 @@ in
                           desc = "Off";
                           cmd = "poweroff";
                         }
+                        {
+                          key = "l";
+                          desc = "Logout";
+                          cmd = "hyprctl dispatch exit";
+                        }
                       ];
                     }
                     {
