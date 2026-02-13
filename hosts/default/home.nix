@@ -413,6 +413,8 @@ in
         home.packages = [
           pkgs.hyprpanel
           pkgs.hyprlauncher
+          pkgs.hyprcursor
+          pkgs.rose-pine-hyprcursor
         ];
 
         programs.hyprpanel = {
@@ -426,6 +428,8 @@ in
           enable = true;
           settings = {
             "$mod" = "SUPER&SHIFT";
+
+            env = "HYPRCURSOR_THEME,rose-pine-hyprcursor";
 
             input = {
               kb_layout = "latam";
