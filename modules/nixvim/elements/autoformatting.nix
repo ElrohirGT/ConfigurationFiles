@@ -63,10 +63,13 @@
       ["*.nix"]
       "!alejandra '%'")
 
-    # Javascript and Typescript
+    # Javascript, Typescript and JSON
     (genCmd
       ["*.js" "*.ts" "*.json"]
       "!biome format --write '%'")
+
+    # YAML
+    (genCmd ["*.yaml" "*.yml"] "!yamlfmt '%'")
 
     # Bash files
     (genCmd
