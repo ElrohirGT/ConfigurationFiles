@@ -415,6 +415,7 @@ in
           pkgs.hyprlauncher
           pkgs.hyprcursor
           pkgs.rose-pine-hyprcursor
+          pkgs.pulseaudio
         ];
 
         programs.hyprpanel = {
