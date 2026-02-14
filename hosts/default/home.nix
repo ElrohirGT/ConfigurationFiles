@@ -722,6 +722,9 @@ in
 
             exec-once = [
               "hyprpanel"
+              "[workspace 1 silent] firefox --profile ~/.mozilla/firefox/default/"
+              "[workspace 2 silent] firefox --profile ~/.mozilla/firefox/universidad/"
+              "[workspace 3 silent] ghostty"
             ];
           };
         };
