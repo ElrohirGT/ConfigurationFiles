@@ -168,10 +168,8 @@
     enable = false;
   };
 
-  # Shell Aliases
-  environment.shellAliases = {
-  };
   hardware.graphics.enable = true;
+  hardware.bluetooth.enable = true;
 
   # Fonts installed in the system
   # fonts.packages = with pkgs; [
