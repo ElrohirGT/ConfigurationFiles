@@ -56,6 +56,7 @@ in
           pkgs.postman
           pkgs.mongodb-compass
           # pkgs.cherry-studio # LLM client with MCP support
+          pkgs.ventoy-full-gtk # Multi ISO Bootable USB's
 
           # Art
           pkgs.kdePackages.kdenlive
