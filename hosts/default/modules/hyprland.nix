@@ -31,14 +31,6 @@ in {
       enable = true;
     };
 
-    # Configure loading
-    services.xserver = {
-      # Configure keymap
-      xkb.layout = "latam,us";
-      xkb.variant = ",qwerty";
-      xkb.options = "grp:alt_shift_toggle,grp_led:scroll";
-    };
-
     # Configuring login screen
     services.displayManager = {
       defaultSession = "hyprland";
@@ -53,6 +45,18 @@ in {
       # Which is a file that it doesn't have access to
       #    	job.execCmd = lib.mkForce "sudo ${pkgs.lemurs}/bin/lemurs";
     };
+
+    environment.systemPackages = let
+      sddm-theme = pkgs.catppuccin-sddm.override {
+        flavor = "mocha";
+        background = "${../login-background.jpg}";
+        loginBackground = true;
+      };
+    in [
+      sddm-theme
+      pkgs.showmethekey
+      pkgs.obs-studio-plugins.wlrobs
+    ];
 
     programs.hyprland = {
       enable = true;
