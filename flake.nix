@@ -21,7 +21,7 @@
       # to get acces to more plugins
       url = "github:nix-community/nixvim";
       # url = "github:nix-community/nixvim/nixos-23.11";
-      inputs.nixpkgs.follows = "nixpkgs_unstable";
+      # inputs.nixpkgs.follows = "nixpkgs_unstable";
     };
   };
 
