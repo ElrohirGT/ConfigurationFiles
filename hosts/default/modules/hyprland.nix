@@ -37,7 +37,7 @@ in {
 
       sddm = {
         enable = true;
-        theme = "catppuccin-mocha";
+        theme = "catppuccin-mocha-mauve";
         package = pkgs.kdePackages.sddm;
         wayland.enable = true;
       };
@@ -49,6 +49,7 @@ in {
     environment.systemPackages = let
       sddm-theme = pkgs.catppuccin-sddm.override {
         flavor = "mocha";
+        accent = "mauve";
         background = "${../login-background.jpg}";
         loginBackground = true;
       };
