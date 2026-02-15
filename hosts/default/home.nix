@@ -56,6 +56,7 @@ in
           pkgs.postman
           pkgs.mongodb-compass
           # pkgs.cherry-studio # LLM client with MCP support
+          pkgs.usbview # USB viewer for Linux
 
           # Art
           pkgs.kdePackages.kdenlive
