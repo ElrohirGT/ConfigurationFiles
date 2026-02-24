@@ -659,26 +659,28 @@ in
                     {
                       key = "s";
                       desc = "Screenshot";
-                      submenu = [
+                      submenu = let
+                        addPrefix = str: "sleep 1s && " + str;
+                      in [
                         {
                           key = "r";
                           desc = "Region";
-                          cmd = "hyprshot -z -m region --clipboard-only";
+                          cmd = addPrefix "hyprshot -z -m region --clipboard-only";
                         }
                         {
                           key = "w";
                           desc = "Window";
-                          cmd = "hyprshot -z -m window --clipboard-only";
+                          cmd = addPrefix "hyprshot -z -m window --clipboard-only";
                         }
                         {
                           key = "a";
                           desc = "Active";
-                          cmd = "hyprshot -z -m active --clipboard-only";
+                          cmd = addPrefix "hyprshot -z -m active --clipboard-only";
                         }
                         {
                           key = "o";
                           desc = "Output";
-                          cmd = "hyprshot -z -m output --clipboard-only";
+                          cmd = addPrefix "hyprshot -z -m output --clipboard-only";
                         }
                       ];
                     }
