@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.zig.enable = true;
 
-  plugins.lsp = {
+  lsp = {
     servers.zls.enable = true;
   };
 

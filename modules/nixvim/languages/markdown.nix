@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   imports = [../atoms/markdown-preview.nix];
 
-  plugins.lsp = {
+  lsp = {
     servers.marksman.enable = true;
   };
 

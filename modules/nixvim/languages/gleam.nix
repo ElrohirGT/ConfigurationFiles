@@ -1,8 +1,8 @@
 {pkgs, ...}: {
-  plugins.lsp = {
+  lsp = {
     servers.gleam = {
       enable = true;
-      package = null;
+      package = null; # Inherit gleamls from the local setup
     };
   };
 

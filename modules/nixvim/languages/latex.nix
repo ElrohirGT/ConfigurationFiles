@@ -1,6 +1,6 @@
-{
+{pkgs, ...}: {
   # LaTex setup
-  plugins.lsp = {
+  lsp = {
     servers.texlab.enable = true;
   };
 
@@ -9,5 +9,11 @@
     # Dont install any package
     # since texlive should be installed by the sistem.
     texlivePackage = null;
+  };
+
+  plugins.treesitter = {
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      latex
+    ];
   };
 }

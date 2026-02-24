@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  plugins.lsp = {
+  lsp = {
     servers.gopls.enable = true;
   };
 

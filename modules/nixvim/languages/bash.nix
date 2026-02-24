@@ -1,7 +1,11 @@
-{
-  config = {
-    plugins.lsp = {
-      servers.bashls.enable = true;
-    };
+{pkgs, ...}: {
+  lsp = {
+    servers.bashls.enable = true;
+  };
+
+  plugins.treesitter = {
+    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+      bash
+    ];
   };
 }

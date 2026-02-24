@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  plugins.lsp = {
+  lsp = {
     servers.dhall_lsp_server.enable = true;
   };
 

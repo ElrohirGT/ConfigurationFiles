@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   # Starlark is used for Tilt in its Tiltfile!
-  plugins.lsp = {
+  lsp = {
     servers.starpls.enable = true;
   };
 
