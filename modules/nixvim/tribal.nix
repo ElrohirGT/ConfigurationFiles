@@ -30,8 +30,7 @@
     ./languages/nix.nix
     ./languages/html.nix
     ./languages/css.nix
-    ./languages/typescript.nix
-    ./languages/javascript.nix
+    ./languages/js_ts.nix
     ./languages/python.nix
     ./languages/dhall.nix
   ];
