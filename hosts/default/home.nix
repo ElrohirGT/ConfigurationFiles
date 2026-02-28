@@ -660,7 +660,7 @@ in
                       key = "s";
                       desc = "Screenshot";
                       submenu = let
-                        addPrefix = str: "sleep 1s && " + str;
+                        addPrefix = str: "sleep 0.5s && " + str;
                       in [
                         {
                           key = "r";
