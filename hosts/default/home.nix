@@ -163,7 +163,7 @@ in
           pkgs.omnisharp-roslyn
 
           # Godot
-          pkgs.godot
+          pkgs.godotPackages_4_6.godot
 
           # General
           pkgs.gdb
