@@ -423,6 +423,11 @@ in
           enable = true;
           settings = {
             bar.clock.format = "%H:%M";
+
+            # bar.dashboard.auto_detect_icon = true;
+            # bar.workspaces.map_workspaces_to_icons = true;
+            # bar.workspaces.map_workspaces_to_application_icons = true;
+            # dashboard_menu.profile_image = ./profile.jpg;
           };
         };
 
@@ -545,6 +550,12 @@ in
                             key = "j";
                             desc = "Move Down";
                             cmd = "hyprctl dispatch movewindow d";
+                          }
+
+                          {
+                            key = "f";
+                            desc = "Toggle Floating";
+                            cmd = "hyprctl dispatch togglefloating";
                           }
 
                           # Reorganize between workspaces
