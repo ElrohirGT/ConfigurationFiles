@@ -705,6 +705,11 @@ in
                           cmd = "firefox";
                         }
                         {
+                          key = "d";
+                          desc = "Discord";
+                          cmd = "discord";
+                        }
+                        {
                           key = "g";
                           desc = "Ghostty";
                           cmd = "ghostty";
