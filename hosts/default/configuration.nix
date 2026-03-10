@@ -146,8 +146,7 @@
   # $ nix search wget
   environment.systemPackages = [
     pkgs.man-pages
-    # FIXME: Uncomment once the cache passes
-    # pkgs_unstable.zed-editor
+    pkgs_unstable.zed-editor
   ];
 
   # Enables the Nix ld to run packages not compiled for NixOS.
