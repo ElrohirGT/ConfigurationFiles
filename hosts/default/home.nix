@@ -413,6 +413,8 @@ in
 
         home.packages = [
           pkgs.hyprlauncher
+          pkgs.hyprpaper
+          pkgs.hyprpanel
           pkgs.hyprcursor
           pkgs.rose-pine-hyprcursor
           pkgs.pulseaudio
@@ -433,6 +435,14 @@ in
         };
         # Hyprpanel profile picture
         home.file.".face.icon".source = ../../Profile.jpg;
+
+        services.hyprpaper = {
+          enable = true;
+          settings = {
+            ipc = "on";
+            splash = false;
+          };
+        };
 
         wayland.windowManager.hyprland = {
           enable = true;
@@ -514,6 +524,20 @@ in
                           key = "s";
                           desc = "Launch sound mixer";
                           cmd = "pavucontrol";
+                        }
+                      ];
+                    }
+
+                    {
+                      key = "b";
+                      desc = "Background";
+                      submenu = let
+                        wallpaperChangeScript = pkgs.callPackage ./wallpaperChange.nix {};
+                      in [
+                        {
+                          key = "n";
+                          desc = "Next random wallpaper";
+                          cmd = "${lib.getExe wallpaperChangeScript}";
                         }
                       ];
                     }
@@ -739,16 +763,19 @@ in
               };
             in [
               ", SUPER_L, exec, ${lib.getExe wlr-which-key}"
-              # "$mod, w, exec, ${lib.getExe wlr-which-key}"
               "$mod, g, exec, ghostty"
             ];
 
-            exec-once = [
+            exec-once = let
+              wallpaperChangeScript = pkgs.callPackage ./wallpaperChange.nix {};
+            in [
+              "hyprpaper"
               "hyprpanel"
               "hyprlauncher -d"
               "[workspace 1 silent] firefox --profile ~/.mozilla/firefox/default/"
               "[workspace 2 silent] firefox --profile ~/.mozilla/firefox/universidad/"
               "[workspace 3 silent] ghostty"
+              "sleep 1s && ${lib.getExe wallpaperChangeScript}"
             ];
           };
         };
