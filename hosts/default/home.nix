@@ -412,7 +412,6 @@ in
         # programs.hypridle.enable = true;
 
         home.packages = [
-          pkgs.hyprpanel
           pkgs.hyprlauncher
           pkgs.hyprcursor
           pkgs.rose-pine-hyprcursor
@@ -422,14 +421,18 @@ in
         programs.hyprpanel = {
           enable = true;
           settings = {
-            bar.clock.format = "%H:%M";
-
-            # bar.dashboard.auto_detect_icon = true;
-            # bar.workspaces.map_workspaces_to_icons = true;
-            # bar.workspaces.map_workspaces_to_application_icons = true;
-            # dashboard_menu.profile_image = ./profile.jpg;
+            bar.launcher.autoDetectIcon = true;
+            bar.workspaces.show_icons = false;
+            bar.workspaces.showWsIcons = true;
+            bar.workspaces.showApplicationIcons = true;
+            bar.clock.format = "%a %b %d  %H:%M";
+            theme.bar.buttons.media.enableBorder = false;
+            bar.notifications.show_total = false;
+            bar.notifications.hideCountWhenZero = false;
           };
         };
+        # Hyprpanel profile picture
+        home.file.".face.icon".source = ../../Profile.jpg;
 
         wayland.windowManager.hyprland = {
           enable = true;
