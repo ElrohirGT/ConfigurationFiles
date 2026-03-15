@@ -141,6 +141,9 @@ in
 
           # Nix LSP
           pkgs.nixd
+
+          # Terminal file manager
+          pkgs.broot
         ];
 
         bullshitApps = [
