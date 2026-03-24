@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   lsp = {
     servers.nixd.enable = true;
+    servers.statix.enable = true;
   };
 
   plugins.treesitter = {
