@@ -53,6 +53,7 @@ in
           pkgs.qbittorrent
           pkgs.kiwix # Download wikipedia or other wikies and read it offline.
           pkgs.ghostty
+          pkgs.wezterm
           pkgs.postman
           pkgs.mongodb-compass
           # pkgs.cherry-studio # LLM client with MCP support
@@ -748,6 +749,11 @@ in
                           key = "g";
                           desc = "Ghostty";
                           cmd = "ghostty";
+                        }
+                        {
+                          key = "w";
+                          desc = "Wezterm";
+                          cmd = "wezterm";
                         }
                         {
                           key = "u";
