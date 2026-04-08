@@ -58,6 +58,9 @@ in
           # pkgs.cherry-studio # LLM client with MCP support
           pkgs.usbview # USB viewer for Linux
 
+          # Reference management
+          pkgs.zotero
+
           # Art
           pkgs.kdePackages.kdenlive
           pkgs.obs-studio
