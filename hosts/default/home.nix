@@ -402,10 +402,11 @@ in
         interval = "30m";
       };
 
-      home.file.".config/ghostty/config" = {
-        enable = true;
-        source = ../../ghostty/config;
-      };
+      # FIXME: Once the config starts working again, uncomment!
+      # home.file.".config/ghostty/config" = {
+      #   enable = true;
+      #   source = ../../ghostty/config;
+      # };
       home.file.".config/flameshot/flameshot.ini" = {
         enable = true;
         source = ../../flameshot/flameshot.ini;
