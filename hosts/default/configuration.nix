@@ -151,6 +151,12 @@
     pkgs.segger-jlink
   ];
 
+  # Adding TLS support via GIO modules
+  # Required for some GTK4 applications like karere
+  environment.variables.GIO_EXTRA_MODULES = [
+    "${pkgs.glib-networking.out}/lib/gio/modules"
+  ];
+
   # Enables the Nix ld to run packages not compiled for NixOS.
   programs.nix-ld.enable = true;
 
