@@ -124,6 +124,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.segger-jlink.acceptLicense = true;
 
   # Nix and Nix Store options
   nix.settings = {
@@ -147,6 +148,7 @@
   environment.systemPackages = [
     pkgs.man-pages
     pkgs_unstable.zed-editor
+    pkgs.segger-jlink
   ];
 
   # Enables the Nix ld to run packages not compiled for NixOS.
@@ -183,6 +185,7 @@
   # This openssl package is required by nixos 23.05 but is marked as insecure.
   nixpkgs.config.permittedInsecurePackages = [
     #"openssl-1.1.1u"
+    "segger-jlink-qt4-874"
     "electron-19.1.9"
     "electron-24.8.6"
     "electron-25.9.0"
