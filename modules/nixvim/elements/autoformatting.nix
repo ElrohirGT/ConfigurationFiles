@@ -93,7 +93,7 @@
     (genCmd ["*.zig"] "!zig fmt '%'")
 
     # C files
-    (genCmd ["*.c" "*.cpp"] "!clang-format -i '%'")
+    (genCmd ["*.c" "*.h" "*.cpp"] "!clang-format -i '%'")
 
     # Go files
     (genCmd ["*.go"] "!gofmt -w '%'")
