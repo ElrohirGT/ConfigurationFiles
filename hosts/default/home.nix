@@ -58,6 +58,7 @@ in
           pkgs.mongodb-compass
           # pkgs.cherry-studio # LLM client with MCP support
           pkgs.usbview # USB viewer for Linux
+          pkgs.keet # P2P Chat app
 
           # Reference management
           pkgs.zotero
