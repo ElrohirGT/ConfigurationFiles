@@ -151,6 +151,8 @@
     pkgs.segger-jlink
   ];
 
+  services.udev.packages = [pkgs.segger-jlink];
+
   # Enables the Nix ld to run packages not compiled for NixOS.
   programs.nix-ld.enable = true;
 
