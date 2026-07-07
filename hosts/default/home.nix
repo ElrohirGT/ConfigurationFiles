@@ -793,8 +793,8 @@ in
               "hyprpaper"
               "hyprpanel"
               "hyprlauncher -d"
-              "[workspace 1 silent] firefox --profile ~/.mozilla/firefox/default/"
-              "[workspace 2 silent] firefox --profile ~/.mozilla/firefox/universidad/"
+              "[workspace 1 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/default"
+              "[workspace 2 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/universidad"
               "[workspace 3 silent] ghostty"
               "sleep 1s && ${lib.getExe wallpaperChangeScript}"
             ];
