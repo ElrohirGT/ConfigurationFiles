@@ -459,8 +459,9 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
-          # For now this makes the configuration invalid!
+          # Eventually migrate to lua!
           # configType = "lua";
+          configType = "hyprlang";
           settings = {
             "$mod" = "SUPER&SHIFT";
 
