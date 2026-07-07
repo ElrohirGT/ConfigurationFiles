@@ -46,7 +46,7 @@ in
       home.packages = let
         guiApps = [
           pkgs.dbeaver-bin # Access databases like postgresql and mysql
-          pkgs.sonic-pi # Do live music with programming!
+          # pkgs.sonic-pi # Do live music with programming! Broken :""""v !!!!!
           # pkgs.jetbrains.mps # Build domain specific languages with jetbrains
           # pkgs.rstudio
           pkgs.vscode-fhs
@@ -93,7 +93,7 @@ in
           # Installing the vim package from outputs
           vimRice
           pkgs.alejandra # nix formatter
-          pkgs.nixfmt-rfc-style # nix formatter
+          pkgs.nixfmt # nix formatter
           pkgs.btop # Fancy process monitor
           pkgs.gh # Github from the command line
 
@@ -226,6 +226,7 @@ in
       # Firefox config
       programs.firefox = {
         enable = true;
+        configPath = "${config.xdg.configHome}/mozilla/firefox";
         # package = null; # Firefox packages is installed through NixOS configuration.nix file
         profiles = {
           default = {
@@ -458,6 +459,8 @@ in
 
         wayland.windowManager.hyprland = {
           enable = true;
+          # For now this makes the configuration invalid!
+          # configType = "lua";
           settings = {
             "$mod" = "SUPER&SHIFT";
 

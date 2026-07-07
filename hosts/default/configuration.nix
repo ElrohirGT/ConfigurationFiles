@@ -149,6 +149,7 @@
     pkgs.man-pages
     pkgs_unstable.zed-editor
     pkgs.segger-jlink
+    pkgs.android-tools
   ];
 
   services.udev.packages = [pkgs.segger-jlink];
@@ -256,7 +257,6 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  programs.adb.enable = true;
 
   # Enables JAVA on the system, sets JAVA_HOME and other configs
   programs.java.enable = true;
