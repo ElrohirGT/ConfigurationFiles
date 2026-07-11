@@ -60,6 +60,7 @@ in
           pkgs.usbview # USB viewer for Linux
           pkgs.keet # P2P Chat app
           pkgs.libresprite # Pixel art app
+          pkgs.krita
 
           # Reference management
           pkgs.zotero
