@@ -59,6 +59,7 @@ in
           # pkgs.cherry-studio # LLM client with MCP support
           pkgs.usbview # USB viewer for Linux
           pkgs.keet # P2P Chat app
+          pkgs.libresprite # Pixel art app
 
           # Reference management
           pkgs.zotero
