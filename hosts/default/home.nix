@@ -196,7 +196,7 @@ in
         enable = true;
         extraConfig = ''
           return {
-          	color_scheme = 'Harper',
+          	color_scheme = 'Helios (base16)',
           		enable_tab_bar = false,
           		window_padding = {
           			left = 0,
