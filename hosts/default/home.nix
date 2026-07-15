@@ -58,7 +58,7 @@ in
           pkgs.usbview # USB viewer for Linux
           pkgs.keet # P2P Chat app
           pkgs.libresprite # Pixel art app
-          pkgs.krita
+          pkgs.pixieditor # Editor for 2D needs
 
           # Reference management
           pkgs.zotero
