@@ -196,7 +196,7 @@ in
         enable = true;
         extraConfig = ''
           return {
-          	color_scheme = 'FirefoxDev',
+          	color_scheme = 'Harper',
           		enable_tab_bar = false,
           		window_padding = {
           			left = 0,
