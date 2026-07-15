@@ -52,8 +52,6 @@ in
           pkgs.vscode-fhs
           pkgs.qbittorrent
           pkgs.kiwix # Download wikipedia or other wikies and read it offline.
-          pkgs.ghostty
-          pkgs.wezterm
           pkgs.postman
           pkgs.mongodb-compass
           # pkgs.cherry-studio # LLM client with MCP support
@@ -193,6 +191,20 @@ in
       programs.bat.enable = true;
       programs.pandoc.enable = true; # For converting between markup files (EG: md -> pdf)
       programs.fzf.enable = true;
+
+      programs.wezterm = {
+        enable = true;
+        extraConfig = ''
+               config.color_scheme = 'FirefoxDev'
+               config.enable_tab_bar = false
+             	config.window_padding = {
+          left = 0,
+          right = 0,
+          top = 0,
+          bottom = 0,
+             }
+        '';
+      };
 
       # Git config
       programs.git = {
@@ -407,11 +419,6 @@ in
         interval = "30m";
       };
 
-      # FIXME: Once the config starts working again, uncomment!
-      # home.file.".config/ghostty/config" = {
-      #   enable = true;
-      #   source = ../../ghostty/config;
-      # };
       home.file.".config/flameshot/flameshot.ini" = {
         enable = true;
         source = ../../flameshot/flameshot.ini;
@@ -710,7 +717,7 @@ in
                     {
                       key = "c";
                       desc = "Modify configuration";
-                      cmd = "ghostty -e bash -c 'cd ~/ConfigurationFiles && nvim .'";
+                      cmd = "wezterm -e bash -c 'cd ~/ConfigurationFiles && nvim .'";
                     }
                     {
                       key = "s";
@@ -755,11 +762,6 @@ in
                           cmd = "discord";
                         }
                         {
-                          key = "g";
-                          desc = "Ghostty";
-                          cmd = "ghostty";
-                        }
-                        {
                           key = "w";
                           desc = "Wezterm";
                           cmd = "wezterm";
@@ -786,7 +788,7 @@ in
               };
             in [
               ", SUPER_L, exec, ${lib.getExe wlr-which-key}"
-              "$mod, g, exec, ghostty"
+              "$mod, g, exec, wezterm"
             ];
 
             exec-once = let
@@ -797,7 +799,7 @@ in
               "hyprlauncher -d"
               "[workspace 1 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/default"
               "[workspace 2 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/universidad"
-              "[workspace 3 silent] ghostty"
+              "[workspace 3 silent] wezterm"
               "sleep 1s && ${lib.getExe wallpaperChangeScript}"
             ];
           };
