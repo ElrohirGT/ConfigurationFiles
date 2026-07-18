@@ -150,6 +150,7 @@
     pkgs_unstable.zed-editor
     pkgs.segger-jlink
     pkgs.android-tools
+    pkgs.arduino-ide
   ];
 
   services.udev.packages = [pkgs.segger-jlink];
