@@ -57,6 +57,7 @@ in {
       sddm-theme
       pkgs.showmethekey
       pkgs.obs-studio-plugins.wlrobs
+      pkgs.wdisplays
     ];
 
     programs.hyprland = {
