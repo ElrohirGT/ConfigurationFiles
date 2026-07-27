@@ -159,6 +159,7 @@ in
           pkgs.hollywood
           pkgs.genact
           pkgs.cool-retro-term
+          pkgs.freenet
         ];
 
         programming = [
