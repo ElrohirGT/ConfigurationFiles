@@ -84,7 +84,7 @@ in
           pkgs.onlyoffice-desktopeditors # For local word and other office docs
           pkgs.wireshark # For analyzing network protocols
           pkgs.parsec-bin # Remote desktop control
-          pkgs.anytype # OS Notion
+          # pkgs.anytype # OSS Notion
           pkgs.ladybird # THE BASED BROWSER
           pkgs.pavucontrol # Sound mixer
         ];
