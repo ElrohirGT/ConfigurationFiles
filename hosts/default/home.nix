@@ -559,9 +559,15 @@ in
                     }
 
                     {
-                      key = "p";
-                      desc = "Color Picker";
-                      cmd = "${lib.getExe pkgs.hyprpicker}";
+                      key = "u";
+                      desc = "Utilities";
+                      submenu = [
+                        {
+                          key = "p";
+                          desc = "Color Picker";
+                          cmd = "${lib.getExe pkgs.hyprpicker}";
+                        }
+                      ];
                     }
 
                     {
