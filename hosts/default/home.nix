@@ -68,6 +68,7 @@ in
           pkgs.obs-studio
           pkgs.pinta
           pkgs.gimp
+          pkgs.blender
           # Broken for 24.11!
           # pkgs.cura
           # pkgs.freecad
@@ -441,6 +442,7 @@ in
           pkgs.hyprpaper
           pkgs.hyprpanel
           pkgs.hyprcursor
+          pkgs.hyprpicker
           pkgs.rose-pine-hyprcursor
           pkgs.pulseaudio
         ];
@@ -554,6 +556,12 @@ in
                           cmd = "pavucontrol";
                         }
                       ];
+                    }
+
+                    {
+                      key = "p";
+                      desc = "Color Picker";
+                      cmd = "${lib.getExe pkgs.hyprpicker}";
                     }
 
                     {
