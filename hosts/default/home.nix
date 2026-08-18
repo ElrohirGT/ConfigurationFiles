@@ -53,7 +53,7 @@ in
           pkgs.qbittorrent
           pkgs.kiwix # Download wikipedia or other wikies and read it offline.
           pkgs.postman
-          pkgs.mongodb-compass
+          # pkgs.mongodb-compass # Broken
           # pkgs.cherry-studio # LLM client with MCP support
           pkgs.usbview # USB viewer for Linux
           pkgs.keet # P2P Chat app
@@ -86,7 +86,7 @@ in
           pkgs.wireshark # For analyzing network protocols
           pkgs.parsec-bin # Remote desktop control
           # pkgs.anytype # OSS Notion
-          pkgs.ladybird # THE BASED BROWSER
+          # pkgs.ladybird # THE BASED BROWSER (Currently has a security vulnerability)
           pkgs.pavucontrol # Sound mixer
         ];
 
