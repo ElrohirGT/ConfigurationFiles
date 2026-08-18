@@ -74,7 +74,7 @@ in
           # pkgs.freecad
 
           # General
-          pkgs.karere # Whatsapp client
+          # pkgs.karere # Shitty whatsapp client
           pkgs.discord
           pkgs.zoom-us
           pkgs.obsidian
