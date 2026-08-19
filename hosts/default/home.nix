@@ -45,6 +45,7 @@ in
 
       home.packages = let
         guiApps = [
+          pkgs.qdirstat # See disk usage
           pkgs.dbeaver-bin # Access databases like postgresql and mysql
           # pkgs.sonic-pi # Do live music with programming! Broken :""""v !!!!!
           # pkgs.jetbrains.mps # Build domain specific languages with jetbrains
