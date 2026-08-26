@@ -25,8 +25,8 @@
       efiSupport = true;
       configurationLimit = 2;
       useOSProber = true;
-      theme = ./grubThemes/example;
-      splashImage = ./grubThemes/example/splash.png;
+      theme = ./grubThemes/xenia;
+      splashImage = ./grubThemes/xenia/xenia_draft.png;
     };
     efi.canTouchEfiVariables = true;
   };
