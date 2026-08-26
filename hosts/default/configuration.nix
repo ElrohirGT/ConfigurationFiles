@@ -26,7 +26,7 @@
       configurationLimit = 2;
       useOSProber = true;
       theme = ./grubThemes/example;
-      splashImage = ./grubThemes/example/splash_image.jpg;
+      splashImage = ./grubThemes/example/splash.png;
     };
     efi.canTouchEfiVariables = true;
   };
