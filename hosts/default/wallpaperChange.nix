@@ -3,14 +3,19 @@ pkgs.writeShellApplication
 {
   name = "wallpaper-changer";
   text = ''
-    WALLPAPER_DIRECTORY=${./wallpapers/.}
+    		WALLPAPER_DIRECTORY=${./wallpapers/.}
 
-    WALLPAPER=$(find "$WALLPAPER_DIRECTORY" -type f | shuf -n 1)
+    # Wait for hyprpaper's IPC to actually be up
+    	for _ in $(seq 1 20); do
+    if find "''${XDG_RUNTIME_DIR}/hypr" -name ".hyprpaper.sock" 2>/dev/null | grep -q .; then
+    			break
+    		fi
 
-    hyprctl hyprpaper preload "$WALLPAPER"
-    hyprctl hyprpaper wallpaper ",$WALLPAPER"
+    		sleep 0.5
+    	done
 
-    sleep 0.5
-    hyprctl hyprpaper unload unused
+    		WALLPAPER=$(find "$WALLPAPER_DIRECTORY" -type f | shuf -n 1)
+
+    		hyprctl hyprpaper wallpaper ",$WALLPAPER"
   '';
 }

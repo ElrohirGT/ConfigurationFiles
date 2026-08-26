@@ -418,11 +418,11 @@ in
       };
 
       # Enable wallpaper software
-      services.random-background = {
-        enable = true;
-        imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
-        interval = "30m";
-      };
+      # services.random-background = {
+      #   enable = true;
+      #   imageDirectory = "%h/ConfigurationFiles/hosts/default/wallpapers";
+      #   interval = "30m";
+      # };
 
       home.file.".config/flameshot/flameshot.ini" = {
         enable = true;
@@ -812,13 +812,13 @@ in
             exec-once = let
               wallpaperChangeScript = pkgs.callPackage ./wallpaperChange.nix {};
             in [
-              "hyprpaper"
+              # "hyprpaper"
               "hyprpanel"
               "hyprlauncher -d"
               "[workspace 1 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/default"
               "[workspace 2 silent] firefox --profile ${config.xdg.configHome}/mozilla/firefox/universidad"
               "[workspace 3 silent] wezterm"
-              "sleep 1s && ${lib.getExe wallpaperChangeScript}"
+              "${lib.getExe wallpaperChangeScript}"
             ];
           };
         };
