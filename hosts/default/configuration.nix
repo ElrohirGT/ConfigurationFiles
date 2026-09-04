@@ -164,6 +164,7 @@
     pkgs.segger-jlink
     pkgs.android-tools
     pkgs.arduino-ide
+    pkgs.arduino-cli
   ];
 
   services.udev.packages = [pkgs.segger-jlink];
