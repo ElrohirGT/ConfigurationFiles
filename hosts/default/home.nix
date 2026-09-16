@@ -151,6 +151,7 @@ in
 
           # Nix LSP
           pkgs.nixd
+          pkgs.nix-output-monitor # Prettify the nix output!
 
           # Terminal file manager
           pkgs.broot
