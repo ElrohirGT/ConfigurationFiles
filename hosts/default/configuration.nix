@@ -162,7 +162,6 @@
     pkgs_unstable.zed-editor
     pkgs_unstable.godot
     pkgs.segger-jlink
-    pkgs.android-tools
     pkgs.arduino-ide
     pkgs.arduino-cli
   ];
