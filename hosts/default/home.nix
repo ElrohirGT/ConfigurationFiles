@@ -155,7 +155,7 @@ in
           pkgs.nix-output-monitor # Prettify the nix output!
 
           # Terminal file manager
-          pkgs.broot
+          pkgs.superfile
         ];
 
         bullshitApps = [
